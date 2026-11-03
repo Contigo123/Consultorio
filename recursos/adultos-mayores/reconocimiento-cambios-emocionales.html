@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reconocimiento de Cambios Emocionales y Malestar</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--fs:26px;--bg:#f4f7fb;--card:#fff;--ink:#14213d;--soft:#3f4d6b;--line:#c5d0e4;--acc:#1b6b8f;--accink:#fff;--tint:#e3eef6;--hi:#b3392b;--yes:#e3f3e8;--no:#f9e5e1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1726;--card:#18233a;--ink:#f1f5fc;--soft:#c3cde3;--line:#3a4a6b;--acc:#7cc4e6;--accink:#0f1726;--tint:#203150;--hi:#ff9c8e;--yes:#173a28;--no:#4a2326}}
+:root[data-theme="dark"]{--bg:#0f1726;--card:#18233a;--ink:#f1f5fc;--soft:#c3cde3;--line:#3a4a6b;--acc:#7cc4e6;--accink:#0f1726;--tint:#203150;--hi:#ff9c8e;--yes:#173a28;--no:#4a2326}
+:root.hc{--bg:#000;--card:#000;--ink:#fff;--soft:#fff;--line:#fff;--acc:#ffd43b;--accink:#000;--tint:#111;--hi:#ff8a7a;--yes:#0a2a14;--no:#3a0f0f}
+html{font-size:var(--fs);scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Atkinson Hyperlegible',Verdana,system-ui,sans-serif;font-size:1rem;line-height:1.6}
+main{max-width:760px;margin:0 auto;padding:16px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.bar .grp{display:flex;gap:8px}
+button{font:inherit;font-size:.8rem;font-weight:700;cursor:pointer;min-height:52px;min-width:52px;border-radius:14px;padding:8px 18px;border:3px solid var(--acc);background:var(--card);color:var(--ink)}
+button.pri{background:var(--acc);color:var(--accink)}
+button:focus-visible{outline:4px solid var(--hi);outline-offset:3px}
+button[disabled]{opacity:.35}
+button[aria-pressed="true"]{background:var(--tint)}
+.card{background:var(--card);border:3px solid var(--line);border-radius:24px;padding:22px}
+h1{font-size:1.5rem;line-height:1.2;margin:0 0 12px}
+h2{font-size:1.4rem;line-height:1.2;margin:0 0 14px}
+p{margin:0 0 14px}
+ul{padding-left:1.2em;margin:0 0 14px}li{margin-bottom:8px}
+.cnt{font-size:.8rem;color:var(--soft);margin-bottom:8px}
+.big{font-size:1.1rem}
+.warn{border:3px solid var(--hi);border-radius:18px;padding:14px 16px;margin:16px 0 0}.warn b{color:var(--hi)}
+.two{display:grid;gap:12px}
+.two div{padding:14px 16px;border-radius:18px}.y{background:var(--yes)}.n{background:var(--no)}.two b{display:block;margin-bottom:4px}
+.idx{display:grid;gap:10px;margin-top:10px}.idx button{text-align:left;width:100%}
+.nav{display:flex;gap:12px;margin-top:16px}.nav button{flex:1;min-height:64px;font-size:.9rem}
+.hid{display:none}
+</style>
+</head>
+<body>
+<main>
+<div class="bar" role="group" aria-label="Opciones de lectura">
+ <div class="grp"><button id="sm" aria-label="Letra más pequeña">A−</button><button id="lg" aria-label="Letra más grande">A+</button></div>
+ <div class="grp"><button id="hc" aria-pressed="false">Alto contraste</button><button id="sp">🔊 Escuchar</button></div>
+</div>
+<article class="card" id="page" aria-live="polite"></article>
+<div class="nav"><button id="prev">Anterior</button><button class="pri" id="next">Siguiente</button></div>
+</main>
+<script>
+var P=[
+{t:'Reconociendo mis cambios emocionales y mi malestar',h:function(){return '<h1>Reconociendo mis cambios emocionales y mi malestar</h1><p>Material de lectura para personas mayores y para quienes las acompañan.</p><p class="big"><b>Lo que usted siente es válido y merece ser escuchado.</b></p><p>Toque un tema para empezar, o pulse «Siguiente».</p><div class="idx">'+['Lo que usted siente es válido','La tristeza','La soledad','El desconcierto','Cómo escuchar bien','Cuándo pedir ayuda','Para recordar'].map(function(x,i){return '<button data-g="'+(i+1)+'">'+x+'</button>'}).join('')+'</div>'}},
+{t:'Lo que usted siente es válido',h:function(){return '<h2>Lo que usted siente es válido</h2><p>Con los años llegan cambios: despedidas, la jubilación, un cuerpo que ya no responde igual, hijos y amigos que viven lejos.</p><p>Es natural que estos cambios muevan las emociones.</p><p>Sentir tristeza, soledad o desconcierto <b>no es debilidad</b>. Tampoco es «cosa de la edad» ni algo que deba aguantar en silencio.</p><p>Son respuestas humanas y merecen ser escuchadas.</p>'}},
+{t:'La tristeza',h:function(){return '<h2>La tristeza</h2><p><b>Puede sentirse así:</b></p><ul><li>Ganas de llorar, a veces sin saber por qué.</li><li>Menos ganas de hacer lo que antes disfrutaba.</li><li>Cansancio, o dormir más o menos de lo habitual.</li></ul><p><b>Lo que suele ayudar:</b></p><ul><li>Hablar con alguien de confianza.</li><li>Salir un rato a la luz del día.</li><li>Mantener horarios sencillos para comer y dormir.</li><li>Hacer cada día algo pequeño que le guste.</li></ul>'}},
+{t:'La soledad',h:function(){return '<h2>La soledad</h2><p>Estar solo no es lo mismo que sentirse solo. Se puede estar rodeado de gente y sentirse solo.</p><p><b>Lo que suele ayudar:</b></p><ul><li>Una llamada corta cada día a alguien querido.</li><li>Participar en un grupo: iglesia, baile, juegos, talleres.</li><li>Saludar a un vecino.</li><li>Ayudar a otros con algo que usted sabe hacer bien.</li></ul><p>Su experiencia vale y su compañía importa.</p>'}},
+{t:'El desconcierto',h:function(){return '<h2>El desconcierto</h2><p>A veces uno se siente confundido, olvida cosas o se pierde en el día.</p><p>Puede pasar por cansancio, preocupaciones, mal sueño, tomar poca agua, o por cambios de casa y de rutina. Algunos medicamentos también influyen.</p><p>Hable con su médico si los olvidos o la confusión van en aumento.</p><div class="warn"><b>Busque atención médica de inmediato</b> si la confusión aparece de repente, o viene con fiebre, dificultad para hablar, debilidad de un lado del cuerpo o una caída.</div>'}},
+{t:'Cómo escuchar bien',h:function(){return '<h2>Cómo escuchar bien</h2><p>Para familiares y amigos: acompañar sin infantilizar.</p><div class="two"><div class="y"><b>Sí</b>Escuchar sin interrumpir. Hablar de adulto a adulto. Usar su nombre. Preguntar «¿qué necesita?». Dejar que decida.</div><div class="n"><b>Mejor evitar</b>Diminutivos como «viejito». Hablar de la persona como si no estuviera. Decir «eso es de la edad». Decidir por ella.</div></div><p style="margin-top:14px"><b>Frases que ayudan:</b></p><ul><li>«Cuénteme cómo se ha sentido.»</li><li>«Lo que siente tiene sentido.»</li><li>«Estoy aquí, lo escucho.»</li></ul>'}},
+{t:'Cuándo pedir ayuda',h:function(){return '<h2>Cuándo pedir ayuda</h2><p>Hable con su médico o un profesional si:</p><ul><li>La tristeza dura más de dos semanas.</li><li>Ya no disfruta casi nada.</li><li>Duerme o come mucho menos o mucho más.</li><li>Se siente cada vez más solo o desanimado.</li></ul><p>Pedir ayuda no es debilidad. Es cuidarse.</p><div class="warn"><b>Si piensa que la vida no vale la pena o en hacerse daño</b>, hable hoy mismo con alguien de confianza y llame a los servicios de emergencia de su país.</div>'}},
+{t:'Para recordar',h:function(){return '<h2>Para recordar</h2><ul><li>Lo que siente es válido.</li><li>La tristeza, la soledad y el desconcierto tienen salidas.</li><li>Ser escuchado con respeto ayuda mucho.</li><li>Pedir ayuda es una decisión valiente.</li></ul><p class="big"><b>No tiene que pasar por esto en silencio.</b></p>'}}];
+var cur=0,speaking=false,fs=26,hc=false,root=document.documentElement,pg=document.getElementById('page');
+try{fs=+localStorage.getItem('lg-fs')||26;hc=localStorage.getItem('lg-hc')=='1'}catch(e){}
+function apply(){root.style.setProperty('--fs',fs+'px');root.classList.toggle('hc',hc);document.getElementById('hc').setAttribute('aria-pressed',hc);try{localStorage.setItem('lg-fs',fs);localStorage.setItem('lg-hc',hc?'1':'0')}catch(e){}}
+function stopV(){try{speechSynthesis.cancel()}catch(e){}speaking=false;document.getElementById('sp').textContent='🔊 Escuchar'}
+function render(){stopV();pg.innerHTML=(cur>0?'<div class="cnt">Página '+cur+' de '+(P.length-1)+'</div>':'')+P[cur].h();
+ document.getElementById('prev').disabled=cur==0;
+ var n=document.getElementById('next');n.textContent=cur==0?'Empezar':cur==P.length-1?'Volver al inicio':'Siguiente';
+ try{window.scrollTo(0,0)}catch(e){}}
+function go(i){cur=i;render()}
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.getElementById('next').onclick=function(){go(cur==P.length-1?0:cur+1)};
+pg.addEventListener('click',function(e){var b=e.target.closest('[data-g]');if(b)go(+b.dataset.g)});
+document.getElementById('sm').onclick=function(){fs=Math.max(20,fs-4);apply()};
+document.getElementById('lg').onclick=function(){fs=Math.min(42,fs+4);apply()};
+document.getElementById('hc').onclick=function(){hc=!hc;apply()};
+document.getElementById('sp').onclick=function(){
+ if(!window.speechSynthesis){this.textContent='Sin voz en este equipo';return}
+ if(speaking){stopV();return}
+ try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(pg.innerText);u.lang='es-ES';u.rate=.85;
+  var v=speechSynthesis.getVoices().filter(function(x){return /^es/i.test(x.lang)})[0];if(v){u.voice=v;u.lang=v.lang}
+  u.onend=function(){stopV()};speechSynthesis.speak(u);speaking=true;this.textContent='⏹ Detener'}catch(e){stopV()}};
+try{speechSynthesis.getVoices()}catch(e){}
+apply();render();
+</script>
+</body>
+</html>

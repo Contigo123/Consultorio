@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fortalecimiento de Redes de Cuidado y Continuidad</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f0f7;--card:#fff;--ink:#2a2140;--soft:#645b80;--line:#dcd5ea;--acc:#7a4fb8;--gold:#e5a52c;--ok:#2e9e6b;--hi:#c9503f;--tint:#ece4f7;--btn:#2a2140;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#19132b;--card:#251c40;--ink:#f1ecfb;--soft:#b9afd6;--line:#3b3060;--acc:#b794f0;--tint:#33264f;--btn:#f1ecfb;--btnink:#19132b}}
+:root[data-theme="dark"]{--bg:#19132b;--card:#251c40;--ink:#f1ecfb;--soft:#b9afd6;--line:#3b3060;--acc:#b794f0;--tint:#33264f;--btn:#f1ecfb;--btnink:#19132b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:17px;line-height:1.55}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:'Baloo 2','Nunito',system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:1.8rem;margin-bottom:6px}
+h2{font-size:1.4rem;margin-bottom:4px}
+h3{font-size:1.08rem;margin:18px 0 6px;color:var(--acc)}
+.lead{color:var(--soft);margin:0 0 12px}
+.tabs{display:flex;gap:6px;margin:14px 0;overflow-x:auto}
+.tabs button{flex:1 0 auto;padding:9px 12px;background:var(--card);color:var(--soft);border:2px solid var(--line);border-radius:14px;font-size:.92rem;position:relative}
+.tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.tabs button.has::after{content:'';position:absolute;top:4px;right:5px;width:8px;height:8px;border-radius:50%;background:var(--ok)}
+button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:999px;padding:12px 24px;background:var(--btn);color:var(--btnink)}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+button.sm{padding:6px 14px;font-size:.9rem}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:20px}
+.tip{background:var(--tint);border-radius:14px;padding:10px 14px;margin:10px 0 14px;font-size:.95rem}
+label.f{display:block;font-weight:700;margin:14px 0 4px}
+label.f small{display:block;font-weight:500;color:var(--soft)}
+textarea,input[type=text],select{width:100%;font:inherit;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{resize:vertical;min-height:80px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.per{border:2px solid var(--line);border-radius:16px;padding:12px;margin:10px 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cols div{padding:12px 14px;border-radius:14px;font-size:.95rem}
+.yes{background:var(--tint)}.no{background:#f9e6e3;color:#5a2820}
+@media (prefers-color-scheme:dark){.no{background:#4a2530;color:#f6d9d4}}
+.cols b{display:block;margin-bottom:4px}
+ul{padding-left:20px;margin:6px 0}
+.ck{display:flex;gap:10px;align-items:flex-start;padding:7px 0;cursor:pointer}
+.ck input{width:22px;height:22px;margin-top:3px;accent-color:var(--acc);flex:none}
+.ag{display:flex;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}.ag b{min-width:64px;color:var(--acc)}
+.warn{border:2px solid var(--hi);border-radius:16px;padding:12px 16px;margin:14px 0}.warn b{color:var(--hi)}
+pre{white-space:pre-wrap;word-wrap:break-word;font:inherit;background:var(--bg);border-radius:14px;padding:14px;margin:12px 0}
+.note{font-size:.88rem;color:var(--soft)}
+@media (max-width:520px){.g2,.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<h1>Fortalecimiento de redes de cuidado y continuidad</h1>
+<p class="lead">Protocolo de seguimiento para involucrar a familiares o amigos y preparar la consulta de seguimiento en FUNDES. Se completa en pantalla, sin imprimir ni materiales.</p>
+<div class="tabs" id="tabs" role="tablist"></div>
+<div class="card" id="box"></div>
+<div class="nav"><button class="ghost" id="prev">Atrás</button><button id="next">Seguir</button></div>
+<p class="note" style="margin-top:18px">Lo que escribas se guarda solo en este navegador. En un dispositivo compartido, usa «Borrar todo» al terminar. Este protocolo es un apoyo y no reemplaza la orientación de tu profesional tratante.</p>
+</main>
+<script>
+var KEY='redes-cuidado',cur=0;
+function fresh(){return {r:[{n:'',rel:'',ap:'',co:''},{n:'',rel:'',ap:'',co:''}],m:{who:'',ask:'',when:''},p:{sen:'',hacer:'',evitar:'',llamo:''},q:{fecha:'',mod:'',temas:'',av:'',dif:'',preg:'',acu:'',prox:''},c:[false,false,false,false,false]}}
+var S=fresh();
+try{var sv=localStorage.getItem(KEY);if(sv)S=JSON.parse(sv)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function esc(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function get(p){return p.split('.').reduce(function(o,k){return o[k]},S)}
+function put(p,v){var a=p.split('.'),l=a.pop(),o=a.reduce(function(o,k){return o[k]},S);o[l]=v;save()}
+function ta(p,lab,ph,sub){return '<label class="f">'+lab+(sub?'<small>'+sub+'</small>':'')+'<textarea data-p="'+p+'" placeholder="'+ph+'">'+esc(get(p))+'</textarea></label>'}
+function tx(p,lab,ph){return '<label class="f">'+lab+'<input type="text" data-p="'+p+'" value="'+esc(get(p))+'" placeholder="'+ph+'"></label>'}
+function sl(p,lab,arr,sub){return '<label class="f">'+lab+(sub?'<small>'+sub+'</small>':'')+'<select data-p="'+p+'"><option value="">Elige…</option>'+arr.map(function(o){return '<option'+(get(p)==o?' selected':'')+'>'+esc(o)+'</option>'}).join('')+'</select></label>'}
+function sl2(p,arr){return '<select data-p="'+p+'" aria-label="'+p+'"><option value="">Elige…</option>'+arr.map(function(o){return '<option'+(get(p)==o?' selected':'')+'>'+esc(o)+'</option>'}).join('')+'</select>'}
+var REL=['Familiar','Pareja','Amigo o amiga','Compañero o compañera de trabajo','Otro'];
+var AP=['Escucha emocional','Apoyo práctico','Acompañarme a consulta','Recordatorios y seguimiento'];
+var CO=['Puede saber que estoy en seguimiento','Apoyo general, sin detalles','Aún no quiero involucrarla'];
+var ASK=['que me escuches un rato, sin juzgar','que me acompañes a mi próxima consulta','que me recuerdes mis pausas y ejercicios de respiración','que estés pendiente de cómo me ves estos días'];
+var CHK=['Revisé cómo me he sentido desde la última consulta','Anoté 1 a 3 temas que quiero tratar','Practiqué alguna técnica (respiración, anclaje, IDEAL)','Pensé en quién puede acompañarme o recordarme la cita','Tengo claros el día, la hora y cómo llegar o conectarme'];
+var TABS=['Mi red','Invitar','Plan de apoyo','Consulta','Resumen'];
+function names(){return S.r.map(function(x){return x.n.trim()}).filter(Boolean)}
+function msg(){var w=S.m.who||'[nombre]',a=S.m.ask||'[lo que necesitas]',c=S.m.when||'esta semana';
+ return 'Hola '+w+', estoy cuidando mi bienestar y me ayudaría mucho contar contigo. Lo que necesito es '+a+'. No necesito que resuelvas nada, solo que estés ahí. ¿Podemos hablar '+c+'? Gracias por estar.'}
+function has(i){if(i==0)return names().length>0;if(i==1)return !!(S.m.who||S.m.ask);if(i==2)return Object.keys(S.p).some(function(k){return S.p[k]});if(i==3)return Object.keys(S.q).some(function(k){return S.q[k]})||S.c.some(Boolean);return false}
+function view(){
+ if(cur==0){var h='<h2>Mi red de cuidado</h2><p class="lead">Las personas que pueden acompañarte. Con 1 a 3 personas de confianza ya es una buena red.</p><div class="tip">Elige a quienes escuchan sin juzgar. Decides tú qué compartes con cada una: no es necesario contarlo todo.</div>';
+  S.r.forEach(function(x,i){h+='<div class="per">'+tx('r.'+i+'.n','Persona '+(i+1),'Nombre')+'<div class="g2"><label class="f">Relación'+sl2('r.'+i+'.rel',REL)+'</label><label class="f">Cómo me apoya'+sl2('r.'+i+'.ap',AP)+'</label></div><label class="f">Qué puede saber'+sl2('r.'+i+'.co',CO)+'</label><button class="ghost sm" data-del="'+i+'" style="margin-top:10px">Quitar</button></div>'});
+  h+=(S.r.length<6?'<button class="ghost sm" data-add="1">+ Agregar persona</button>':'');
+  var n=S.r.filter(function(x){return x.n.trim()&&x.co&&x.co!=CO[2]}).length;
+  return h+'<p class="note" id="cnt" style="margin-top:12px">'+(n?'Cuentas con '+n+' persona'+(n>1?'s':'')+' de apoyo.':'Agrega al menos una persona para empezar.')+'</p>'}
+ if(cur==1){var nm=names();return '<h2>Cómo involucrar a familiares o amigos</h2><p class="lead">Una conversación breve y concreta funciona mejor que una explicación larga.</p>'+
+  '<h3>Pautas</h3><ul><li>Elige un momento tranquilo, sin prisa.</li><li>Pide algo concreto y pequeño.</li><li>Aclara qué quieres compartir y qué no.</li><li>Agradece y acuerda cómo seguirán en contacto.</li></ul>'+
+  '<div class="cols"><div class="yes"><b>Para quien acompaña: sí</b>Escuchar, validar lo que siente, preguntar «¿cómo puedo ayudarte?» y respetar sus límites.</div><div class="no"><b>Mejor evitar</b>Minimizar («no es para tanto»), dar sermones, presionar o contar a otros sin permiso.</div></div>'+
+  '<h3>Prepara tu mensaje</h3>'+(nm.length?sl('m.who','Para quién',nm):tx('m.who','Para quién','Nombre'))+sl('m.ask','Qué necesito',ASK)+tx('m.when','Cuándo podemos hablar','Ej. esta noche, el sábado')+
+  '<pre id="msgpre">'+esc(msg())+'</pre><button data-copy="msg">Copiar mensaje</button> <span class="note" id="cpm" aria-live="polite"></span>'}
+ if(cur==2)return '<h2>Mi plan de apoyo</h2><p class="lead">Acuerdos para que tu red sepa cómo ayudarte, antes de que lo necesites.</p>'+
+  ta('p.sen','Señales de que necesito apoyo','Ej. duermo mal, me aíslo, me irrito con facilidad.')+ta('p.hacer','Qué puede hacer mi persona de apoyo','Ej. llamarme, acompañarme a caminar, recordarme respirar.')+ta('p.evitar','Qué prefiero que no haga','Ej. darme consejos sin que los pida.')+
+  sl('p.llamo','A quién llamo primero',names())+'<div class="warn"><b>Si hay riesgo para tu vida o la de otra persona</b>, o pensamientos de hacerte daño, llama ya a los servicios de emergencia de tu país o pide a alguien que esté contigo.</div>';
+ if(cur==3){var h='<h2>Consulta de seguimiento en FUNDES</h2><p class="lead">Prepárate antes, aprovecha el tiempo durante y cierra con acuerdos claros.</p><h3>Antes de la consulta</h3>';
+  CHK.forEach(function(t,i){h+='<label class="ck"><input type="checkbox" data-c="'+i+'"'+(S.c[i]?' checked':'')+'><span>'+t+'</span></label>'});
+  h+='<div class="g2">'+tx('q.fecha','Fecha y hora','Ej. jueves 4 p. m.')+sl('q.mod','Modalidad',['Presencial','Virtual','Telefónica'])+'</div>'+
+  ta('q.temas','Temas que quiero tratar','1 a 3 temas, los más importantes primero.')+ta('q.av','Avances desde la última consulta','Lo que ha mejorado o ha funcionado.')+ta('q.dif','Dificultades','Lo que me costó o no funcionó.')+ta('q.preg','Preguntas para mi profesional','Dudas que no quiero olvidar.');
+  h+='<h3>Durante: agenda sugerida</h3><div class="ag"><b>5 min</b>Apertura: cómo llego hoy</div><div class="ag"><b>10 min</b>Avances y dificultades</div><div class="ag"><b>15 min</b>Ajustes al plan y al apoyo de mi red</div><div class="ag"><b>5 min</b>Acuerdos y próxima cita</div><h3>Después</h3>'+
+  ta('q.acu','Acuerdos de la consulta','Qué voy a hacer antes de la próxima cita.')+tx('q.prox','Próxima cita','Fecha y hora');return h}
+ return '<h2>Mi protocolo</h2><p class="lead">Resumen para copiar y compartir con tu profesional o tu persona de apoyo.</p><pre id="sum">'+esc(summary())+'</pre><button data-copy="sum">Copiar resumen</button> <button class="ghost" id="rs">Borrar todo</button> <span class="note" id="cpm" aria-live="polite"></span>'}
+function summary(){var o=function(x){return x&&String(x).trim()?x:'—'},pp=S.r.filter(function(x){return x.n.trim()}).map(function(x){return '- '+x.n+' ('+o(x.rel)+'): '+o(x.ap)+'. '+o(x.co)}).join('\n');
+ return 'PROTOCOLO DE SEGUIMIENTO\n\nMI RED DE CUIDADO\n'+o(pp)+'\n\nPLAN DE APOYO\nSeñales: '+o(S.p.sen)+'\nQué puede hacer mi apoyo: '+o(S.p.hacer)+'\nPrefiero que no: '+o(S.p.evitar)+'\nLlamo primero a: '+o(S.p.llamo)+
+ '\n\nCONSULTA DE SEGUIMIENTO (FUNDES)\nFecha: '+o(S.q.fecha)+' · Modalidad: '+o(S.q.mod)+'\nTemas: '+o(S.q.temas)+'\nAvances: '+o(S.q.av)+'\nDificultades: '+o(S.q.dif)+'\nPreguntas: '+o(S.q.preg)+'\nAcuerdos: '+o(S.q.acu)+'\nPróxima cita: '+o(S.q.prox)+'\nPreparación: '+S.c.filter(Boolean).length+' de '+CHK.length+' pasos hechos'}
+function render(){
+ document.getElementById('tabs').innerHTML=TABS.map(function(t,i){return '<button role="tab" aria-selected="'+(i==cur)+'" class="'+(i==cur?'on':'')+(has(i)?' has':'')+'" data-t="'+i+'">'+t+'</button>'}).join('');
+ document.getElementById('box').innerHTML=view();
+ document.getElementById('prev').disabled=cur==0;
+ var n=document.getElementById('next');n.disabled=cur==4;n.textContent=cur==3?'Ver resumen':'Seguir'}
+function go(i){cur=i;render();try{window.scrollTo(0,0)}catch(e){}}
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('tabs').addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(b)go(+b.dataset.t)});
+var bx=document.getElementById('box');
+function upd(){var p=document.getElementById('msgpre');if(p)p.textContent=msg();var c=document.getElementById('cnt');if(c){var n=S.r.filter(function(x){return x.n.trim()&&x.co&&x.co!=CO[2]}).length;c.textContent=n?'Cuentas con '+n+' persona'+(n>1?'s':'')+' de apoyo.':'Agrega al menos una persona para empezar.'}}
+bx.addEventListener('input',function(e){var p=e.target.dataset.p;if(!p)return;put(p,e.target.value);upd()});
+bx.addEventListener('change',function(e){var t=e.target;if(t.dataset.c!==undefined){S.c[+t.dataset.c]=t.checked;save();return}var p=t.dataset.p;if(!p)return;put(p,t.value);upd()});
+var armed=false;
+bx.addEventListener('click',function(e){var t=e.target;
+ if(t.dataset.add){S.r.push({n:'',rel:'',ap:'',co:''});save();render()}
+ else if(t.dataset.del!==undefined){S.r.splice(+t.dataset.del,1);if(!S.r.length)S.r.push({n:'',rel:'',ap:'',co:''});save();render()}
+ else if(t.dataset.copy){var s=t.dataset.copy=='msg'?msg():summary(),m=document.getElementById('cpm'),el=document.getElementById(t.dataset.copy=='msg'?'msgpre':'sum');
+  var ok=function(){m.textContent='Copiado'},fb=function(){var r=document.createRange();r.selectNodeContents(el);var se=getSelection();se.removeAllRanges();se.addRange(r);m.textContent='Texto seleccionado: cópialo con tu teclado o menú'};
+  try{navigator.clipboard.writeText(s).then(ok,fb)}catch(x){fb()}}
+ else if(t.id=='rs'){if(!armed){armed=true;t.textContent='¿Seguro? Pulsa otra vez';setTimeout(function(){armed=false;if(t.isConnected)t.textContent='Borrar todo'},4000)}else{try{localStorage.removeItem(KEY)}catch(x){}S=fresh();armed=false;go(0)}}});
+render();
+</script>
+</body>
+</html>

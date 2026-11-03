@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resolución Estructurada de Problemas (IDEAL)</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eff1f9;--card:#fff;--ink:#1d2748;--soft:#5b6585;--line:#d5daee;--acc:#3856c4;--gold:#e5a52c;--ok:#2e9e6b;--tint:#e6ebfb;--btn:#1d2748;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a33;--card:#1e2748;--ink:#edf0ff;--soft:#a9b3d9;--line:#344069;--acc:#7f9bff;--tint:#26325f;--btn:#edf0ff;--btnink:#141a33}}
+:root[data-theme="dark"]{--bg:#141a33;--card:#1e2748;--ink:#edf0ff;--soft:#a9b3d9;--line:#344069;--acc:#7f9bff;--tint:#26325f;--btn:#edf0ff;--btnink:#141a33}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:17px;line-height:1.55}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:'Baloo 2','Nunito',system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:1.8rem;margin-bottom:6px}
+h2{font-size:1.45rem;margin-bottom:4px}
+.lead{color:var(--soft);margin:0 0 12px}
+.tabs{display:flex;gap:6px;margin:14px 0}
+.tabs button{flex:1;padding:8px 2px;background:var(--card);color:var(--soft);border:2px solid var(--line);font-family:'Baloo 2',sans-serif;font-size:1.25rem;border-radius:14px;position:relative}
+.tabs button small{display:block;font:700 .62rem/1 'Nunito',sans-serif;margin-top:2px}
+.tabs button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.tabs button.has::after{content:'';position:absolute;top:5px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--ok)}
+button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:999px;padding:12px 24px;background:var(--btn);color:var(--btnink)}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+button.sm{padding:6px 14px;font-size:.9rem}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:20px}
+.tip{background:var(--tint);border-radius:14px;padding:10px 14px;margin:10px 0 14px;font-size:.95rem}
+label.f{display:block;font-weight:700;margin:14px 0 4px}
+label.f small{display:block;font-weight:500;color:var(--soft)}
+textarea,input[type=text],select{width:100%;font:inherit;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{resize:vertical;min-height:84px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.opt{border:2px solid var(--line);border-radius:16px;padding:12px;margin:10px 0}
+.g3{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin-top:8px;align-items:end}
+.g3 span{font-size:.8rem;font-weight:700;color:var(--soft);display:block}
+.rk{display:flex;align-items:center;gap:10px;margin:6px 0}
+.rk b{min-width:2ch}.rk .b{flex:1;height:12px;background:var(--line);border-radius:6px;overflow:hidden}.rk .b i{display:block;height:100%;background:var(--acc)}
+.rk.top b{color:var(--ok)}.rk.top .b i{background:var(--ok)}
+.row{display:grid;grid-template-columns:1fr 150px;gap:8px;margin:8px 0}
+pre{white-space:pre-wrap;word-wrap:break-word;font:inherit;background:var(--bg);border-radius:14px;padding:14px;margin:12px 0}
+.note{font-size:.88rem;color:var(--soft)}
+@media (max-width:520px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<h1>Resolución estructurada de problemas: IDEAL</h1>
+<p class="lead">Ficha de trabajo práctica. Se completa en pantalla, sin imprimir ni materiales. Avanza por las letras en el orden que necesites.</p>
+<div class="tabs" id="tabs" role="tablist"></div>
+<div class="card" id="box"></div>
+<div class="nav"><button class="ghost" id="prev">Atrás</button><button id="next">Seguir</button></div>
+<p class="note" style="margin-top:18px">Tu ficha se guarda solo en este navegador. Si usas un dispositivo compartido, usa «Borrar todo» al terminar. Esta ficha es un apoyo para ordenar tus ideas y no reemplaza la orientación de un profesional.</p>
+</main>
+<script>
+var KEY='ideal-ficha',cur=0;
+var S={i:{sit:'',real:'',ctrl:''},d:{meta:'',plazo:'',ind:''},e:{opts:[{t:'',v:3,m:3},{t:'',v:3,m:3},{t:'',v:3,m:3}]},a:{sel:'',steps:['','',''],when:['','',''],obs:'',planb:''},l:{res:'',logro:'',apr:'',aj:''}};
+try{var sv=localStorage.getItem(KEY);if(sv)S=JSON.parse(sv)}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function esc(x){return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function get(p){return p.split('.').reduce(function(o,k){return o[k]},S)}
+function set(p,v){var a=p.split('.'),l=a.pop(),o=a.reduce(function(o,k){return o[k]},S);o[l]=v;save()}
+function ta(p,lab,ph,sub){return '<label class="f">'+lab+(sub?'<small>'+sub+'</small>':'')+'<textarea data-p="'+p+'" placeholder="'+ph+'">'+esc(get(p))+'</textarea></label>'}
+function sel(p,lab,arr,sub){return '<label class="f">'+lab+(sub?'<small>'+sub+'</small>':'')+'<select data-p="'+p+'"><option value="">Elige…</option>'+arr.map(function(o){return '<option'+(get(p)==o?' selected':'')+'>'+esc(o)+'</option>'}).join('')+'</select></label>'}
+function sc(p){var v=get(p);return '<select data-p="'+p+'" data-n="1">'+[1,2,3,4,5].map(function(n){return '<option'+(+v==n?' selected':'')+'>'+n+'</option>'}).join('')+'</select>'}
+var L=[['I','Identificar'],['D','Definir'],['E','Explorar'],['A','Actuar'],['L','Lograr'],['✓','Resumen']];
+function has(i){var o=[S.i,S.d,S.e.opts[0]&&S.e.opts.some(function(x){return x.t}),S.a.steps.some(function(x){return x})||S.a.sel,S.l];
+ if(i==2)return o[2];if(i==3)return o[3];if(i==5)return false;return Object.keys(o[i]).some(function(k){return o[i][k]})}
+function ranked(){return S.e.opts.filter(function(o){return o.t.trim()}).map(function(o){return {t:o.t,s:o.v*o.m}}).sort(function(a,b){return b.s-a.s})}
+function rank(){var r=ranked();if(!r.length)return '<p class="note">Escribe al menos una opción para ver el ranking.</p>';
+ return '<h3 style="font-size:1.1rem;margin:14px 0 4px">Ranking (viabilidad × impacto)</h3>'+r.map(function(x,i){return '<div class="rk'+(i==0?' top':'')+'"><b>'+x.s+'</b><span style="flex:1.3">'+esc(x.t)+'</span><div class="b"><i style="width:'+(x.s*4)+'%"></i></div></div>'}).join('')}
+function view(){
+ if(cur==0)return '<h2>I · Identificar el problema real</h2><p class="lead">Separa los hechos de las interpretaciones y busca el problema de fondo, no solo el síntoma.</p><div class="tip">Describe qué pasó, no qué crees que significa. Ejemplo: «Llegué tarde 3 veces esta semana», en lugar de «soy un desastre».</div>'+
+  ta('i.sit','¿Qué está pasando exactamente?','Hechos concretos: qué, dónde, cuándo y con quién.')+
+  ta('i.real','¿Cuál es el problema de fondo?','Si resolvieras esto, ¿desaparecería lo demás?','Pregúntate «¿por qué?» hasta llegar a la raíz.')+
+  sel('i.ctrl','¿Cuánto depende de mí?',['Depende de mí','Depende en parte de mí','No depende de mí'],'Si no depende de ti, enfócate en cómo responder.');
+ if(cur==1)return '<h2>D · Definir metas a corto plazo</h2><p class="lead">Convierte el problema en una meta pequeña, concreta y alcanzable.</p><div class="tip">Una buena meta es específica, medible y con fecha. «Dormir antes de las 11 p. m. cuatro noches esta semana» funciona mejor que «dormir mejor».</div>'+
+  ta('d.meta','Mi meta es…','Una sola meta, concreta y realista.')+
+  sel('d.plazo','Plazo',['Hoy','Esta semana','En 2 semanas','En un mes'])+
+  ta('d.ind','¿Cómo sabré que lo logré?','Algo que pueda observar o contar.');
+ if(cur==2){var h='<h2>E · Explorar soluciones viables</h2><p class="lead">Escribe varias opciones, sin juzgarlas todavía. Luego puntúa cada una de 1 a 5.</p><div class="tip">Incluye opciones pequeñas, opciones distintas, y también pedir ayuda. Cantidad primero, calidad después.</div>';
+  S.e.opts.forEach(function(o,i){h+='<div class="opt"><label class="f" style="margin-top:0">Opción '+(i+1)+'<input type="text" data-p="e.opts.'+i+'.t" value="'+esc(o.t)+'" placeholder="¿Qué podría hacer?"></label><div class="g3"><div><span>Viabilidad (qué tan posible es)</span>'+sc('e.opts.'+i+'.v')+'</div><div><span>Impacto (cuánto ayudaría)</span>'+sc('e.opts.'+i+'.m')+'</div><button class="ghost sm" data-del="'+i+'" aria-label="Quitar opción '+(i+1)+'">Quitar</button></div></div>'});
+  h+=(S.e.opts.length<6?'<button class="ghost sm" data-add="1">+ Agregar opción</button>':'')+'<div id="rank">'+rank()+'</div>';return h}
+ if(cur==3){var t=ranked(),opts=S.e.opts.filter(function(o){return o.t.trim()}).map(function(o){return o.t});
+  var h='<h2>A · Actuar sobre una alternativa</h2><p class="lead">Elige una opción y conviértela en pasos pequeños, con fecha.</p>'+(t.length?'<div class="tip">La mejor puntuada es: <b>'+esc(t[0].t)+'</b>. Puedes elegir otra si lo prefieres.</div>':'<div class="tip">Primero escribe opciones en la letra E.</div>')+sel('a.sel','Opción que voy a probar',opts);
+  [0,1,2].forEach(function(i){h+='<div class="row"><label class="f" style="margin:6px 0 0">Paso '+(i+1)+'<input type="text" data-p="a.steps.'+i+'" value="'+esc(S.a.steps[i])+'" placeholder="Acción concreta"></label><label class="f" style="margin:6px 0 0">¿Cuándo?<input type="text" data-p="a.when.'+i+'" value="'+esc(S.a.when[i])+'" placeholder="Ej. mañana 8 a. m."></label></div>'});
+  return h+ta('a.obs','¿Qué podría obstaculizarme?','Una situación, un pensamiento o una persona.')+ta('a.planb','Si pasa eso, entonces haré…','Un plan B sencillo.')}
+ if(cur==4){var h='<h2>L · Lograr evaluación</h2><p class="lead">Después de actuar, revisa qué pasó y qué ajustar. Equivocarse también da información.</p>'+
+  ta('l.res','¿Qué pasó cuando lo probé?','Describe lo que hiciste y lo que ocurrió.')+sel('l.logro','¿Logré mi meta?',['Sí','En parte','No'])+
+  ta('l.apr','¿Qué aprendí?','Lo que funcionó y lo que no.')+ta('l.aj','¿Qué ajusto o qué hago ahora?','Seguir igual, cambiar algo o probar otra opción.');
+  if(S.l.logro=='No'||S.l.logro=='En parte')h+='<div class="tip">Si no salió como esperabas, vuelve a un paso anterior:<br><button class="ghost sm" data-go="2" style="margin:6px 4px 0 0">Explorar otra opción</button><button class="ghost sm" data-go="1" style="margin:6px 4px 0 0">Redefinir la meta</button><button class="ghost sm" data-go="0" style="margin-top:6px">Revisar el problema</button></div>';
+  return h}
+ return '<h2>Mi ficha IDEAL</h2><p class="lead">Resumen listo para copiar, o para compartir con tu profesional.</p><pre id="sum">'+esc(summary())+'</pre><button id="cp">Copiar resumen</button> <button class="ghost" id="rs">Borrar todo</button><span class="note" id="cpm" style="margin-left:8px" aria-live="polite"></span>'}
+function summary(){var o=function(x){return x&&String(x).trim()?x:'—'},t=ranked(),st=S.a.steps.map(function(s,i){return s?(i+1)+'. '+s+(S.a.when[i]?' ('+S.a.when[i]+')':''):''}).filter(Boolean).join('\n   ');
+ return 'FICHA IDEAL\n\nI · PROBLEMA\nSituación: '+o(S.i.sit)+'\nProblema de fondo: '+o(S.i.real)+'\nDepende de mí: '+o(S.i.ctrl)+
+ '\n\nD · META\n'+o(S.d.meta)+'\nPlazo: '+o(S.d.plazo)+'\nIndicador: '+o(S.d.ind)+
+ '\n\nE · OPCIONES\n'+(t.length?t.map(function(x){return '- '+x.t+' ('+x.s+'/25)'}).join('\n'):'—')+
+ '\n\nA · ACCIÓN\nOpción elegida: '+o(S.a.sel)+'\nPasos:\n   '+o(st)+'\nObstáculo: '+o(S.a.obs)+'\nPlan B: '+o(S.a.planb)+
+ '\n\nL · EVALUACIÓN\nQué pasó: '+o(S.l.res)+'\nMeta lograda: '+o(S.l.logro)+'\nAprendizaje: '+o(S.l.apr)+'\nAjuste: '+o(S.l.aj)}
+function render(){
+ document.getElementById('tabs').innerHTML=L.map(function(l,i){return '<button role="tab" aria-selected="'+(i==cur)+'" class="'+(i==cur?'on':'')+(has(i)?' has':'')+'" data-t="'+i+'">'+l[0]+'<small>'+l[1]+'</small></button>'}).join('');
+ document.getElementById('box').innerHTML=view();
+ document.getElementById('prev').disabled=cur==0;
+ var n=document.getElementById('next');n.disabled=cur==5;n.textContent=cur==4?'Ver resumen':'Seguir'}
+function go(i){cur=i;render();window.scrollTo(0,0)}
+document.getElementById('prev').onclick=function(){go(cur-1)};
+document.getElementById('next').onclick=function(){go(cur+1)};
+document.getElementById('tabs').addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(b)go(+b.dataset.t)});
+var bx=document.getElementById('box');
+bx.addEventListener('input',function(e){var p=e.target.dataset.p;if(!p)return;set(p,e.target.value);if(cur==2){var r=document.getElementById('rank');if(r&&p.indexOf('.t')>0)r.innerHTML=rank()}});
+bx.addEventListener('change',function(e){var p=e.target.dataset.p;if(!p)return;set(p,e.target.dataset.n?+e.target.value:e.target.value);if(cur==2){document.getElementById('rank').innerHTML=rank()}if(cur==4&&p=='l.logro')render()});
+var armed=false;
+bx.addEventListener('click',function(e){var t=e.target;
+ if(t.dataset.add){S.e.opts.push({t:'',v:3,m:3});save();render()}
+ else if(t.dataset.del!==undefined){S.e.opts.splice(+t.dataset.del,1);if(S.e.opts.length<1)S.e.opts.push({t:'',v:3,m:3});save();render()}
+ else if(t.dataset.go!==undefined)go(+t.dataset.go)
+ else if(t.id=='cp'){var s=summary(),m=document.getElementById('cpm');
+  function ok(){m.textContent='Copiado'}function fb(){var r=document.createRange();r.selectNodeContents(document.getElementById('sum'));var se=getSelection();se.removeAllRanges();se.addRange(r);m.textContent='Texto seleccionado: copia con tu teclado o menú'}
+  try{navigator.clipboard.writeText(s).then(ok,fb)}catch(x){fb()}}
+ else if(t.id=='rs'){if(!armed){armed=true;t.textContent='¿Seguro? Pulsa otra vez';setTimeout(function(){armed=false;if(t.isConnected)t.textContent='Borrar todo'},4000)}else{try{localStorage.removeItem(KEY)}catch(x){}S={i:{sit:'',real:'',ctrl:''},d:{meta:'',plazo:'',ind:''},e:{opts:[{t:'',v:3,m:3},{t:'',v:3,m:3},{t:'',v:3,m:3}]},a:{sel:'',steps:['','',''],when:['','',''],obs:'',planb:''},l:{res:'',logro:'',apr:'',aj:''}};armed=false;go(0)}}});
+render();
+</script>
+</body>
+</html>

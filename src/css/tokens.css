@@ -1,0 +1,74 @@
+/* CONTIGO - Design Tokens & Color Palette
+   Extraído y refinado a partir del documento oficial del proyecto
+   Consultorio Psicológico FUNDES
+*/
+
+:root {
+  /* Marca principal (CONTIGO Brand) */
+  --brand-teal: #009aa6;
+  --brand-teal-dark: #007780;
+  --brand-teal-light: #e0f6f7;
+  --brand-teal-soft: #f0fbfb;
+  --brand-cyan: #0284c7;
+  --brand-mint: #2ec4b6;
+  --brand-mint-light: #e6f9f7;
+  
+  /* Acentos cálidos y de atención */
+  --brand-orange: #f59e0b;
+  --brand-coral: #ff7b54;
+  --brand-yellow: #fcd34d;
+  --brand-rose: #f43f5e;
+  
+  /* Colores de módulos (según página 2 del documento) */
+  --mod-inicio: #0284c7;        /* Celeste institucional */
+  --mod-inicio-bg: #e0f2fe;
+  --mod-crisis: #7c3aed;        /* Púrpura introspectivo */
+  --mod-crisis-bg: #ede9fe;
+  --mod-rutas: #059669;         /* Verde esmeralda protocolar */
+  --mod-rutas-bg: #d1fae5;
+  --mod-regula: #0891b2;        /* Turquesa calmante */
+  --mod-regula-bg: #cffafe;
+  --mod-aprende: #2563eb;       /* Azul educativo */
+  --mod-aprende-bg: #dbeafe;
+  --mod-herramientas: #c026d3;  /* Magenta/violeta dinámico */
+  --mod-herramientas-bg: #fae8ff;
+  --mod-continua: #0d9488;      /* Verde azulado de acompañamiento */
+  --mod-continua-bg: #ccfbf1;
+
+  /* Superficies y Neutros */
+  --bg-main: #f5f9fa;
+  --bg-card: #ffffff;
+  --bg-card-alt: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --border-light: #e2e8f0;
+  --border-focus: #009aa6;
+  
+  /* Textos */
+  --text-primary: #0f172a;      /* Texto principal de alto contraste */
+  --text-secondary: #475569;    /* Texto secundario de lectura */
+  --text-muted: #64748b;        /* Subtítulos y anotaciones */
+  --text-white: #ffffff;
+  
+  /* Sombras y elevaciones suaves */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 154, 166, 0.08), 0 2px 4px -2px rgba(0, 154, 166, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 154, 166, 0.1), 0 4px 6px -4px rgba(0, 154, 166, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 154, 166, 0.15), 0 8px 10px -6px rgba(0, 154, 166, 0.08);
+  --shadow-glow: 0 0 20px rgba(0, 154, 166, 0.25);
+  
+  /* Tipografía */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Radio de bordes */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transiciones */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}

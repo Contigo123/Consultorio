@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Identificación de Factores Desencadenantes y Señales de Alarma</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--card:#fff;--ink:#1f2f3d;--soft:#5d6f7d;--line:#d3dde3;--acc:#2a7f8e;--ok:#3a9a6b;--mid:#e0a030;--hi:#d0533f;--tint:#e6f1f3;--btn:#1f2f3d;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121c24;--card:#1b2a35;--ink:#eaf1f5;--soft:#a7b8c4;--line:#30434f;--acc:#58b8c8;--tint:#1c3b44;--btn:#eaf1f5;--btnink:#121c24}}
+:root[data-theme="dark"]{--bg:#121c24;--card:#1b2a35;--ink:#eaf1f5;--soft:#a7b8c4;--line:#30434f;--acc:#58b8c8;--tint:#1c3b44;--btn:#eaf1f5;--btnink:#121c24}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:17px;line-height:1.55}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:'Baloo 2','Nunito',system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:1.9rem;margin-bottom:8px}
+h2{font-size:1.4rem;margin:0 0 6px}
+h3{font-size:1.1rem;margin:20px 0 6px;color:var(--acc)}
+.lead{color:var(--soft);margin:0 0 14px}
+.tabs{display:flex;gap:6px;margin:14px 0}
+.tabs div{flex:1;text-align:center;padding:8px 4px;border-radius:12px;background:var(--card);border:2px solid var(--line);font-weight:700;font-size:.9rem;color:var(--soft)}
+.tabs div.on{border-color:var(--acc);color:var(--ink);background:var(--tint)}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px 18px 8px}
+.row{padding:12px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.q{margin:0 0 8px;font-weight:700}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;inset:0;cursor:pointer;width:100%;height:100%;margin:0}
+.seg span{display:block;text-align:center;padding:8px 2px;border-radius:12px;border:2px solid var(--line);font-size:.85rem;font-weight:700;color:var(--soft);line-height:1.2}
+.seg input:checked+span{background:var(--acc);border-color:var(--acc);color:#fff}
+.seg input:focus-visible+span{outline:3px solid var(--mid);outline-offset:2px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px}
+button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:999px;padding:12px 24px;background:var(--btn);color:var(--btnink)}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+button:focus-visible{outline:3px solid var(--mid);outline-offset:2px}
+button[disabled]{opacity:.4;cursor:default}
+.miss{color:var(--soft);font-size:.9rem;text-align:center;flex:1}
+.bar{height:14px;border-radius:7px;background:var(--line);overflow:hidden;margin:4px 0 12px}
+.bar i{display:block;height:100%;border-radius:7px}
+.lbl{display:flex;justify-content:space-between;font-weight:700}
+.badge{display:inline-block;padding:4px 14px;border-radius:999px;color:#fff;font-weight:700}
+.warn{border:2px solid var(--hi);border-radius:18px;padding:14px 16px;margin:16px 0}
+.warn b{color:var(--hi)}
+ul{padding-left:20px;margin:6px 0}
+.note{font-size:.9rem;color:var(--soft)}
+@media (max-width:480px){.seg{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<main>
+<h1>Factores desencadenantes y señales de alarma</h1>
+<p class="lead">Matriz de autoevaluación para adultos. Se completa en pantalla, sin imprimir ni materiales. Toma unos 5 minutos y tus respuestas no se guardan.</p>
+<div class="tabs" id="tabs" aria-hidden="true"></div>
+<div class="card" id="box"></div>
+<div class="nav"><button class="ghost" id="prev">Atrás</button><span class="miss" id="miss"></span><button id="next">Seguir</button></div>
+<p class="note" style="margin-top:20px">Esta herramienta sirve para observarte mejor. No es un diagnóstico ni reemplaza la valoración de un profesional de la salud.</p>
+</main>
+<script>
+var S1=['Me pesa nada','Un poco','Bastante','Mucho'],S2=['Nunca','Algunos días','Más de la mitad','Casi todos'];
+var STEPS=[
+{t:'1. Mis estresores',d:'¿Cuánto te pesa cada situación en estas últimas semanas?',sc:S1,g:[
+ {k:'Laborales',i:['Carga de trabajo excesiva','Plazos y presión de tiempo','Conflictos con jefes o compañeros','Inseguridad laboral o falta de reconocimiento']},
+ {k:'Familiares',i:['Tensión o conflictos en casa','Responsabilidades de cuidado (hijos, familiares)','Carga de tareas del hogar','Falta de apoyo de mi familia o pareja']},
+ {k:'Personales',i:['Preocupaciones económicas','Poco tiempo para descansar o para mí','Problemas de salud míos o de alguien cercano','Autoexigencia o perfeccionismo']}]},
+{t:'2. Señales en mi cuerpo',d:'¿Con qué frecuencia las has sentido en las últimas 2 semanas?',sc:S2,g:[
+ {k:'Cuerpo',i:['Opresión en el pecho','Dolores de cabeza (cefaleas)','Tensión en cuello, hombros o espalda','Palpitaciones o corazón acelerado','Molestias digestivas (nudo, náuseas, colon)','Cansancio constante','Dificultad para dormir o sueño poco reparador','Mandíbula apretada o dientes rechinando']}]},
+{t:'3. Señales en mi ánimo',d:'¿Con qué frecuencia las has notado en las últimas 2 semanas?',sc:S2,g:[
+ {k:'Ánimo y conducta',i:['Irritabilidad o poca paciencia','Dificultad para concentrarme','Ganas de aislarme','Sensación de estar al límite o desbordado']}]}];
+var A={},cur=0;
+S1[0]='Nada';
+function id(s,g,i){return s+'-'+g+'-'+i}
+function all(s){var n=0;STEPS[s].g.forEach(function(g,gi){g.i.forEach(function(_,ii){if(A[id(s,gi,ii)]===undefined)n++})});return n}
+function render(){
+ document.getElementById('tabs').innerHTML=['Estresores','Cuerpo','Ánimo','Resultado'].map(function(t,i){return '<div class="'+(i==cur?'on':'')+'">'+t+'</div>'}).join('');
+ var h='';
+ if(cur<3){var s=STEPS[cur];h='<h2>'+s.t+'</h2><p class="lead">'+s.d+'</p>';
+  s.g.forEach(function(g,gi){if(s.g.length>1)h+='<h3>'+g.k+'</h3>';
+   g.i.forEach(function(q,ii){var n=id(cur,gi,ii);h+='<div class="row"><p class="q">'+q+'</p><div class="seg" role="radiogroup" aria-label="'+q+'">'+s.sc.map(function(l,v){return '<label><input type="radio" name="'+n+'" value="'+v+'"'+(A[n]===v?' checked':'')+'><span>'+l+'</span></label>'}).join('')+'</div></div>'})});
+  h+='<div style="height:8px"></div>'}
+ else h=result();
+ document.getElementById('box').innerHTML=h;sync()}
+function sync(){var m=cur<3?all(cur):0;
+ document.getElementById('prev').disabled=cur==0;
+ document.getElementById('miss').textContent=cur<3&&m?'Faltan '+m+' por responder':'';
+ var n=document.getElementById('next');n.disabled=cur<3&&m>0;n.textContent=cur==2?'Ver resultado':cur==3?'Reiniciar':'Seguir'}
+function sum(s,gi){var t=0,mx=0;STEPS[s].g[gi].i.forEach(function(_,ii){t+=A[id(s,gi,ii)]||0;mx+=3});return [t,mx]}
+function lvl(p){return p<25?['Bajo','var(--ok)']:p<50?['Moderado','var(--mid)']:['Alto','var(--hi)']}
+function bar(name,t,mx){var p=Math.round(t/mx*100),l=lvl(p);return '<div class="lbl"><span>'+name+'</span><span>'+p+'%</span></div><div class="bar"><i style="width:'+p+'%;background:'+l[1]+'"></i></div>'}
+function result(){
+ var h='<h2>Tu mapa</h2><h3>Qué me está pesando</h3>',all3=[];
+ STEPS[0].g.forEach(function(g,gi){var r=sum(0,gi);h+=bar(g.k,r[0],r[1]);g.i.forEach(function(q,ii){all3.push([A[id(0,gi,ii)]||0,q])})});
+ all3.sort(function(a,b){return b[0]-a[0]});
+ var top=all3.filter(function(x){return x[0]>=2}).slice(0,3);
+ h+='<p><b>Lo que más pesa:</b></p>'+(top.length?'<ul>'+top.map(function(x){return '<li>'+x[1]+'</li>'}).join('')+'</ul>':'<p class="note">Ninguna situación puntúa alto en este momento.</p>');
+ var c=sum(1,0),a=sum(2,0),tp=Math.round((c[0]+a[0])/(c[1]+a[1])*100),L=lvl(tp);
+ h+='<h3>Qué me dice mi cuerpo y mi ánimo</h3>'+bar('Señales del cuerpo',c[0],c[1])+bar('Señales del ánimo',a[0],a[1]);
+ h+='<p>Nivel general de alerta: <span class="badge" style="background:'+L[1]+'">'+L[0]+'</span></p>';
+ var hot=STEPS[1].g[0].i.map(function(q,ii){return [A[id(1,0,ii)]||0,q]}).filter(function(x){return x[0]>=2});
+ if(hot.length)h+='<p><b>Señales frecuentes:</b></p><ul>'+hot.map(function(x){return '<li>'+x[1]+'</li>'}).join('')+'</ul>';
+ h+='<h3>Qué puedes hacer</h3>';
+ h+=tp<25?'<ul><li>Sigue observándote y mantén tus pausas y descansos.</li><li>Repite esta matriz en 2 semanas o cuando algo cambie.</li></ul>':
+  tp<50?'<ul><li>Anota cuándo aparecen las señales y con qué situación coinciden.</li><li>Elige un estresor de la lista y busca apoyo concreto para él.</li><li>Incluye pausas cortas, movimiento y sueño regular.</li><li>Si las señales siguen más de 2 semanas, consulta con un profesional.</li></ul>':
+  '<ul><li>Agenda una consulta con tu médico o con un profesional de salud mental.</li><li>Cuéntale a alguien de confianza cómo te sientes.</li><li>Prioriza descanso y reduce lo que puedas delegar o aplazar por ahora.</li></ul>';
+ h+='<div class="warn"><b>Busca atención médica urgente</b> si tienes dolor u opresión en el pecho intensos, que se extienden al brazo, mandíbula o espalda, o que vienen con falta de aire, sudor frío o mareo. También si piensas en hacerte daño. Llama a los servicios de emergencia de tu país.</div>';
+ h+='<p class="note">Si la opresión en el pecho o las cefaleas son frecuentes o intensas, conviene que un médico las evalúe, aunque creas que son por estrés.</p>';
+ return h}
+document.getElementById('box').addEventListener('change',function(e){if(e.target.type=='radio'){A[e.target.name]=+e.target.value;sync()}});
+document.getElementById('prev').onclick=function(){if(cur>0){cur--;render();window.scrollTo(0,0)}};
+document.getElementById('next').onclick=function(){if(cur==3){A={};cur=0}else cur++;render();window.scrollTo(0,0)};
+render();
+</script>
+</body>
+</html>

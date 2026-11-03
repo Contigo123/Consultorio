@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Juego de los 5 Detectives Sensoriales</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf1fb;--card:#fdfeff;--ink:#1c2b4a;--soft:#586a8c;--line:#c9d8f0;--gold:#f2b632;--blue:#2f6fdc;--ok:#2e9e6b;--btn:#1c2b4a;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121b30;--card:#1b2846;--ink:#eef3ff;--soft:#a9b8d8;--line:#34456e;--btn:#eef3ff;--btnink:#121b30}}
+:root[data-theme="dark"]{--bg:#121b30;--card:#1b2846;--ink:#eef3ff;--soft:#a9b8d8;--line:#34456e;--btn:#eef3ff;--btnink:#121b30}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:19px;line-height:1.5;min-height:100vh}
+main{max-width:640px;margin:0 auto;padding:16px}
+h2{font-family:'Baloo 2','Nunito',system-ui,sans-serif;font-size:1.7rem;line-height:1.15;margin:.2em 0 .4em}
+.prog{display:flex;gap:6px;justify-content:center;margin:6px 0 14px}
+.prog i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.9rem;border:2px solid var(--line);color:var(--soft)}
+.prog i.on{border-color:var(--gold);color:var(--ink)}
+.prog i.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.card{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:22px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:999px;padding:12px 24px;background:var(--btn);color:var(--btnink)}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button[disabled]{opacity:.35;cursor:default}
+.big{font-size:4rem;line-height:1;text-align:center}
+.tokens{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:16px 0}
+.tokens button{width:68px;height:68px;padding:0;border-radius:50%;background:var(--bg);color:var(--soft);border:3px dashed var(--line);font-size:1.9rem;transition:transform .2s}
+.tokens button[aria-pressed="true"]{background:var(--gold);border:3px solid var(--gold);color:var(--ink);transform:scale(1.12)}
+.hint{background:var(--bg);border-radius:18px;padding:12px 16px;margin:10px 0}
+.msg{text-align:center;font-family:'Baloo 2',sans-serif;font-size:1.3rem;min-height:2em;color:var(--ok)}
+.count{text-align:center;color:var(--soft);font-weight:700}
+.center{text-align:center}
+ul.rec{list-style:none;padding:0;margin:8px 0}
+ul.rec li{padding:6px 0}
+.snd{margin:14px 0 4px;text-align:center}
+.snd p.l{margin:0 0 8px;color:var(--soft);font-weight:700;font-size:.95rem}
+.snd button{background:var(--bg);color:var(--ink);border:3px solid var(--line);padding:12px 24px}
+.snd button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#1c2b4a}
+.snd p.s{margin:8px 0 0;min-height:1.3em;color:var(--soft);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){.tokens button{transition:none}}
+</style>
+</head>
+<body>
+<main>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<section class="card" id="page" aria-live="polite"></section>
+<div class="nav"><button class="ghost" id="prev">Atrás</button><button id="next">Seguir</button></div>
+</main>
+<script>
+var M=[
+ {n:5,e:'',t:'Mis ojos buscan juguetes azules',d:'Mira a tu alrededor y encuentra 5 juguetes azules. Cuando encuentres uno, toca un círculo.',h:'Pista: un peluche, un carrito, un bloque, un libro o un lápiz azul.',w:'¡Ojos de águila!'},
+ {n:4,e:'',t:'Mis manos tocan cosas suavecitas',d:'Toca 4 texturas suavecitas, despacio. Toca un círculo por cada una.',h:'Pista: un peluche, una cobija, tu cabello, una almohada o tu camiseta.',w:'¡Manos de detective!'},
+ {n:3,x:1,e:'',t:'Mis oídos escuchan sonidos divertidos',d:'Quédate muy quieto y escucha 3 sonidos divertidos. Toca un círculo por cada uno.',h:'Pista: un pajarito, tu respiración, un carro lejano, tu risa o una canción.',w:'¡Oídos de murciélago!'},
+ {n:2,e:'',t:'Mi nariz huele cosas ricas',d:'Huele 2 cosas que te gusten. Toca un círculo por cada una.',h:'Pista: una flor, tu jabón, una fruta, tu ropa limpia o tu comida favorita.',w:'¡Nariz de sabueso!'},
+ {n:1,e:'',t:'Mi boca prueba un sabor',d:'Toma un traguito de agua o piensa en un sabor que te encante. Toca el círculo.',h:'Pista: agua fresquita, una fruta, o tu postre favorito.',w:'¡Misión final cumplida!'}];
+var found=M.map(function(m){return m.n&&Array.apply(null,Array(m.n)).map(function(){return false})});
+var cur=0,P=M.length+2;
+function cnt(i){return found[i].filter(Boolean).length}
+function done(i){return cnt(i)==M[i].n}
+function detective(){return '<svg viewBox="0 0 180 170" width="170" role="img" aria-label="Detective con lupa"><ellipse cx="80" cy="150" rx="46" ry="10" fill="var(--line)"/><circle cx="80" cy="96" r="44" fill="#ffd9b0"/><path d="M26 74 Q80 58 134 74 L128 60 Q80 18 32 60 Z" fill="#7a4a2b"/><rect x="18" y="70" width="124" height="9" rx="4.5" fill="#5e3720"/><rect x="50" y="52" width="60" height="9" fill="#f2b632"/><circle cx="64" cy="98" r="5" fill="#1c2b4a"/><circle cx="96" cy="98" r="5" fill="#1c2b4a"/><path d="M64 116 Q80 130 96 116" stroke="#1c2b4a" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="138" cy="112" r="24" fill="#cfe6ff" fill-opacity=".6" stroke="#2f6fdc" stroke-width="7"/><path d="M155 130 L172 150" stroke="#2f6fdc" stroke-width="9" stroke-linecap="round"/></svg>'}
+var AUD=null;
+function aud(){if(!AUD){AUD=new Audio('audio/sonidos-detectives.mp3');AUD.preload='none';AUD.onplay=AUD.onpause=AUD.onended=function(){paint()};AUD.onerror=function(){paint(1)}}return AUD}
+function playing(){return !!AUD&&!AUD.paused&&!AUD.ended}
+function paint(err){var b=document.querySelector('.snd button');if(!b)return;var on=playing();b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',on?'Detener el audio':'Escuchar los sonidos');b.querySelector('.t').textContent=on?' Detener':' Escuchar sonidos';var s=document.getElementById('sndmsg');if(s)s.textContent=err===1?'No se pudo reproducir el audio.':''}
+function toggleAud(){var a=aud();if(playing()){a.pause();a.currentTime=0;paint()}else{var r=a.play();if(r&&r.catch)r.catch(function(){paint(1)})}}
+function stopAud(){if(AUD){AUD.pause();AUD.currentTime=0;paint()}}
+function sndHTML(){return '<div class="snd"><p class="l">¿Hay mucho silencio? Toca para escuchar:</p><button type="button" data-s="1"><span aria-hidden="true">🔊</span><span class="t"> Escuchar sonidos</span></button><p class="s" id="sndmsg" role="status"></p></div>'}
+function pageHTML(){
+ if(cur==0)return '<div class="center">'+detective()+'</div><h2>¡Eres un Detective Sensorial!</h2><p>Los detectives usan sus <b>cinco sentidos</b> para descubrir pistas. Tienes 5 misiones. Cuando termines, tu cuerpo estará más tranquilo y atento al aquí y ahora.</p>';
+ if(cur==P-1)return '<div class="center"><svg viewBox="0 0 160 170" width="150" role="img" aria-label="Insignia"><path d="M50 100 L36 160 L80 140 L124 160 L110 100 Z" fill="#2f6fdc"/><circle cx="80" cy="70" r="56" fill="#f2b632"/><circle cx="80" cy="70" r="44" fill="#fff3c9"/><path d="M80 40 L88 62 L112 63 L93 77 L100 100 L80 87 L60 100 L67 77 L48 63 L72 62 Z" fill="#f2b632"/></svg></div><h2>¡Misión cumplida, detective!</h2><ul class="rec"><li>Encontraste 5 juguetes azules</li><li>Tocaste 4 texturas suavecitas</li><li> Escuchaste 3 sonidos divertidos</li><li> Oliste 2 cosas ricas</li><li> Probaste 1 sabor</li></ul><p>Cuando te sientas nervioso o muy agitado, puedes volver a jugar. Pide a un adulto que juegue contigo.</p>';
+ var i=cur-1,m=M[i],c=cnt(i);
+ return '<div class="big" aria-hidden="true">'+m.e+'</div><h2 style="text-align:center">Misión '+m.n+': '+m.t+'</h2><p>'+m.d+'</p><div class="tokens">'+found[i].map(function(f,k){return '<button data-k="'+k+'" aria-pressed="'+f+'" aria-label="Pista '+(k+1)+'">'+(f?'':'?')+'</button>'}).join('')+'</div><div class="count">'+c+' de '+m.n+'</div><div class="msg">'+(done(i)?m.w:'')+'</div><div class="hint small">'+m.h+'</div>'+(m.x?sndHTML():'')}
+function render(){
+ document.getElementById('page').innerHTML=pageHTML();
+ var p='';for(var i=0;i<M.length;i++)p+='<i class="'+(done(i)?'ok':(cur==i+1?'on':''))+'">'+M[i].n+'</i>';
+ document.getElementById('prog').innerHTML=p;
+ sync();paint()}
+function sync(){
+ var ok=cur==0||cur==P-1||done(cur-1);
+ document.getElementById('prev').disabled=cur==0;
+ var n=document.getElementById('next');n.disabled=!ok;
+ n.textContent=cur==P-1?'Jugar otra vez':cur==0?'¡Empezar!':'Siguiente misión'}
+document.getElementById('prev').onclick=function(){stopAud();if(cur>0){cur--;render()}};
+document.getElementById('next').onclick=function(){stopAud();if(cur==P-1){found=M.map(function(m){return Array.apply(null,Array(m.n)).map(function(){return false})});cur=0}else cur++;render()};
+document.getElementById('page').addEventListener('click',function(e){if(e.target.closest('[data-s]')){toggleAud();return}var b=e.target.closest('[data-k]');if(!b)return;var i=cur-1,k=+b.dataset.k;found[i][k]=!found[i][k];render();var nb=document.querySelector('.tokens button[data-k="'+k+'"]');if(nb)nb.focus()});
+document.addEventListener('visibilitychange',function(){if(document.hidden)stopAud()});window.addEventListener('pagehide',stopAud);
+render();
+</script>
+</body>
+</html>

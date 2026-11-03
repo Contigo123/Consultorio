@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orientaciones Clave para Padres y Cuidadores</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f0f8;--card:#fff;--ink:#2b2650;--soft:#5f5b85;--line:#d9d6ee;--teal:#1b8a85;--amber:#e8a23a;--bad:#b4443a;--tint:#e5f4f2;--tint2:#fbeeee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17142e;--card:#221e42;--ink:#efedfb;--soft:#b3afd6;--line:#3a3566;--teal:#4cc4bd;--bad:#f08a80;--tint:#173c42;--tint2:#41222d}}
+:root[data-theme="dark"]{--bg:#17142e;--card:#221e42;--ink:#efedfb;--soft:#b3afd6;--line:#3a3566;--teal:#4cc4bd;--bad:#f08a80;--tint:#173c42;--tint2:#41222d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:18px;line-height:1.6}
+main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:'Baloo 2','Nunito',system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:2.1rem;margin-bottom:10px}
+h2{font-size:1.5rem;margin:34px 0 12px}
+.lead{color:var(--soft);font-size:1.1rem;margin:0 0 6px}
+.box{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px 20px;margin:14px 0}
+.big{background:var(--ink);color:var(--bg);border-radius:22px;padding:20px 22px;margin:18px 0}
+.big b{color:var(--amber)}
+details{background:var(--card);border:2px solid var(--line);border-radius:18px;margin:10px 0}
+summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none;display:flex;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:'Baloo 2',sans-serif}
+summary::after{content:'+';margin-left:auto;font-size:1.4rem;color:var(--soft)}
+details[open] summary::after{content:'–'}
+details[open]{border-color:var(--teal)}
+.in{padding:0 18px 16px 64px}
+.in p{margin:0 0 8px}
+summary:focus-visible,button:focus-visible,label:focus-within{outline:3px solid var(--amber);outline-offset:2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.pair div{padding:12px 14px;border-radius:16px;font-size:1rem}
+.no{background:var(--tint2)}
+.yes{background:var(--tint)}
+.pair small{display:block;font-weight:700;margin-bottom:2px}
+.no small{color:var(--bad)}.yes small{color:var(--teal)}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.steps li{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:14px;font-size:1rem}
+.steps li b{display:block;font-family:'Baloo 2',sans-serif;font-size:1.15rem;color:var(--teal)}
+.chk label{display:flex;gap:12px;align-items:center;padding:8px 0;cursor:pointer}
+.chk input{width:24px;height:24px;accent-color:var(--teal);flex:none}
+#res{font-weight:700;color:var(--teal);min-height:1.6em;margin-top:6px}
+.note{font-size:.95rem;color:var(--soft)}
+@media (max-width:520px){.pair,.steps{grid-template-columns:1fr}.in{padding-left:18px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Orientaciones clave para padres y cuidadores</h1>
+<p class="lead">Guía práctica para acompañar a un niño cuando una emoción lo desborda: miedo, enojo, tristeza o frustración.</p>
+
+<div class="big"><b>Corregulación</b> significa que el niño aprende a calmarse gracias a un adulto que se mantiene calmado a su lado. Los niños todavía no pueden regularse solos: toman prestada nuestra calma.</div>
+
+<h2>Antes de responder, revisa</h2>
+<div class="box chk">
+<label><input type="checkbox"> Respiré hondo y solté el aire despacio</label>
+<label><input type="checkbox"> Estoy a la altura de sus ojos</label>
+<label><input type="checkbox"> Mi voz está baja y lenta</label>
+<div id="res" aria-live="polite"></div>
+</div>
+
+<h2>Las 6 pautas</h2>
+<details open><summary><span class="n">1</span>Regúlate tú primero</summary><div class="in"><p>Tu cuerpo le dice al niño si está a salvo. Haz una exhalación larga antes de hablar y relaja hombros y mandíbula.</p><p class="note">Si estás muy alterado, es válido decir: «Necesito un momento para respirar, vuelvo enseguida», y asegurarte de que el niño esté seguro.</p></div></details>
+<details><summary><span class="n">2</span>Ponte a la altura del niño</summary><div class="in"><p>Agáchate o siéntate para que tus ojos queden a su nivel. Ofrece un contacto visual suave, sin forzarlo.</p><p>Si el niño evita la mirada, colócate a su lado en lugar de enfrente. Estar cerca ya comunica compañía.</p></div></details>
+<details><summary><span class="n">3</span>Usa un tono de voz tranquilizador</summary><div class="in"><p>Habla bajo, lento y con pocas palabras. En plena emoción intensa, el niño no procesa explicaciones largas.</p></div></details>
+<details><summary><span class="n">4</span>Valida lo que siente</summary><div class="in"><p>Nombra la emoción y acéptala, sin juzgarla. Por ejemplo: «Entiendo que sientes miedo, estoy aquí».</p><p>Validar no es aprobar toda conducta. Puedes acoger la emoción y mantener un límite: «Está bien sentir rabia, y no se pega».</p></div></details>
+<details><summary><span class="n">5</span>Ofrece presencia y contacto</summary><div class="in"><p>Pregunta si quiere un abrazo, tomarte de la mano o solo que te quedes cerca. Respeta su respuesta.</p></div></details>
+<details><summary><span class="n">6</span>Espera, y después conversa</summary><div class="in"><p>Cuando el cuerpo del niño se calme, ayúdalo a poner palabras a lo ocurrido y a pensar qué puede hacer la próxima vez. Antes de eso, hablar de lo sucedido no suele funcionar.</p></div></details>
+
+<h2>Qué decir y qué evitar</h2>
+<div class="pair"><div class="no"><small>Mejor evitar</small>«No pasa nada, no llores».</div><div class="yes"><small>Prueba con</small>«Entiendo que sientes miedo, estoy aquí».</div></div>
+<div class="pair"><div class="no"><small>Mejor evitar</small>«¡Cálmate ya!»</div><div class="yes"><small>Prueba con</small>«Vamos a respirar juntos, yo te ayudo».</div></div>
+<div class="pair"><div class="no"><small>Mejor evitar</small>«No es para tanto».</div><div class="yes"><small>Prueba con</small>«Veo que esto te importa mucho».</div></div>
+<div class="pair"><div class="no"><small>Mejor evitar</small>«Si sigues así, te quedas sin postre».</div><div class="yes"><small>Prueba con</small>«Estás muy enojado. Estoy contigo hasta que pase».</div></div>
+
+<h2>En el momento: 4 pasos rápidos</h2>
+<ol class="steps">
+<li><b>Pausa</b>Respira y baja tu propio ritmo.</li>
+<li><b>Agáchate</b>Ojos a su altura, voz baja.</li>
+<li><b>Valida</b>Nombra la emoción y quédate.</li>
+<li><b>Acompaña</b>Ofrece contacto y espera a que baje.</li>
+</ol>
+
+<h2>Cuándo pedir apoyo profesional</h2>
+<div class="box"><p style="margin:0">Consulta con su pediatra o un psicólogo infantil si las emociones intensas son muy frecuentes o duran mucho, si afectan el sueño, la escuela o la convivencia, o si te preocupa su bienestar. Pedir ayuda es una forma de cuidar.</p></div>
+<p class="note">Esta guía es orientativa y no reemplaza la evaluación de un profesional de la salud.</p>
+</main>
+<script>
+var cs=document.querySelectorAll('.chk input'),r=document.getElementById('res');
+function up(){var n=0;cs.forEach(function(c){if(c.checked)n++});r.textContent=n==cs.length?'Listo. Ahora acércate con calma.':''}
+cs.forEach(function(c){c.addEventListener('change',up)});
+</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orientaciones Esenciales para Familiares y Cuidadores</title>
+<style>
+:root{--bg:#eef4f4;--card:#fff;--ink:#14202b;--muted:#3f4a5c;--teal:#2f7f8b;--teal-d:#1f6571;--soft:#e4f0f1;--line:#c9d9dc;--warm:#b8432f;--warm-bg:#fbe9e4;--amb:#8a5a00;--amb-bg:#fbf1d9;--grn-bg:#e2f3e8;--on:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1a20;--card:#17262e;--ink:#f1f6f7;--muted:#c3d0d5;--teal:#6cc0cc;--teal-d:#9bdbe3;--soft:#1f3640;--line:#3a525d;--warm:#f58a74;--warm-bg:#3a2420;--amb:#f0b955;--amb-bg:#3a3322;--grn-bg:#1c3328;--on:#0f1a20}}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.65 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;padding:max(16px,env(safe-area-inset-top,0px)) 12px max(28px,env(safe-area-inset-bottom,0px))}
+main{max-width:780px;margin:0 auto;background:var(--card);border-radius:28px;padding:clamp(20px,5vw,40px);box-shadow:0 2px 16px rgba(18,26,46,.08)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.tag{display:inline-block;background:var(--bg);color:var(--muted);font-weight:700;font-size:.8rem;padding:6px 16px;border-radius:12px}
+.size{display:flex;gap:6px;align-items:center;font-size:.8rem;font-weight:700;color:var(--muted)}
+button{font:inherit;cursor:pointer;border:0}
+.size button{background:var(--soft);color:var(--ink);border-radius:12px;min-width:46px;min-height:46px;font-weight:700}
+:focus-visible{outline:4px solid var(--warm);outline-offset:2px}
+h1{font-size:clamp(1.6rem,5.5vw,2.3rem);line-height:1.18;margin:14px 0 10px;letter-spacing:-.01em}
+.lead{color:var(--muted);margin:0 0 6px;max-width:62ch}
+.fmt{color:var(--teal-d);font-weight:700;margin:0 0 20px;font-size:.9rem}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.tabs button{background:var(--bg);color:var(--ink);font-weight:700;font-size:.78rem;padding:8px 4px;border-radius:14px;min-height:58px;line-height:1.2}
+.tabs button[aria-selected=true]{background:var(--teal-d);color:var(--on)}
+.panel{margin-top:22px}.panel[hidden]{display:none}
+h2{font-size:1.35rem;margin:0 0 4px;line-height:1.25}
+h3{font-size:1.05rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px}
+.cards{display:grid;gap:12px}
+.c{background:var(--soft);border-radius:20px;padding:14px 18px}
+.c p{margin:0}.c ul{margin:4px 0 0;padding-left:1.2em}.c li{margin-bottom:4px}
+.big{font-size:1.1rem;font-style:italic;border-left:6px solid var(--teal);padding:4px 0 4px 16px;margin:16px 0}
+.ph{border:2px solid var(--line);border-radius:18px;margin-bottom:10px;overflow:hidden}
+.ph button{width:100%;text-align:left;background:transparent;color:var(--ink);padding:14px 18px;min-height:60px;display:block}
+.ph .no{color:var(--warm);font-weight:700;display:block}
+.ph .go{color:var(--teal-d);font-weight:700;font-size:.82rem;display:block;margin-top:2px}
+.ph .yes{display:none;padding:12px 18px;background:var(--grn-bg);font-weight:600}
+.ph.open .yes{display:block}
+label.f{display:block;font-weight:700;margin:14px 0 6px}
+input[type=time],input[type=text],textarea{font:inherit;padding:11px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);min-height:48px;width:100%}
+textarea{min-height:76px;resize:vertical}
+.rt{display:grid;grid-template-columns:1fr 140px;gap:10px;align-items:center;background:var(--soft);padding:10px 14px;border-radius:16px;margin-bottom:8px}
+.rt span{font-weight:700}
+.rt input{width:100%}
+.light{border-radius:20px;padding:14px 16px;border-left:8px solid;margin-bottom:12px}
+.light.r{background:var(--warm-bg);border-color:var(--warm)}.light.y{background:var(--amb-bg);border-color:var(--amb)}
+.light h3{margin-bottom:6px}
+.light label,.chk label{display:flex;gap:12px;align-items:flex-start;padding:7px 0;cursor:pointer;font-size:.95rem}
+input[type=checkbox]{width:26px;height:26px;flex:none;accent-color:var(--teal-d);margin-top:1px}
+.result{margin-top:12px;border-radius:18px;padding:14px 16px;background:var(--soft);font-weight:700}
+.result.y{background:var(--amb-bg)}.result.r{background:var(--warm-bg)}
+.result span{display:block;font-weight:400;color:var(--muted);margin-top:4px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{background:var(--teal-d);color:var(--on);font-weight:700;padding:13px 20px;border-radius:14px;min-height:52px;font-size:.9rem}
+.btn.g{background:var(--bg);color:var(--ink)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.end{margin-top:26px;background:var(--grn-bg);border-radius:22px;padding:18px 20px;text-align:center}
+.end p{margin:0}.end b{display:block;font-size:1.15rem;margin-bottom:4px}
+.note{font-size:.8rem;color:var(--muted);margin:22px 0 0;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:640px){.tabs{grid-template-columns:repeat(3,1fr)}.grid3{grid-template-columns:1fr}.rt{grid-template-columns:1fr}}
+@media print{body{background:#fff;padding:0}main{box-shadow:none}.tabs,.size,.row,.noprint{display:none!important}.panel[hidden]{display:block!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <span class="tag">Cuidadores</span>
+    <div class="size" role="group" aria-label="Tamaño de letra">Letra:
+      <button type="button" id="sm" aria-label="Letra más pequeña">A−</button>
+      <button type="button" id="lg" aria-label="Letra más grande">A+</button>
+    </div>
+  </div>
+  <h1>Orientaciones Esenciales para Familiares y Cuidadores</h1>
+  <p class="lead">Paciencia, evitar frases como “no se preocupe por nada”, mantener rutinas previsibles y reconocer las señales de alerta médica y psicológica.</p>
+  <p class="fmt">Formato: manual para cuidadores</p>
+
+  <div class="tabs" role="tablist" aria-label="Capítulos">
+    <button role="tab" id="t0" aria-selected="true" aria-controls="p0">1. Paciencia y presencia</button>
+    <button role="tab" id="t1" aria-selected="false" aria-controls="p1">2. Qué decir y qué evitar</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2">3. Rutinas previsibles</button>
+    <button role="tab" id="t3" aria-selected="false" aria-controls="p3">4. Señales de alerta</button>
+    <button role="tab" id="t4" aria-selected="false" aria-controls="p4">5. Cuidar al cuidador</button>
+  </div>
+
+  <!-- 1 -->
+  <section class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
+    <h2>Acompañar con paciencia</h2>
+    <p class="sub">Su presencia calmada es, muchas veces, la mejor intervención.</p>
+    <div class="big">“Lo que más ayuda no es resolverlo todo, sino estar sin prisa.”</div>
+    <div class="cards">
+      <div class="c"><h3>Vaya a su ritmo</h3><p>Dé más tiempo para responder, vestirse o decidir. La prisa aumenta el miedo y la resistencia.</p></div>
+      <div class="c"><h3>Escuche antes de corregir</h3><p>Mire a los ojos, hable despacio y deje silencios. Repetir una historia también es una forma de buscar compañía.</p></div>
+      <div class="c"><h3>Valide lo que siente</h3><p>No es necesario estar de acuerdo para reconocer: “Entiendo que esto le preocupa”. Validar calma; discutir escala.</p></div>
+      <div class="c"><h3>Conserve su dignidad y su autonomía</h3><p>Ofrezca opciones sencillas (“¿camisa azul o verde?”) y deje que haga solo lo que aún puede hacer. Pida permiso antes de ayudar.</p></div>
+      <div class="c"><h3>Repita con calma</h3><p>Si pregunta lo mismo varias veces, responda como la primera vez. Si hay olvidos nuevos o que empeoran, consúltelo con un médico.</p></div>
+      <div class="c"><h3>Cuando suba la tensión</h3><p>Baje el volumen de su voz, respire usted primero, cambie de ambiente o de tema y vuelva a la conversación más tarde.</p></div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+    <h2>Frases que lastiman y frases que cuidan</h2>
+    <p class="sub">Toque cada frase para ver una alternativa más compasiva. Casi siempre dicha con buena intención.</p>
+    <div id="phr"></div>
+    <div class="c" style="margin-top:14px"><h3>¿Por qué importa tanto?</h3><p>“No se preocupe por nada” suele sentirse como “lo que usted siente no importa”. Quien se siente escuchado se calma más; quien se siente minimizado, se aísla o insiste.</p></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <h2>Rutinas previsibles</h2>
+    <p class="sub">Saber qué sigue da seguridad. Complete las horas habituales y manténgalas cada día. Se guarda solo en este dispositivo.</p>
+    <div id="rt"></div>
+    <div class="cards" style="margin-top:14px">
+      <div class="c"><h3>Consejos</h3><ul>
+        <li>Mantenga las mismas horas para comer, medicarse, dormir y salir.</li>
+        <li>Use un reloj y un calendario grandes y a la vista.</li>
+        <li>Avise los cambios con anticipación y explíquelos con calma.</li>
+        <li>Mantenga los objetos en su lugar y la casa bien iluminada.</li>
+        <li>Incluya cada día algo con sentido: una llamada, un paseo, música, una tarea sencilla.</li></ul></div>
+    </div>
+    <div class="row noprint"><button class="btn" type="button" onclick="window.print()">Imprimir rutina</button></div>
+  </section>
+
+  <!-- 4 -->
+  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+    <h2>Señales de alerta médica y psicológica</h2>
+    <p class="sub">Marque lo que ha notado. Es una guía para decidir el paso siguiente, no un diagnóstico.</p>
+    <div class="light r"><h3>Urgente: llamar a emergencias o ir a urgencias</h3>
+      <label><input type="checkbox" data-s="r"> Confusión o desorientación de aparición súbita</label>
+      <label><input type="checkbox" data-s="r"> Cara caída, debilidad de un lado del cuerpo o dificultad repentina para hablar</label>
+      <label><input type="checkbox" data-s="r"> Dolor en el pecho o dificultad para respirar</label>
+      <label><input type="checkbox" data-s="r"> Caída con golpe en la cabeza, o no puede levantarse</label>
+      <label><input type="checkbox" data-s="r"> Desmayo, fiebre alta con mucho decaimiento o deshidratación</label>
+      <label><input type="checkbox" data-s="r"> Habla de no querer vivir, de hacerse daño, o se despide o regala sus cosas</label>
+    </div>
+    <div class="light y"><h3>Consultar al médico pronto</h3>
+      <label><input type="checkbox" data-s="y"> Cambios marcados en apetito, peso o sueño</label>
+      <label><input type="checkbox" data-s="y"> Caídas repetidas, mareos o pérdida de equilibrio</label>
+      <label><input type="checkbox" data-s="y"> Olvidos nuevos o que empeoran, o se pierde en lugares conocidos</label>
+      <label><input type="checkbox" data-s="y"> Incontinencia nueva, dolor que no cede o efectos raros de los medicamentos</label>
+      <label><input type="checkbox" data-s="y"> Ve u oye cosas que no están, o ideas extrañas nuevas</label>
+    </div>
+    <div class="light y"><h3>Consultar con psicología</h3>
+      <label><input type="checkbox" data-s="p"> Tristeza o apatía por más de 2 semanas</label>
+      <label><input type="checkbox" data-s="p"> Se aísla, deja de hacer lo que le gustaba o descuida su cuidado personal</label>
+      <label><input type="checkbox" data-s="p"> Ansiedad, miedo o irritabilidad fuera de lo habitual</label>
+      <label><input type="checkbox" data-s="p"> Llanto frecuente o culpa que no cede tras una pérdida</label>
+    </div>
+    <div class="result" id="res" aria-live="polite"></div>
+  </section>
+
+  <!-- 5 -->
+  <section class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+    <h2>Cuidar al cuidador</h2>
+    <p class="sub">Usted también necesita descanso y apoyo. Cuidarse no es egoísmo: es lo que le permite seguir cuidando.</p>
+    <div class="chk c">
+      <h3>¿Cómo me encuentro?</h3>
+      <label><input type="checkbox" data-o="1"> Me siento agotado(a) casi todos los días</label>
+      <label><input type="checkbox" data-o="1"> He dejado de ver a mis amistades o de hacer cosas que me gustan</label>
+      <label><input type="checkbox" data-o="1"> Duermo mal o me preocupo todo el tiempo</label>
+      <label><input type="checkbox" data-o="1"> Me irrito con facilidad y luego me siento culpable</label>
+      <label><input type="checkbox" data-o="1"> Descuido mis propias citas médicas</label>
+      <label><input type="checkbox" data-o="1"> Siento que nadie me ayuda</label>
+    </div>
+    <div class="result" id="ores" aria-live="polite"></div>
+    <h3 style="margin-top:20px">Mi red de relevo</h3>
+    <p class="sub" style="margin-bottom:8px">Anote quién puede cubrirle y cuándo.</p>
+    <div class="grid3" id="rel"></div>
+    <div class="c" style="margin-top:14px"><h3>Pequeños hábitos</h3><ul>
+      <li>Pida y acepte ayuda concreta (“¿me cubres el sábado en la tarde?”).</li>
+      <li>Reserve cada día un momento solo para usted, aunque sea breve.</li>
+      <li>Coma, duerma y asista a sus propias consultas.</li>
+      <li>Hable de lo que siente con alguien de confianza o con un profesional.</li></ul></div>
+    <div class="end"><b>No tiene que hacerlo solo(a)</b><p>Pedir ayuda también es una forma de cuidar. Gracias por acompañar con paciencia y cariño.</p></div>
+  </section>
+
+  <p class="note">Este manual orienta, pero no reemplaza la valoración de un médico o psicólogo. Ante una urgencia o riesgo para la vida, llame a emergencias de su país (en Colombia, 123).</p>
+</main>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},st={};
+  try{st=JSON.parse(localStorage.getItem('manual_cuid')||'{}')}catch(e){}
+  function put(){try{localStorage.setItem('manual_cuid',JSON.stringify(st))}catch(e){}}
+
+  var sz=[16,18,21,24],si=st._s==null?1:st._s;
+  function ap(){document.documentElement.style.fontSize=sz[si]+'px';st._s=si;put()}
+  $('sm').addEventListener('click',function(){si=Math.max(0,si-1);ap()});
+  $('lg').addEventListener('click',function(){si=Math.min(3,si+1);ap()});ap();
+
+  var tabs=[0,1,2,3,4].map(function(i){return $('t'+i)});
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){tabs.forEach(function(x,j){x.setAttribute('aria-selected',j===i);$('p'+j).hidden=j!==i})})});
+
+  var P=[['“No se preocupe por nada.”','“Veo que esto le preocupa. Cuénteme y lo pensamos juntos.”'],
+    ['“Ya se lo dije mil veces.”','“Con gusto se lo explico otra vez.”'],
+    ['“Está exagerando.”','“Entiendo que esto le pesa. Estoy aquí.”'],
+    ['“Eso ya pasó, olvídelo.”','“Todavía le duele. ¿Quiere contarme más?”'],
+    ['“Deje, yo lo hago más rápido.”','“¿Quiere que lo hagamos juntos?”'],
+    ['“Tiene que ser fuerte.”','“Puede sentirse así. No está solo(a).”'],
+    ['“No es nada, ánimo.”','“Lo que siente es real. ¿Qué le haría bien hoy?”']],pc=$('phr');
+  P.forEach(function(p){
+    var d=document.createElement('div');d.className='ph';
+    d.innerHTML='<button type="button" aria-expanded="false"><span class="no"></span><span class="go">Toque para ver cómo decirlo mejor</span></button><div class="yes"></div>';
+    d.querySelector('.no').textContent=p[0];d.querySelector('.yes').textContent='Mejor: '+p[1];
+    var b=d.querySelector('button');
+    b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+    pc.appendChild(d);
+  });
+
+  var R=['Levantarse y aseo','Desayuno','Medicamentos (según indicación médica)','Actividad o paseo','Almuerzo','Descanso','Tarde: compañía o actividad','Cena','Hora de dormir'],rc=$('rt');
+  st.rt=st.rt||{};
+  R.forEach(function(r,i){
+    var d=document.createElement('div');d.className='rt';
+    d.innerHTML='<span></span><input type="time">';
+    d.firstChild.textContent=r;var t=d.lastChild;t.setAttribute('aria-label',r);
+    t.value=st.rt[i]||'';t.addEventListener('input',function(){st.rt[i]=t.value;put()});rc.appendChild(d);
+  });
+
+  var boxes=document.querySelectorAll('[data-s]'),res=$('res');
+  function check(){
+    var r=0,y=0,p=0;[].forEach.call(boxes,function(b){if(b.checked){var k=b.getAttribute('data-s');k==='r'?r++:k==='y'?y++:p++}});
+    res.className='result';
+    if(r){res.classList.add('r');res.innerHTML='Actúe ahora.<span>Llame a emergencias (en Colombia, 123) o lleve a la persona a urgencias. No la deje sola. Si habla de hacerse daño, escúchela con calma, quédese a su lado y busque ayuda de inmediato.</span>'}
+    else if(y){res.classList.add('y');res.innerHTML='Pida una cita médica pronto.<span>Anote desde cuándo ocurre, con qué frecuencia y los medicamentos que toma, y llévelo a la consulta.'+(p?' Además, consulte con psicología.':'')+'</span>'}
+    else if(p){res.classList.add('y');res.innerHTML='Conviene una consulta con psicología.<span>Hablar con alguien de confianza y pedir cita puede aliviar mucho. Descarte también con el médico causas físicas.</span>'}
+    else{res.innerHTML='Siga observando con cariño.<span>Mantenga las rutinas y la conversación. Si nota algo nuevo, vuelva a revisar esta lista.</span>'}
+  }
+  [].forEach.call(boxes,function(b){b.addEventListener('change',check)});check();
+
+  var ob=document.querySelectorAll('[data-o]'),or=$('ores');
+  function ocheck(){
+    var n=0;[].forEach.call(ob,function(b){if(b.checked)n++});or.className='result';
+    if(n>=4){or.classList.add('y');or.innerHTML='Está llevando una carga muy alta.<span>Hable con su familia sobre repartir tareas y considere una consulta de apoyo psicológico para usted. Pedir ayuda es parte de cuidar bien.</span>'}
+    else if(n>=2){or.classList.add('y');or.innerHTML='Hay señales de cansancio.<span>Es buen momento para organizar un relevo y reservar descanso antes de que se acumule.</span>'}
+    else{or.innerHTML='Se está cuidando bien.<span>Siga atento(a) a su descanso y a su ánimo.</span>'}
+  }
+  [].forEach.call(ob,function(b){b.addEventListener('change',ocheck)});ocheck();
+
+  var L=['Persona 1','Persona 2','Persona 3'],rl=$('rel');
+  st.rel=st.rel||{};
+  L.forEach(function(l,i){
+    var d=document.createElement('div');d.className='c';
+    d.innerHTML='<h3></h3><label class="f" style="margin-top:6px">Nombre</label><input type="text"><label class="f">Cuándo me cubre</label><input type="text" placeholder="Ej.: sábados por la tarde">';
+    d.querySelector('h3').textContent=l;
+    var ins=d.querySelectorAll('input');
+    ins.forEach(function(inp,k){var key=i+'_'+k;inp.value=st.rel[key]||'';inp.setAttribute('aria-label',l+(k?' cuándo cubre':' nombre'));inp.addEventListener('input',function(){st.rel[key]=inp.value;put()})});
+    rl.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>

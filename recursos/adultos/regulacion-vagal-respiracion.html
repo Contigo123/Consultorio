@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Regulación Vagal y Respiración Fisiológica</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#edf4f2;--card:#fff;--ink:#17302e;--soft:#587270;--line:#cfe0dc;--acc:#1e7f74;--amber:#e0a030;--hi:#c9503f;--tint:#e0f0ed;--btn:#17302e;--btnink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1f1e;--card:#182d2b;--ink:#e6f3f0;--soft:#a2bdb9;--line:#2c4947;--acc:#55c2b3;--tint:#17403c;--btn:#e6f3f0;--btnink:#0f1f1e}}
+:root[data-theme="dark"]{--bg:#0f1f1e;--card:#182d2b;--ink:#e6f3f0;--soft:#a2bdb9;--line:#2c4947;--acc:#55c2b3;--tint:#17403c;--btn:#e6f3f0;--btnink:#0f1f1e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Nunito',system-ui,sans-serif;font-size:17px;line-height:1.55}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:'Baloo 2','Nunito',system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:1.9rem;margin-bottom:6px}
+h2{font-size:1.35rem;margin:0 0 8px}
+.lead{color:var(--soft);margin:0 0 12px}
+.tabs{display:flex;gap:6px;margin:14px 0}
+.tabs button{flex:1;background:var(--card);color:var(--soft);border:2px solid var(--line);padding:10px 4px;font-size:.95rem}
+.tabs button[aria-selected="true"]{background:var(--tint);color:var(--ink);border-color:var(--acc)}
+button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:999px;padding:12px 24px;background:var(--btn);color:var(--btnink)}
+button.go{background:var(--acc);color:#fff}
+button.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+button:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin:12px 0}
+details{background:var(--card);border:2px solid var(--line);border-radius:16px;margin:10px 0}
+summary{cursor:pointer;padding:14px 16px;font-weight:700;list-style:none;display:flex}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';margin-left:auto;color:var(--soft);font-size:1.3rem}
+details[open] summary::after{content:'–'}
+details[open]{border-color:var(--acc)}
+.in{padding:0 16px 14px}.in p,.in ul{margin:0 0 8px}.in ul{padding-left:20px}
+.warn{border:2px solid var(--hi);border-radius:16px;padding:12px 16px;margin:12px 0}.warn b{color:var(--hi)}
+.opts{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:10px 0}
+.opts label{display:flex;gap:6px;align-items:center;font-weight:700;font-size:.95rem}
+select{font:inherit;padding:6px 10px;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.say{text-align:center;min-height:4.2em}.say b{display:block;font-family:'Baloo 2',sans-serif;font-size:1.4rem;color:var(--acc)}
+.dots{display:flex;gap:8px;justify-content:center;margin:8px 0}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--acc)}
+.center{text-align:center}.note{font-size:.9rem;color:var(--soft)}
+.hid{display:none}
+@media (prefers-reduced-motion:reduce){.orb{position:relative;width:min(300px,84vw);aspect-ratio:1;margin:8px auto;display:grid;place-items:center}
+.ring{position:absolute;inset:0;width:100%;height:100%}
+.rbg{fill:none;stroke:var(--line);stroke-width:6}
+.rfg{fill:none;stroke:var(--c,var(--acc));stroke-width:6;stroke-linecap:round;stroke-dasharray:880;stroke-dashoffset:880}
+.circ{width:38%;aspect-ratio:1;border-radius:50%;background:var(--c,var(--acc));box-shadow:0 0 36px var(--c,var(--acc));opacity:.9;display:grid;place-items:center;color:#fff;font-family:'Baloo 2',sans-serif;font-size:2rem;will-change:transform;transition:background .6s,box-shadow .6s}
+.pbar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:8px 0 12px}
+.pbar i{display:block;height:100%;width:0;background:var(--acc)}
+.fade{animation:fi .7s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.say{transition:opacity .3s}
+</style>
+</head>
+<body>
+<main>
+<h1>Regulación vagal y respiración fisiológica</h1>
+<p class="lead">Guía clínica y audio guiado para interrumpir un episodio de ansiedad aguda o de bloqueo funcional.</p>
+<div class="tabs" role="tablist"><button role="tab" id="t0" aria-selected="true">Guía clínica</button><button role="tab" id="t1" aria-selected="false">Audio guiado</button></div>
+
+<section id="p0">
+<details open><summary>Qué es y cómo actúa</summary><div class="in"><p>Alargar la exhalación y hacerla más lenta que la inhalación se asocia con mayor activación parasimpática (tono vagal): baja la frecuencia cardíaca y la sensación de alerta. El anclaje somático dirige la atención a sensaciones del cuerpo presentes, y saca al paciente del bucle de pensamientos de amenaza.</p><p class="note">La evidencia es de modesta a moderada y varía entre estudios. Es un complemento, no reemplaza el tratamiento.</p></div></details>
+<details><summary>Cuándo usarla</summary><div class="in"><ul><li>Ansiedad aguda, con taquicardia, opresión, nudo en la garganta o manos temblorosas.</li><li>Bloqueo funcional: quedarse en blanco, parálisis ante una tarea, sensación de desconexión.</li><li>Antes de situaciones de alta demanda, o para conciliar el sueño.</li></ul></div></details>
+<details><summary>Técnica 4-7-8</summary><div class="in"><ul><li><b>Inhala</b> por la nariz contando 4.</li><li><b>Sostén</b> el aire contando 7.</li><li><b>Exhala</b> por la boca, despacio, contando 8.</li></ul><p>Empieza con 4 ciclos. Practícala sentado o recostado, 1 o 2 veces al día, para que sea fácil usarla en una crisis.</p></div></details>
+<details><summary>Anclaje somático</summary><div class="in"><ul><li>Presiona los pies contra el suelo y siente el contacto.</li><li>Siente el peso del cuerpo sobre la silla y el respaldo.</li><li>Aprieta los puños unos 5 segundos y suéltalos.</li><li>Sube los hombros hacia las orejas y déjalos caer.</li><li>Nombra en voz baja 3 cosas que ves.</li></ul></div></details>
+<details><summary>Adaptaciones</summary><div class="in"><p>Si la retención de 7 segundos aumenta la ansiedad o genera mareo, usa el patrón adaptado <b>4-4-6</b> o simplemente alarga la exhalación (por ejemplo, inhala 4 y exhala 6). En pacientes con trauma, ofrece mantener los ojos abiertos y permitir pausar en cualquier momento.</p></div></details>
+<details><summary>Precauciones</summary><div class="in"><ul><li>Evitar respiraciones forzadas o muy profundas: pueden causar mareo o hiperventilación.</li><li>Personas con asma, EPOC, enfermedad cardiaca o embarazo de riesgo deben consultarlo antes con su médico.</li><li>No practicar mientras se conduce, se opera maquinaria o se está en el agua.</li><li>Si hay mareo, volver a respirar con normalidad.</li></ul></div></details>
+<div class="warn"><b>Busca atención urgente</b> si hay dolor torácico intenso, falta de aire que no mejora, desmayo o pensamientos de hacerte daño. Llama a los servicios de emergencia de tu país.</div>
+</section>
+
+<section id="p1" class="hid">
+<div class="card">
+<h2>Respiración 4-7-8</h2>
+<div class="opts">
+<label>Patrón <select id="pat"><option value="4,7,8">4-7-8</option><option value="4,4,6">4-4-6 (adaptado)</option></select></label>
+<label>Ciclos <select id="cyc"><option>3</option><option selected>4</option><option>6</option></select></label>
+<label><input type="checkbox" id="vz" checked> Voz</label>
+<label><input type="checkbox" id="sn" checked> Sonido</label>
+</div>
+<div class="orb" id="orb"><svg viewBox="0 0 300 300" class="ring" aria-hidden="true"><circle cx="150" cy="150" r="140" class="rbg"/><circle id="ring" cx="150" cy="150" r="140" class="rfg" transform="rotate(-90 150 150)"/></svg><div class="circ" id="circ" aria-hidden="true">·</div></div>
+<div class="say" id="bsay" aria-live="polite"><b>Siéntate con la espalda apoyada</b><span class="note">Pulsa Empezar cuando estés listo.</span></div>
+<div class="center"><button class="go" id="bgo">Empezar</button> <button class="ghost" id="bst">Detener</button></div>
+</div>
+
+<div class="card">
+<h2>Anclaje somático guiado</h2>
+<p class="note">Seis pasos de unos 15 segundos, con voz.</p>
+<div class="dots" id="adots"></div><div class="pbar" aria-hidden="true"><i id="abar"></i></div>
+<div class="say" id="asay" aria-live="polite"><b>Listo cuando quieras</b></div>
+<div class="center"><button class="go" id="ago">Empezar</button> <button class="ghost" id="ast">Detener</button></div>
+</div>
+<p class="note" id="vnote"></p>
+</section>
+</main>
+<script>
+var $=function(i){return document.getElementById(i)},raf=0,vt=0,ac=null,C=880,
+RM=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches,AMP=RM?.3:.9;
+function loadV(){try{speechSynthesis.getVoices()}catch(e){}}
+loadV();try{speechSynthesis.onvoiceschanged=loadV}catch(e){}
+function say(t){if(!$('vz').checked)return;clearTimeout(vt);try{if(!window.speechSynthesis)return;speechSynthesis.cancel();
+ vt=setTimeout(function(){var u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=.88;var v=speechSynthesis.getVoices().filter(function(x){return /^es/i.test(x.lang)})[0];if(v){u.voice=v;u.lang=v.lang}speechSynthesis.speak(u)},80)}catch(e){}}
+function beep(f){if(!$('sn').checked)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state=='suspended')ac.resume();
+ var o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;o.connect(g);g.connect(ac.destination);
+ g.gain.setValueAtTime(.0001,ac.currentTime);g.gain.exponentialRampToValueAtTime(.06,ac.currentTime+.08);g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+.7);o.start();o.stop(ac.currentTime+.75)}catch(e){}}
+function orb(s,p,t,c){$('circ').style.transform='scale('+s+')';$('ring').style.strokeDashoffset=C*(1-p);$('circ').textContent=t;
+ if(c)$('orb').style.setProperty('--c',c);else $('orb').style.removeProperty('--c')}
+function stopAll(){cancelAnimationFrame(raf);raf=0;clearTimeout(vt);try{speechSynthesis.cancel()}catch(e){}orb(1,0,'·','');$('abar').style.width='0%'}
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+function fade(e){e.classList.remove('fade');void e.offsetWidth;e.classList.add('fade')}
+function resetTxt(){$('bsay').innerHTML='<b>Siéntate con la espalda apoyada</b><span class="note">Pulsa Empezar cuando estés listo.</span>';$('asay').innerHTML='<b>Listo cuando quieras</b>';[].forEach.call($('adots').children,function(d){d.className=''});$('bgo').textContent='Empezar';$('ago').textContent='Empezar'}
+function tab(n){[0,1].forEach(function(i){$('p'+i).classList.toggle('hid',i!=n);$('t'+i).setAttribute('aria-selected',i==n)});stopAll();resetTxt()}
+$('t0').onclick=function(){tab(0)};$('t1').onclick=function(){tab(1)};
+document.addEventListener('visibilitychange',function(){if(document.hidden){stopAll();resetTxt()}});
+
+$('bgo').onclick=function(){stopAll();
+ var p=$('pat').value.split(',').map(Number),n=+$('cyc').value,
+ P=[{t:'Inhala por la nariz',v:'Inhala por la nariz',s:p[0],f:520,c:''},{t:'Sostén el aire',v:'Sostén',s:p[1],f:440,c:'#e0a030'},{t:'Exhala por la boca, despacio',v:'Exhala despacio por la boca',s:p[2],f:330,c:'#5b9fd6'}],
+ L=P[0].s+P[1].s+P[2].s,tot=L*n,t0=performance.now(),last=-1;
+ $('bgo').textContent='Reiniciar';
+ (function f(now){var el=Math.max(0,(now-t0)/1000);
+  if(el>=tot){orb(1,1,'✓','');$('bsay').innerHTML='<b>Terminaste</b><span class="note">Nota cómo está tu cuerpo ahora.</span>';fade($('bsay'));say('Muy bien. Nota cómo está tu cuerpo ahora.');raf=0;return}
+  var c=Math.floor(el/L),r=el-c*L,i=0,o=0;
+  while(i<2&&r>=o+P[i].s){o+=P[i].s;i++}
+  var x=P[i],q=Math.min(1,(r-o)/x.s),key=c*3+i,sc=i==0?1+AMP*ease(q):i==1?1+AMP:1+AMP-AMP*ease(q);
+  if(key!=last){last=key;beep(x.f);say(x.v);$('bsay').innerHTML='<b>'+x.t+'</b><span class="note">Ciclo '+(c+1)+' de '+n+'</span>';fade($('bsay'))}
+  orb(sc,q,Math.ceil(x.s-(r-o)),x.c);
+  raf=requestAnimationFrame(f)})(t0)};
+$('bst').onclick=function(){stopAll();resetTxt();$('bsay').innerHTML='<b>Detenido</b><span class="note">Pulsa Empezar para retomar.</span>'};
+
+var AS=['Siente tus pies en el suelo. Presiónalos suavemente y nota el contacto.','Nota el peso de tu cuerpo sobre la silla y la espalda apoyada.','Aprieta los puños con fuerza, cuenta hasta cinco, y suéltalos.','Sube los hombros hacia las orejas, mantén, y déjalos caer.','Mira a tu alrededor y nombra en voz baja tres cosas que ves.','Inhala por la nariz, y exhala largo por la boca. Estás aquí, y estás a salvo.'];
+$('adots').innerHTML=AS.map(function(){return '<i></i>'}).join('');
+$('ago').onclick=function(){stopAll();$('ago').textContent='Reiniciar';
+ var D=15,t0=performance.now(),last=-1;
+ (function f(now){var el=Math.max(0,(now-t0)/1000),k=Math.floor(el/D);
+  if(k>=AS.length){$('abar').style.width='100%';[].forEach.call($('adots').children,function(d){d.className='on'});$('asay').innerHTML='<b>Listo</b><span class="note">Nota cómo está tu cuerpo ahora.</span>';fade($('asay'));say('Muy bien. Nota cómo está tu cuerpo ahora.');raf=0;return}
+  if(k!=last){last=k;[].forEach.call($('adots').children,function(d,j){d.className=j<=k?'on':''});
+   $('asay').innerHTML='<b>Paso '+(k+1)+' de '+AS.length+'</b>'+AS[k];fade($('asay'));beep(440);say(AS[k])}
+  $('abar').style.width=((el-k*D)/D*100)+'%';
+  raf=requestAnimationFrame(f)})(t0)};
+$('ast').onclick=function(){stopAll();resetTxt();$('asay').innerHTML='<b>Detenido</b>'};
+
+if(!window.speechSynthesis)$('vnote').textContent='Tu navegador no tiene voz integrada. Puedes seguir las instrucciones escritas en pantalla.';
+else $('vnote').textContent='La voz usa las voces de tu dispositivo, por lo que puede sonar distinto según el equipo. Si no la oyes, sube el volumen o sigue el texto en pantalla.';
+</script>
+</body>
+</html>

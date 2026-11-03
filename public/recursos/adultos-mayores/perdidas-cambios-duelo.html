@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afrontamiento de Pérdidas, Cambios y Duelo</title>
+<style>
+:root{--bg:#eef4f4;--card:#fff;--ink:#14202b;--muted:#3f4a5c;--teal:#2f7f8b;--teal-d:#1f6571;--soft:#e4f0f1;--line:#c9d9dc;--warm:#b8432f;--warm-bg:#fbe9e4;--sun:#fbf1d9;--on:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1a20;--card:#17262e;--ink:#f1f6f7;--muted:#c3d0d5;--teal:#6cc0cc;--teal-d:#9bdbe3;--soft:#1f3640;--line:#3a525d;--warm:#f58a74;--warm-bg:#3a2420;--sun:#3a3322;--on:#0f1a20}}
+*{box-sizing:border-box}
+html{font-size:20px}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.65 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;padding:max(16px,env(safe-area-inset-top,0px)) 12px max(28px,env(safe-area-inset-bottom,0px))}
+main{max-width:760px;margin:0 auto;background:var(--card);border-radius:28px;padding:clamp(20px,5vw,40px);box-shadow:0 2px 16px rgba(18,26,46,.08)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.tag{display:inline-block;background:var(--bg);color:var(--muted);font-weight:700;font-size:.8rem;padding:6px 16px;border-radius:12px}
+.size{display:flex;gap:6px;align-items:center;font-size:.8rem;font-weight:700;color:var(--muted)}
+button{font:inherit;cursor:pointer;border:0}
+.size button{background:var(--soft);color:var(--ink);border-radius:12px;min-width:48px;min-height:48px;font-weight:700}
+:focus-visible{outline:4px solid var(--warm);outline-offset:2px}
+h1{font-size:clamp(1.6rem,6vw,2.2rem);line-height:1.2;margin:14px 0 10px}
+.lead{color:var(--muted);margin:0 0 6px}
+.fmt{color:var(--teal-d);font-weight:700;margin:0 0 20px;font-size:.9rem}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tabs button{background:var(--bg);color:var(--ink);font-weight:700;font-size:.8rem;padding:10px 6px;border-radius:14px;min-height:60px;line-height:1.2;border:2px solid transparent}
+.tabs button[aria-selected=true]{background:var(--teal-d);color:var(--on)}
+.panel{margin-top:22px}.panel[hidden]{display:none}
+h2{font-size:1.4rem;margin:0 0 6px;line-height:1.25}
+h3{font-size:1.1rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px}
+.read{background:var(--soft);color:var(--ink);font-weight:700;border-radius:14px;padding:12px 18px;min-height:52px;font-size:.85rem;margin-bottom:14px}
+.cards{display:grid;gap:12px}
+.c{background:var(--soft);border-radius:20px;padding:16px 18px}
+.c p{margin:0}
+.c.sun{background:var(--sun)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+.chip{background:var(--bg);border-radius:999px;padding:8px 16px;font-size:.85rem;font-weight:600}
+.big{font-size:1.15rem;line-height:1.5;font-style:italic;border-left:6px solid var(--teal);padding:4px 0 4px 16px;margin:14px 0}
+details{border:2px solid var(--line);border-radius:18px;margin-bottom:10px}
+summary{padding:14px 18px;font-weight:700;cursor:pointer;min-height:56px;display:flex;align-items:center}
+details .in{padding:0 18px 14px;color:var(--muted)}
+details ul{margin:6px 0 0;padding-left:1.2em}
+details li{margin-bottom:6px}
+label.f{display:block;font-weight:700;margin:18px 0 6px}
+label.f small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+textarea{font:inherit;width:100%;padding:14px;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--ink);min-height:96px;resize:vertical}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cols .c h3{margin-bottom:6px}
+.cols ul{margin:0;padding-left:1.1em}.cols li{margin-bottom:8px}
+.ok{border-top:6px solid var(--teal)}.no{border-top:6px solid var(--warm)}
+.btn{background:var(--teal-d);color:var(--on);font-weight:700;padding:14px 22px;border-radius:16px;min-height:56px;font-size:.9rem}
+.btn.g{background:var(--bg);color:var(--ink)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.check{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:16px;background:var(--soft);margin-bottom:10px;min-height:64px;font-weight:600;cursor:pointer}
+.check input{width:30px;height:30px;accent-color:var(--teal-d);flex:none}
+.help{background:var(--warm-bg);border-radius:20px;padding:16px 18px;margin-top:18px;border-left:8px solid var(--warm)}
+.help p{margin:0 0 6px}.help ul{margin:0 0 8px;padding-left:1.2em}
+.msg{min-height:1.6em;color:var(--teal-d);font-weight:700;margin:10px 0 0}
+.note{font-size:.8rem;color:var(--muted);margin:26px 0 0;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:620px){.cols{grid-template-columns:1fr}.tabs{grid-template-columns:1fr 1fr}}
+@media print{body{background:#fff;padding:0}main{box-shadow:none}.tabs,.size,.row,.read,.noprint{display:none!important}.panel{display:none!important}#p1{display:block!important}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <span class="tag">Apoyo emocional</span>
+    <div class="size" role="group" aria-label="Tamaño de letra">Letra:
+      <button type="button" id="sm" aria-label="Letra más pequeña">A−</button>
+      <button type="button" id="lg" aria-label="Letra más grande">A+</button>
+    </div>
+  </div>
+  <h1>Afrontamiento de Pérdidas, Cambios y Duelo</h1>
+  <p class="lead">Un espacio para reconocer lo que ha vivido, honrar la memoria de lo que ama y encontrar consuelo poco a poco, a su propio ritmo.</p>
+  <p class="fmt">Formato: pautas de diálogo compasivo</p>
+
+  <div class="tabs" role="tablist" aria-label="Secciones">
+    <button role="tab" id="t0" aria-selected="true" aria-controls="p0">Lo que siento</button>
+    <button role="tab" id="t1" aria-selected="false" aria-controls="p1">Mi rincón de memoria</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Cómo conversarlo</button>
+    <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Cuidarme cada día</button>
+  </div>
+
+  <!-- 0 -->
+  <section class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
+    <h2>Lo que usted siente tiene sentido</h2>
+    <p class="sub">Con los años llegan muchas despedidas. Todas merecen ser reconocidas.</p>
+    <button class="read" type="button" data-read="p0">🔊 Escuchar esta sección</button>
+    <p><b>Pérdidas que se viven en esta etapa de la vida:</b></p>
+    <div class="chips">
+      <span class="chip">Un ser querido</span><span class="chip">La pareja</span><span class="chip">Amistades</span><span class="chip">La salud</span><span class="chip">La independencia</span><span class="chip">El trabajo y el rol</span><span class="chip">El hogar</span><span class="chip">Una mascota</span>
+    </div>
+    <div class="big">“El duelo es el amor que ya no tiene a dónde ir.”</div>
+    <div class="cards">
+      <div class="c"><h3>El duelo no tiene fecha</h3><p>No hay un tiempo “correcto” para sentirse mejor. Algunos días serán más suaves y otros más difíciles, y eso es normal.</p></div>
+      <div class="c"><h3>No se siente de una sola manera</h3><p>Puede haber tristeza, cansancio, enojo, culpa, miedo, soledad, olvidos y hasta alivio. Todas son reacciones humanas, no son fallas suyas.</p></div>
+      <div class="c"><h3>Los cambios también duelen</h3><p>Mudarse, dejar de manejar o depender más de otros es una pérdida de lo conocido. Sentir nostalgia por ello es válido.</p></div>
+      <div class="c sun"><h3>Su historia sigue siendo suya</h3><p>Lo que usted ha vivido, aprendido y amado no se pierde. Es parte de quien es hoy.</p></div>
+    </div>
+  </section>
+
+  <!-- 1 -->
+  <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+    <h2>Mi rincón de memoria</h2>
+    <p class="sub">Escriba a su ritmo, con pocas o muchas palabras. Nadie lo corrige. Se guarda solo en este dispositivo.</p>
+    <button class="read" type="button" data-read="p1">🔊 Escuchar esta sección</button>
+    <label class="f" for="m0">¿A quién o qué quiero recordar hoy?</label>
+    <textarea id="m0" data-f="m0" placeholder="Un nombre, un lugar, una etapa de mi vida…"></textarea>
+    <label class="f" for="m1">Un recuerdo que quiero conservar<small>Una escena, un olor, una canción, una risa.</small></label>
+    <textarea id="m1" data-f="m1"></textarea>
+    <label class="f" for="m2">Lo que esa persona o etapa me enseñó, o lo que agradezco</label>
+    <textarea id="m2" data-f="m2"></textarea>
+    <label class="f" for="m3">Algo que me gustaría decirle<small>Como una carta que no necesita enviarse.</small></label>
+    <textarea id="m3" data-f="m3"></textarea>
+    <label class="f" for="m4">Un gesto sencillo para honrar su memoria<small>Por ejemplo: encender una vela, mirar una foto, cocinar su plato favorito, visitar un lugar querido, compartir su historia con la familia.</small></label>
+    <textarea id="m4" data-f="m4"></textarea>
+    <div class="row noprint"><button class="btn" type="button" onclick="window.print()">Imprimir mi rincón</button><button class="btn g" type="button" id="clr">Borrar lo escrito</button></div>
+    <p class="msg" id="msg" aria-live="polite"></p>
+  </section>
+
+  <!-- 2 -->
+  <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <h2>Pautas de diálogo compasivo</h2>
+    <p class="sub">Palabras que cuidan: las que me digo a mí, las que puedo pedir y las que ayudan a quien me acompaña.</p>
+    <button class="read" type="button" data-read="p2">🔊 Escuchar esta sección</button>
+    <details open><summary>Lo que puedo decirme a mí mismo(a)</summary><div class="in"><ul>
+      <li>“Lo que siento es natural. Estoy despidiéndome de algo que amé.”</li>
+      <li>“No tengo que estar bien hoy.”</li>
+      <li>“Puedo extrañar y también seguir adelante poco a poco.”</li>
+      <li>“Hice lo que pude con lo que sabía en ese momento.”</li>
+      <li>“Merezco el mismo cariño que le daría a un buen amigo.”</li></ul></div></details>
+    <details><summary>Cómo pedir lo que necesito a mi familia</summary><div class="in"><ul>
+      <li>“Hoy necesito compañía, no consejos.”</li>
+      <li>“Me ayuda que me escuchen cuando hablo de él o de ella.”</li>
+      <li>“Quiero contarles un recuerdo, ¿tienen un momento?”</li>
+      <li>“Hoy prefiero estar tranquilo(a), pero me hace bien que estén cerca.”</li>
+      <li>“Me gustaría que me acompañaran a una cita con alguien que pueda ayudarme.”</li></ul></div></details>
+    <details open><summary>Para quien me acompaña: qué decir y qué evitar</summary><div class="in">
+      <div class="cols">
+        <div class="c ok"><h3>Sí ayuda decir</h3><ul><li>“Aquí estoy contigo.”</li><li>“¿Quieres contarme cómo era?”</li><li>“Lo que sientes tiene sentido.”</li><li>“No tienes que hacerlo solo(a).”</li><li>“¿Qué te haría bien hoy?”</li></ul></div>
+        <div class="c no"><h3>Mejor evitar</h3><ul><li>“Tienes que ser fuerte.”</li><li>“Ya pasó mucho tiempo.”</li><li>“Al menos tuvo una vida larga.”</li><li>“A tu edad es normal.”</li><li>“No llores.”</li></ul></div>
+      </div>
+      <p style="margin-top:12px"><b>Escuchar vale más que explicar.</b> Permita el silencio, deje que repita sus historias y no apresure el consuelo.</p>
+    </div></details>
+    <details><summary>Preguntas para conversar y recordar juntos</summary><div class="in"><ul>
+      <li>¿Qué es lo que más te gustaba de esa persona?</li>
+      <li>¿Qué momento compartido te hace sonreír?</li>
+      <li>¿Qué consejo suyo sigues recordando?</li>
+      <li>¿Qué tradición quisieras mantener en su honor?</li></ul></div></details>
+  </section>
+
+  <!-- 3 -->
+  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+    <h2>Cuidarme poco a poco</h2>
+    <p class="sub">Pequeños pasos, sin exigencias. Marque lo que logre hoy. No hace falta cumplirlo todo.</p>
+    <button class="read" type="button" data-read="p3">🔊 Escuchar esta sección</button>
+    <div id="chk"></div>
+    <div class="help">
+      <h3>Cuándo conviene buscar ayuda profesional</h3>
+      <ul>
+        <li>Si la tristeza no cede por semanas y le impide comer, dormir o cuidarse.</li>
+        <li>Si se siente muy solo(a) o sin ganas de ver a nadie.</li>
+        <li>Si la culpa o el enojo no le dan descanso.</li>
+      </ul>
+      <p><b>Si ha pensado en hacerse daño o que preferiría no vivir:</b> dígaselo hoy mismo a un familiar o persona de confianza, y llame a emergencias de su país (en Colombia, 123). No tiene que pasar por esto solo(a).</p>
+    </div>
+  </section>
+
+  <p class="note">Este material acompaña, pero no reemplaza la atención de un psicólogo o médico. Hablar con un profesional del duelo es un acto de cuidado, no de debilidad.</p>
+</main>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},st={};
+  try{st=JSON.parse(localStorage.getItem('duelo_am')||'{}')}catch(e){}
+  function put(){try{localStorage.setItem('duelo_am',JSON.stringify(st))}catch(e){}}
+
+  var sizes=[17,20,23,26],si=1;
+  if(st._s!=null)si=st._s;
+  function ap(){document.documentElement.style.fontSize=sizes[si]+'px';st._s=si;put()}
+  $('sm').addEventListener('click',function(){si=Math.max(0,si-1);ap()});
+  $('lg').addEventListener('click',function(){si=Math.min(3,si+1);ap()});
+  ap();
+
+  var tabs=[0,1,2,3].map(function(i){return $('t'+i)});
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){
+    stopSpeak();
+    tabs.forEach(function(x,j){x.setAttribute('aria-selected',j===i);$('p'+j).hidden=j!==i});
+  })});
+
+  [].forEach.call(document.querySelectorAll('[data-f]'),function(el){
+    var k=el.getAttribute('data-f');if(st[k])el.value=st[k];
+    el.addEventListener('input',function(){st[k]=el.value;put();$('msg').textContent=''});
+  });
+  $('clr').addEventListener('click',function(){
+    [].forEach.call(document.querySelectorAll('[data-f]'),function(el){el.value='';delete st[el.getAttribute('data-f')]});
+    put();$('msg').textContent='Se borró lo escrito.';
+  });
+
+  var C=['Salir a la luz del día o dar un paseo corto','Comer algo y tomar agua','Hablar con una persona querida','Hacer algo que me guste un rato','Recordar con cariño a quien extraño','Descansar sin culpa'],
+      d=new Date().toISOString().slice(0,10),chk=$('chk');
+  if(st._d!==d){st._d=d;st.ck={};put()}
+  C.forEach(function(t,i){
+    var l=document.createElement('label');l.className='check';
+    l.innerHTML='<input type="checkbox"> <span></span>';
+    l.lastChild.textContent=t;
+    var c=l.firstChild;c.checked=!!st.ck[i];
+    c.addEventListener('change',function(){st.ck[i]=c.checked;put()});
+    chk.appendChild(l);
+  });
+
+  var speaking=false;
+  function stopSpeak(){try{speechSynthesis.cancel()}catch(e){}speaking=false;[].forEach.call(document.querySelectorAll('.read'),function(b){b.textContent='🔊 Escuchar esta sección'})}
+  [].forEach.call(document.querySelectorAll('[data-read]'),function(b){
+    b.addEventListener('click',function(){
+      if(!('speechSynthesis' in window)){b.textContent='Su dispositivo no tiene lectura en voz alta';return}
+      if(speaking){stopSpeak();return}
+      var p=$(b.getAttribute('data-read')),clone=p.cloneNode(true);
+      [].forEach.call(clone.querySelectorAll('.read,textarea,.row,.msg'),function(n){n.remove()});
+      var u=new SpeechSynthesisUtterance(clone.innerText||clone.textContent);
+      u.lang='es-419';u.rate=.9;u.onend=function(){stopSpeak()};
+      speaking=true;b.textContent='⏹ Detener lectura';speechSynthesis.speak(u);
+    });
+  });
+})();
+</script>
+</body>
+</html>

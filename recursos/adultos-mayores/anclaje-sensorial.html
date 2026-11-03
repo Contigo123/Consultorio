@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de anclaje sensorial</title>
+<style>
+:root{
+  --bg:#f3f6f9; --card:#ffffff; --ink:#141a2e; --muted:#566074; --line:#e3e8ee;
+  --teal:#0b9a9a; --teal-soft:#e3f4f4; --chip:#eceff4; --chip-ink:#4b5668;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",system-ui,-apple-system,sans-serif}
+.page{max-width:820px;margin:0 auto;padding:32px 20px 56px}
+h1{font-size:2rem;line-height:1.2;margin:14px 0 8px;font-weight:800}
+.lead{color:var(--muted);font-size:1.08rem;max-width:62ch;margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;margin-bottom:20px}
+h2{font-size:1.2rem;margin:0 0 4px;font-weight:800}
+.sub{color:var(--muted);margin:0 0 16px;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.anchor{border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:14px;padding:16px;background:#fbfcfd}
+.anchor h3{margin:0 0 2px;font-size:1rem}
+.anchor p{margin:0 0 10px;color:var(--muted);font-size:.9rem}
+label{display:block;font-size:.82rem;font-weight:700;color:var(--chip-ink);margin:10px 0 4px}
+input,textarea,select{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:#fff;border:1px solid #cdd5df;border-radius:10px;padding:9px 11px}
+textarea{resize:vertical;min-height:70px}
+input:focus,textarea:focus,select:focus{outline:3px solid var(--teal-soft);border-color:var(--teal)}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+ol.steps{margin:0;padding-left:20px}
+ol.steps li{margin-bottom:8px}
+ol.steps li::marker{color:var(--teal);font-weight:800}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{text-align:left;background:var(--teal-soft);color:#075f5f;padding:8px;font-size:.82rem}
+td{border-bottom:1px solid var(--line);padding:4px}
+td input{border:0;border-radius:6px;padding:7px 6px;background:transparent}
+td input:focus{background:#fff}
+.note{background:var(--teal-soft);border-radius:12px;padding:12px 16px;color:#0a5555;font-size:.92rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+button{font:inherit;font-weight:700;background:var(--teal);color:#fff;border:2px solid var(--teal);border-radius:12px;padding:11px 22px;cursor:pointer}
+button.sec{background:#fff;color:var(--teal)}
+button:hover{filter:brightness(.92)}
+button:focus-visible{outline:3px solid #8fdada;outline-offset:2px}
+button:disabled{opacity:.6;cursor:wait}
+#estado{text-align:center;color:var(--muted);font-size:.9rem;min-height:1.4em;margin-top:10px}
+@media print{body{background:#fff}.actions,#estado{display:none}.card{break-inside:avoid}}
+@media (max-width:640px){.grid,.row{grid-template-columns:1fr}.card{padding:20px}h1{font-size:1.6rem}table{display:block;overflow-x:auto}}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="card">
+    <h1>Guía de anclaje sensorial</h1>
+    <p class="lead">Herramienta de registro para identificar qué estímulos tranquilizan a la persona y usarlos para ayudarla a ubicarse en el tiempo.</p>
+  </header>
+
+  <section class="card">
+    <h2>Datos de la sesión</h2>
+    <p class="sub">Complete antes de comenzar.</p>
+    <div class="row">
+      <div><label for="nombre">Nombre de la persona</label><input id="nombre" type="text"></div>
+      <div><label for="fecha">Fecha</label><input id="fecha" type="date"></div>
+      <div><label for="momento">Momento del día</label>
+        <select id="momento"><option value="">Seleccione</option><option>Mañana</option><option>Mediodía</option><option>Tarde</option><option>Noche</option></select></div>
+    </div>
+    <label for="responsable">Responsable de la sesión</label><input id="responsable" type="text">
+  </section>
+
+  <section class="card">
+    <h2>Anclas personales</h2>
+    <p class="sub">Anote qué le resulta agradable a la persona en cada sentido.</p>
+    <div class="grid">
+      <div class="anchor">
+        <h3>Recuerdos agradables</h3>
+        <p>Personas, lugares o momentos que le traen calma.</p>
+        <label for="rec1">Recuerdo o historia</label><textarea id="rec1"></textarea>
+        <label for="rec2">Objeto o fotografía asociada</label><input id="rec2" type="text">
+      </div>
+      <div class="anchor">
+        <h3>Texturas confortables</h3>
+        <p>Materiales suaves que se pueden tocar sin esfuerzo.</p>
+        <label for="tex1">Textura preferida</label><input id="tex1" type="text" placeholder="Manta, lana, peluche…">
+        <label for="tex2">Dónde se guarda y cómo se ofrece</label><textarea id="tex2"></textarea>
+      </div>
+      <div class="anchor">
+        <h3>Aromas familiares</h3>
+        <p>Olores conocidos, suaves y sin saturar el ambiente.</p>
+        <label for="aro1">Aroma preferido</label><input id="aro1" type="text" placeholder="Lavanda, café, jabón…">
+        <label for="aro2">Aroma que debe evitarse</label><input id="aro2" type="text">
+      </div>
+      <div class="anchor">
+        <h3>Música calmante</h3>
+        <p>Melodías conocidas a volumen bajo.</p>
+        <label for="mus1">Canción o artista</label><input id="mus1" type="text">
+        <label for="mus2">Volumen y duración sugeridos</label><input id="mus2" type="text">
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Orientación temporal</h2>
+    <p class="sub">Use el ancla elegida como puente suave hacia el aquí y el ahora, sin corregir ni presionar.</p>
+    <div class="row">
+      <div><label for="dia">Hoy es…</label><input id="dia" type="text" placeholder="Día de la semana"></div>
+      <div><label for="est">Estación o clima</label><input id="est" type="text"></div>
+      <div><label for="rut">Siguiente actividad</label><input id="rut" type="text" placeholder="Almuerzo, paseo, visita…"></div>
+    </div>
+    <label for="frase">Frase tranquilizadora para orientar</label>
+    <input id="frase" type="text" placeholder="Ejemplo: «Es martes por la tarde y estás en casa, a salvo.»">
+  </section>
+
+  <section class="card">
+    <h2>Cómo aplicar la guía</h2>
+    <ol class="steps">
+      <li>Prepare un espacio tranquilo, con poca luz y sin ruidos fuertes.</li>
+      <li>Salude por su nombre y explique con calma lo que va a ofrecer.</li>
+      <li>Presente una sola ancla a la vez: textura, aroma o música.</li>
+      <li>Observe la respuesta. Si hay malestar, retire el estímulo.</li>
+      <li>Cuando note calma, mencione con suavidad el día, el lugar y la próxima actividad.</li>
+      <li>Cierre la sesión y registre lo observado.</li>
+    </ol>
+    <p class="note" style="margin-top:16px">Si un estímulo genera angustia o rechazo, deténgalo y no lo vuelva a usar sin revisarlo con el equipo profesional.</p>
+  </section>
+
+  <section class="card">
+    <h2>Registro de observaciones</h2>
+    <p class="sub">Anote cómo respondió la persona a cada ancla.</p>
+    <table>
+      <thead><tr><th>Ancla usada</th><th>Duración</th><th>Respuesta observada</th><th>¿Funcionó?</th></tr></thead>
+      <tbody>
+        <tr><td><input aria-label="Ancla 1"></td><td><input aria-label="Duración 1"></td><td><input aria-label="Respuesta 1"></td><td><input aria-label="Resultado 1"></td></tr>
+        <tr><td><input aria-label="Ancla 2"></td><td><input aria-label="Duración 2"></td><td><input aria-label="Respuesta 2"></td><td><input aria-label="Resultado 2"></td></tr>
+        <tr><td><input aria-label="Ancla 3"></td><td><input aria-label="Duración 3"></td><td><input aria-label="Respuesta 3"></td><td><input aria-label="Resultado 3"></td></tr>
+        <tr><td><input aria-label="Ancla 4"></td><td><input aria-label="Duración 4"></td><td><input aria-label="Respuesta 4"></td><td><input aria-label="Resultado 4"></td></tr>
+      </tbody>
+    </table>
+    <label for="obs">Observaciones generales y ajustes para la próxima sesión</label>
+    <textarea id="obs"></textarea>
+  </section>
+  <div class="actions">
+    <button type="button" id="btnPdf">Descargar PDF</button>
+    <button type="button" id="btnPrint" class="sec">Imprimir</button>
+  </div>
+  <p id="estado" role="status"></p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const estado=document.getElementById('estado');
+const btnPdf=document.getElementById('btnPdf');
+
+document.getElementById('btnPrint').addEventListener('click',()=>{
+  try{window.print();}catch(e){estado.textContent='Su navegador bloqueó la impresión. Use el botón Descargar PDF.';}
+});
+
+btnPdf.addEventListener('click',async()=>{
+  if(!window.jspdf||!window.html2canvas){
+    estado.textContent='No se pudo cargar el generador de PDF (se necesita conexión a internet). Intente de nuevo o use Imprimir.';
+    return;
+  }
+  btnPdf.disabled=true; estado.textContent='Generando PDF…';
+  try{
+    const doc=new window.jspdf.jsPDF({unit:'mm',format:'a4'});
+    const W=210,H=297,M=10,CW=W-2*M,CH=H-2*M;
+    let y=M;
+    const bloques=[...document.querySelectorAll('main > .card')];
+    for(const el of bloques){
+      const canvas=await html2canvas(el,{
+        scale:2,backgroundColor:'#ffffff',
+        onclone:(d)=>{
+          d.body.style.background='#fff';
+          d.querySelectorAll('textarea').forEach(t=>{
+            const div=d.createElement('div');
+            div.textContent=t.value;
+            div.setAttribute('style','white-space:pre-wrap;word-break:break-word;min-height:70px;border:1px solid #cdd5df;border-radius:10px;padding:9px 11px;font-size:.95rem;background:#fff;color:#141a2e');
+            t.replaceWith(div);
+          });
+        }
+      });
+      let w=CW,h=canvas.height*w/canvas.width;
+      if(h>CH){h=CH;w=canvas.width*h/canvas.height;}
+      if(y+h>H-M){doc.addPage();y=M;}
+      doc.addImage(canvas.toDataURL('image/jpeg',0.95),'JPEG',M,y,w,h);
+      y+=h+4;
+    }
+    const nombre=(document.getElementById('nombre').value||'sesion').trim().replace(/\s+/g,'-');
+    doc.save('guia-anclaje-'+nombre+'.pdf');
+    estado.textContent='PDF descargado.';
+  }catch(e){
+    estado.textContent='No se pudo generar el PDF. Intente con Imprimir.';
+  }finally{
+    btnPdf.disabled=false;
+  }
+});
+</script>
+</body>
+</html>

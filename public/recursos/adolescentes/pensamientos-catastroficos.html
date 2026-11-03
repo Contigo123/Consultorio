@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Manejo de Pensamientos Catastróficos e Intensos</title>
+<style>
+:root{--bg:#edf4f6;--card:#fff;--ink:#121a2e;--muted:#4d5670;--teal:#3f97a3;--teal-d:#2b6f79;--soft:#e3f0f2;--line:#d9e4e8;--warm:#e0533d;--warm-bg:#fdeae6;--amber-bg:#fdf3dc;--green-bg:#e3f4ea;--on:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1a20;--card:#17262e;--ink:#eef4f6;--muted:#a9b9c0;--teal:#5fb8c4;--teal-d:#8fd3dc;--soft:#1f3640;--line:#2a3f49;--warm:#f27a64;--warm-bg:#3a2420;--amber-bg:#3a3020;--green-bg:#1c3328;--on:#0f1a20}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;padding:max(18px,env(safe-area-inset-top,0px)) 14px max(28px,env(safe-area-inset-bottom,0px))}
+main{max-width:720px;margin:0 auto;background:var(--card);border-radius:28px;padding:clamp(20px,5vw,40px);box-shadow:0 2px 16px rgba(18,26,46,.08)}
+.tag{display:inline-block;background:var(--bg);color:var(--muted);font-weight:700;font-size:.85rem;padding:6px 16px;border-radius:12px}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin:14px 0 10px;letter-spacing:-.02em}
+.lead{color:var(--muted);font-size:1.05rem;margin:0 0 6px;max-width:60ch}
+.fmt{color:var(--teal);font-weight:700;margin:0 0 20px}
+button{font:inherit;cursor:pointer;border:0}
+:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+.prog{display:flex;gap:6px;margin:0 0 6px;padding:0;list-style:none}
+.prog li{flex:1}
+.prog button{width:100%;height:10px;border-radius:6px;background:var(--line);padding:0}
+.prog button.done{background:var(--teal)}
+.prog button[aria-current=step]{background:var(--teal-d)}
+.where{font-size:.9rem;color:var(--muted);font-weight:700;margin:0 0 14px}
+section.step{display:none}
+section.step.on{display:block}
+h2{font-size:1.35rem;margin:0 0 4px;line-height:1.25}
+.sub{color:var(--muted);margin:0 0 16px}
+.big{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--teal-d);color:var(--on);font-weight:700;margin-right:10px;vertical-align:middle}
+label.f{display:block;font-weight:700;margin:16px 0 6px}
+label.f small{display:block;font-weight:400;color:var(--muted)}
+textarea,select{font:inherit;width:100%;padding:12px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);min-height:48px;resize:vertical}
+textarea{min-height:84px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--bg);color:var(--ink);border-radius:999px;padding:9px 14px;font-weight:600;font-size:.92rem;border:2px solid transparent;min-height:44px}
+.chip[aria-pressed=true]{background:var(--soft);border-color:var(--teal-d);color:var(--ink)}
+.range{background:var(--soft);border-radius:18px;padding:14px 16px;margin-top:6px}
+.range b{font-size:1.6rem}
+input[type=range]{width:100%;accent-color:var(--teal-d);height:34px}
+.rl{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted)}
+.nav{display:flex;gap:10px;margin-top:22px;justify-content:space-between}
+.btn{background:var(--teal-d);color:var(--on);font-weight:700;padding:13px 22px;border-radius:14px;min-height:48px}
+.btn.g{background:var(--bg);color:var(--ink)}
+.box{border-radius:18px;padding:14px 16px;margin:14px 0}
+.box.info{background:var(--soft)}.box.warn{background:var(--warm-bg)}.box.ok{background:var(--green-bg)}.box.amb{background:var(--amber-bg)}
+.box p{margin:0}.box p+p{margin-top:6px}
+details{border:2px solid var(--line);border-radius:16px;margin-bottom:8px}
+summary{padding:12px 16px;font-weight:700;cursor:pointer;min-height:48px;display:flex;align-items:center}
+details div{padding:0 16px 12px;color:var(--muted)}
+.orbwrap{display:grid;place-items:center;height:210px}
+.orb{width:110px;height:110px;border-radius:50%;background:var(--teal);color:var(--on);display:grid;place-items:center;text-align:center;font-weight:700;transition-property:transform;transition-timing-function:ease-in-out}
+.orb.in{transform:scale(1.5)}
+.orb small{display:block;font-size:1.5rem;line-height:1}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.q{border-left:6px solid var(--teal);padding-left:12px;margin:18px 0 0}
+.q h3{margin:0;font-size:1.05rem}
+.q p{margin:2px 0 0;color:var(--muted);font-size:.92rem}
+.sum{border:2px solid var(--line);border-radius:20px;padding:6px 18px 14px}
+.sum dt{font-weight:700;color:var(--teal-d);margin-top:12px;font-size:.9rem}
+.sum dd{margin:2px 0 0}
+.delta{display:flex;align-items:center;gap:14px;font-size:1.6rem;font-weight:700;margin:6px 0}
+.delta span.a{color:var(--warm)}.delta span.b{color:var(--teal-d)}
+.hist{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;font-size:.9rem;color:var(--muted)}
+.hist li{background:var(--bg);border-radius:12px;padding:8px 12px}
+.note{font-size:.85rem;color:var(--muted);margin:24px 0 0;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:560px){.cols{grid-template-columns:1fr}.nav{flex-wrap:wrap}.nav .btn{flex:1}}
+@media print{body{background:#fff;padding:0}main{box-shadow:none}.nav,.prog,.where,.noprint{display:none!important}section.step{display:none!important}section#s5{display:block!important}}
+@media (prefers-reduced-motion:reduce){.orb{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Reestructuración</span>
+  <h1>Manejo de Pensamientos Catastróficos e Intensos</h1>
+  <p class="lead">Técnica “Detente, Respira, Cuestiona”: ¿este pensamiento es un hecho real o es mi miedo hablando? ¿Qué le diría a mi mejor amigo?</p>
+  <p class="fmt">Formato: ejercicio cognitivo guiado</p>
+
+  <ol class="prog" id="prog" aria-label="Pasos del ejercicio"></ol>
+  <p class="where" id="where"></p>
+
+  <!-- 0 Conoce -->
+  <section class="step on" id="s0" aria-labelledby="h0">
+    <h2 id="h0">Primero, entiende qué te pasa</h2>
+    <p class="sub">Un pensamiento catastrófico es la mente imaginando el peor resultado posible y creyéndolo como si ya fuera un hecho.</p>
+    <div class="box info">
+      <p><b>¿Por qué ayuda este ejercicio?</b></p>
+      <p>Cuando sientes miedo, la amígdala da la alarma y el córtex prefrontal (que evalúa, compara y planifica) pierde protagonismo. Detenerte y respirar le devuelve el mando. Cuestionar activa justo ese razonamiento.</p>
+    </div>
+    <p><b>Las trampas mentales más comunes</b> (toca para ver un ejemplo):</p>
+    <details><summary>Catastrofizar</summary><div>Imaginar lo peor. <i>“Si saco una mala nota, arruinaré mi futuro.”</i></div></details>
+    <details><summary>Adivinar el futuro</summary><div>Dar por seguro lo que aún no pasa. <i>“Seguro me va a ir mal.”</i></div></details>
+    <details><summary>Leer la mente</summary><div>Creer que sabes lo que otros piensan. <i>“Todos creen que soy raro.”</i></div></details>
+    <details><summary>Todo o nada</summary><div>Ver solo extremos. <i>“Si no es perfecto, es un fracaso.”</i></div></details>
+    <details><summary>Los “debería”</summary><div>Exigencias rígidas. <i>“Debería poder con esto sin ayuda.”</i></div></details>
+    <details><summary>Generalizar</summary><div>Una vez es siempre. <i>“Siempre lo arruino todo.”</i></div></details>
+    <div class="box ok"><p><b>La técnica en 3 pasos:</b> <b>Detente</b> (nota el pensamiento) → <b>Respira</b> (calma el cuerpo) → <b>Cuestiona</b> (revisa si es un hecho o un miedo).</p></div>
+    <div class="nav"><span></span><button class="btn" data-go="1" type="button">Empezar</button></div>
+  </section>
+
+  <!-- 1 Detente -->
+  <section class="step" id="s1" aria-labelledby="h1">
+    <h2 id="h1"><span class="big">1</span>Detente</h2>
+    <p class="sub">Pausa. Nota que apareció un pensamiento intenso y ponle nombre, sin juzgarte.</p>
+    <button class="chip noprint" id="ex" type="button" style="margin-bottom:4px">Ver un ejemplo ya escrito</button>
+    <label class="f" for="thought">¿Cuál es el pensamiento?<small>Escríbelo tal como te llega a la cabeza.</small></label>
+    <textarea id="thought" data-f="thought" placeholder="Ej.: Si me equivoco en la exposición, todos se reirán y me quedaré sin amigos."></textarea>
+    <label class="f">¿Qué trampa mental se parece más?<small>Puedes elegir varias.</small></label>
+    <div class="chips" id="traps"></div>
+    <div class="range">
+      <label for="b" style="font-weight:700">¿Cuánto miedo o malestar sientes ahora? <b id="bV">50</b>/100</label>
+      <input type="range" id="b" data-f="before" min="0" max="100" value="50">
+      <div class="rl"><span>Muy poco</span><span>Máximo</span></div>
+    </div>
+    <div class="box warn"><p><b>Importante:</b> si el pensamiento es sobre hacerte daño o no querer vivir, no lo trabajes solo. Avisa ya a un adulto de confianza o al consultorio, y llama a emergencias si hay peligro (en Colombia, 123).</p></div>
+    <div class="nav"><button class="btn g" data-go="0" type="button">Atrás</button><button class="btn" data-go="2" type="button">Seguir a Respira</button></div>
+  </section>
+
+  <!-- 2 Respira -->
+  <section class="step" id="s2" aria-labelledby="h2">
+    <h2 id="h2"><span class="big">2</span>Respira</h2>
+    <p class="sub">Inhala 4 segundos por la nariz y exhala 6 por la boca. La exhala larga le dice al cuerpo que hay seguridad.</p>
+    <div class="orbwrap"><div class="orb" id="orb" aria-live="polite"><div><small id="oN">·</small><span id="oL">Listo</span></div></div></div>
+    <p style="text-align:center;color:var(--muted);margin:0" id="oC">3 ciclos · unos 30 segundos</p>
+    <div class="nav" style="justify-content:center"><button class="btn" id="bgo" type="button">Iniciar respiración</button></div>
+    <div class="nav"><button class="btn g" data-go="1" type="button">Atrás</button><button class="btn" data-go="3" type="button">Seguir a Cuestiona</button></div>
+  </section>
+
+  <!-- 3 Cuestiona -->
+  <section class="step" id="s3" aria-labelledby="h3">
+    <h2 id="h3"><span class="big">3</span>Cuestiona</h2>
+    <p class="sub">Trata el pensamiento como una hipótesis, no como una verdad. Responde con calma.</p>
+    <div class="q"><h3>¿Es un hecho real o es mi miedo hablando?</h3><p>Un hecho se puede comprobar. Un miedo es una predicción sobre lo que podría pasar.</p></div>
+    <div class="chips" id="fact" style="margin-top:10px"></div>
+    <div class="box info" id="factMsg" aria-live="polite" hidden></div>
+    <div class="q"><h3>¿Qué pruebas tengo?</h3></div>
+    <div class="cols">
+      <div><label class="f" for="evFor" style="margin-top:8px">A favor del pensamiento</label><textarea id="evFor" data-f="evFor" placeholder="Lo que realmente ha pasado"></textarea></div>
+      <div><label class="f" for="evAg" style="margin-top:8px">En contra del pensamiento</label><textarea id="evAg" data-f="evAg" placeholder="Veces en que salió mejor de lo temido"></textarea></div>
+    </div>
+    <div class="q"><h3>¿Qué le diría a mi mejor amigo?</h3><p>Imagina que él o ella te cuenta este mismo pensamiento. ¿Qué le responderías con cariño?</p></div>
+    <textarea id="friend" data-f="friend" style="margin-top:10px" placeholder="Le diría que…"></textarea>
+    <div class="q"><h3>Mirando todo el panorama</h3></div>
+    <label class="f" for="worst" style="margin-top:8px">Lo peor que podría pasar<small>Y si pasara, ¿cómo lo afrontaría?</small></label><textarea id="worst" data-f="worst"></textarea>
+    <label class="f" for="best">Lo mejor que podría pasar</label><textarea id="best" data-f="best"></textarea>
+    <label class="f" for="likely">Lo más probable</label><textarea id="likely" data-f="likely"></textarea>
+    <label class="f" for="action">¿Qué sí puedo hacer yo ahora?<small>Una acción pequeña y concreta.</small></label><textarea id="action" data-f="action"></textarea>
+    <div class="nav"><button class="btn g" data-go="2" type="button">Atrás</button><button class="btn" data-go="4" type="button">Seguir a Reencuadrar</button></div>
+  </section>
+
+  <!-- 4 Reencuadra -->
+  <section class="step" id="s4" aria-labelledby="h4">
+    <h2 id="h4"><span class="big">4</span>Un pensamiento más equilibrado</h2>
+    <p class="sub">No se trata de pensar en positivo a la fuerza, sino de pensar algo más justo y útil.</p>
+    <div class="box amb"><p><b>Pensamiento original:</b> <span id="orig"></span></p></div>
+    <label class="f" for="bal">Escribe una versión más equilibrada<small>Que tenga en cuenta las pruebas y lo más probable. Ej.: “Puede que me ponga nervioso, pero ya he hablado en público antes y puedo seguir aunque me equivoque.”</small></label>
+    <textarea id="bal" data-f="bal"></textarea>
+    <div class="range">
+      <label for="a" style="font-weight:700">¿Cuánto miedo sientes ahora? <b id="aV">50</b>/100</label>
+      <input type="range" id="a" data-f="after" min="0" max="100" value="50">
+      <div class="rl"><span>Muy poco</span><span>Máximo</span></div>
+    </div>
+    <div class="box info"><p>Si el miedo no bajó, es normal. Repite la respiración, revisa si hay otra trampa mental o apóyate en tu red. Practicarlo muchas veces es lo que hace que funcione.</p></div>
+    <div class="nav"><button class="btn g" data-go="3" type="button">Atrás</button><button class="btn" data-go="5" type="button">Ver mi resumen</button></div>
+  </section>
+
+  <!-- 5 Resumen -->
+  <section class="step" id="s5" aria-labelledby="h5">
+    <h2 id="h5">Mi resumen</h2>
+    <p class="sub">Esto es lo que trabajaste hoy.</p>
+    <div class="delta" id="delta" aria-live="polite"></div>
+    <dl class="sum" id="sum"></dl>
+    <div class="nav noprint" style="justify-content:flex-start;flex-wrap:wrap">
+      <button class="btn" id="save" type="button">Guardar registro</button>
+      <button class="btn g" id="copy" type="button">Copiar resumen</button>
+      <button class="btn g" onclick="window.print()" type="button">Imprimir</button>
+      <button class="btn g" id="again" type="button">Empezar de nuevo</button>
+    </div>
+    <p class="noprint" id="msg" aria-live="polite" style="color:var(--teal-d);font-weight:700;min-height:1.5em"></p>
+    <div class="noprint" id="histBox" hidden><b>Mis últimos registros (solo en este dispositivo)</b><ul class="hist" id="hist"></ul></div>
+  </section>
+
+  <p class="note">Este ejercicio apoya el trabajo con tu psicólogo, no lo reemplaza. Si los pensamientos intensos son frecuentes o te impiden hacer tu vida, llévalo al consultorio. Si hay riesgo para ti u otras personas, avisa ya a un adulto y llama a emergencias de tu país (en Colombia, 123).</p>
+</main>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},S={traps:[],fact:''},cur=0;
+  var NAMES=['Conoce','Detente','Respira','Cuestiona','Reencuadra','Resumen'];
+  var prog=$('prog');
+  NAMES.forEach(function(n,i){var li=document.createElement('li'),b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir a '+n);b.addEventListener('click',function(){go(i)});li.appendChild(b);prog.appendChild(li)});
+  function go(i){
+    cur=i;
+    [].forEach.call(document.querySelectorAll('section.step'),function(s,k){s.classList.toggle('on',k===i)});
+    [].forEach.call(prog.querySelectorAll('button'),function(b,k){b.className=k<i?'done':'';if(k===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});
+    $('where').textContent='Paso '+(i+1)+' de 6 · '+NAMES[i];
+    if(i===4)$('orig').textContent=S.thought||'(aún no lo escribiste)';
+    if(i===5)summary();
+    window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  }
+  [].forEach.call(document.querySelectorAll('[data-go]'),function(b){b.addEventListener('click',function(){go(+b.getAttribute('data-go'))})});
+
+  [].forEach.call(document.querySelectorAll('[data-f]'),function(el){
+    var f=el.getAttribute('data-f');
+    el.addEventListener('input',function(){S[f]=el.value;if(f==='before')$('bV').textContent=el.value;if(f==='after')$('aV').textContent=el.value});
+  });
+  S.before=50;S.after=50;
+
+  var T=['Catastrofizar','Adivinar el futuro','Leer la mente','Todo o nada','Los “debería”','Generalizar'],tc=$('traps');
+  T.forEach(function(t){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=t;b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);
+      S.traps=on?S.traps.concat(t):S.traps.filter(function(x){return x!==t})});tc.appendChild(b)});
+
+  var F=[['Es un hecho','Si de verdad es un hecho, pregúntate: ¿puedo comprobarlo con algo que alguien podría ver o medir? Si no, probablemente sea una interpretación.'],
+         ['Es mi miedo hablando','Muy bien por notarlo. El miedo cuenta una historia posible, no una certeza. Revisa las pruebas y pasa al siguiente paso.'],
+         ['No lo sé aún','Está bien. Completa las pruebas a favor y en contra, y vuelve a esta pregunta al final.']],fc=$('fact');
+  F.forEach(function(f){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=f[0];b.setAttribute('aria-pressed','false');
+    b.addEventListener('click',function(){[].forEach.call(fc.children,function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');S.fact=f[0];$('factMsg').hidden=false;$('factMsg').textContent=f[1]});fc.appendChild(b)});
+
+  $('ex').addEventListener('click',function(){
+    var d={thought:'Si me equivoco en la exposición, todos se reirán y me quedaré sin amigos.',evFor:'Una vez me trabé y alguien hizo una broma.',evAg:'Casi siempre me ha ido bien. Mis amigos me apoyan.',friend:'Le diría que equivocarse es normal y que sus amigos lo valoran por cómo es.',worst:'Me trabo y siento vergüenza un rato. Lo superaría hablando con mi amiga.',best:'Lo hago bien y me siento orgulloso.',likely:'Me pongo nervioso, hago una pausa y sigo.',action:'Ensayar la exposición dos veces y respirar antes de empezar.',bal:'Puede que me ponga nervioso, pero ya he hablado antes y puedo seguir aunque me equivoque.'};
+    Object.keys(d).forEach(function(k){S[k]=d[k];var el=document.querySelector('[data-f="'+k+'"]');if(el)el.value=d[k]});
+    S.before=70;S.after=35;$('b').value=70;$('bV').textContent=70;$('a').value=35;$('aV').textContent=35;
+    S.traps=['Catastrofizar','Leer la mente'];[].forEach.call(tc.children,function(b){b.setAttribute('aria-pressed',S.traps.indexOf(b.textContent)>-1)});
+    S.fact=F[1][0];[].forEach.call(fc.children,function(b,k){b.setAttribute('aria-pressed',k===1)});$('factMsg').hidden=false;$('factMsg').textContent=F[1][1];
+  });
+
+  var run=null,orb=$('orb');
+  function stopB(){if(run){clearInterval(run);run=null}orb.classList.remove('in');$('oN').textContent='·';$('oL').textContent='Listo';$('bgo').textContent='Iniciar respiración'}
+  $('bgo').addEventListener('click',function(){
+    if(run){stopB();return}
+    var t=0;$('bgo').textContent='Detener';
+    function tick(){
+      var c=Math.floor(t/10),p=t%10;
+      if(c>=3){stopB();$('oL').textContent='Bien hecho';$('oC').textContent='Listo. Notas tu cuerpo un poco más tranquilo?'.replace('Notas','¿Notas');return}
+      var inh=p<4;
+      if(p===0||p===4){orb.style.transitionDuration=(inh?4:6)+'s';orb.classList.toggle('in',inh)}
+      $('oN').textContent=inh?(4-p):(10-p);$('oL').textContent=inh?'Inhala':'Exhala';$('oC').textContent='Ciclo '+(c+1)+' de 3';
+      t++;
+    }
+    tick();run=setInterval(tick,1000);
+  });
+
+  function row(k,v){return v&&String(v).trim()?'<dt>'+k+'</dt><dd>'+esc(v)+'</dd>':''}
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+  function summary(){
+    var d=S.before-S.after;
+    $('delta').innerHTML='<span class="a">'+S.before+'</span><span aria-hidden="true">→</span><span class="b">'+S.after+'</span><span style="font-size:.95rem;font-weight:400;color:var(--muted)">'+(d>0?'bajó '+d+' puntos':d===0?'sin cambio por ahora':'subió '+(-d)+' puntos; repite la respiración')+'</span>';
+    $('sum').innerHTML=row('Mi pensamiento',S.thought)+row('Trampas mentales',S.traps.join(', '))+row('¿Hecho o miedo?',S.fact)+row('Pruebas a favor',S.evFor)+row('Pruebas en contra',S.evAg)+row('Lo que le diría a mi mejor amigo',S.friend)+row('Lo peor',S.worst)+row('Lo mejor',S.best)+row('Lo más probable',S.likely)+row('Mi acción',S.action)+row('Mi pensamiento equilibrado',S.bal);
+    showHist();
+  }
+  function text(){return 'Detente, Respira, Cuestiona\nPensamiento: '+(S.thought||'')+'\nTrampas: '+S.traps.join(', ')+'\nMiedo: '+S.before+' → '+S.after+'\nHecho o miedo: '+(S.fact||'')+'\nPruebas a favor: '+(S.evFor||'')+'\nPruebas en contra: '+(S.evAg||'')+'\nLo que le diría a mi mejor amigo: '+(S.friend||'')+'\nLo más probable: '+(S.likely||'')+'\nMi acción: '+(S.action||'')+'\nPensamiento equilibrado: '+(S.bal||'')}
+  $('copy').addEventListener('click',function(){
+    var ok=function(){$('msg').textContent='Resumen copiado.'};
+    try{navigator.clipboard.writeText(text()).then(ok,function(){$('msg').textContent='No se pudo copiar. Usa Imprimir.'})}catch(e){$('msg').textContent='No se pudo copiar. Usa Imprimir.'}
+  });
+  function getH(){try{return JSON.parse(localStorage.getItem('pcat')||'[]')}catch(e){return[]}}
+  function showHist(){var h=getH();$('histBox').hidden=!h.length;$('hist').innerHTML=h.map(function(r){return '<li><b>'+esc(r.d)+'</b> · '+esc(r.t.slice(0,90))+' ('+r.b+' → '+r.a+')</li>'}).join('')}
+  $('save').addEventListener('click',function(){
+    var h=getH();h.unshift({d:new Date().toLocaleDateString('es'),t:S.thought||'(sin texto)',b:S.before,a:S.after});
+    try{localStorage.setItem('pcat',JSON.stringify(h.slice(0,5)));$('msg').textContent='Registro guardado en este dispositivo.'}catch(e){$('msg').textContent='No se pudo guardar aquí. Usa Copiar o Imprimir.'}
+    showHist();
+  });
+  $('again').addEventListener('click',function(){
+    S={traps:[],fact:'',before:50,after:50};
+    [].forEach.call(document.querySelectorAll('[data-f]'),function(el){el.value=el.type==='range'?50:''});
+    $('bV').textContent=50;$('aV').textContent=50;$('msg').textContent='';$('factMsg').hidden=true;
+    [].forEach.call(document.querySelectorAll('.chip[aria-pressed]'),function(b){b.setAttribute('aria-pressed','false')});
+    stopB();go(0);
+  });
+  go(0);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descifrando el Torbellino Emocional</title>
+<style>
+:root{
+  --bg:#edf4f6; --card:#fff; --ink:#121a2e; --muted:#4d5670; --teal:#3f97a3; --teal-d:#2b6f79;
+  --alert:#e0533d; --alert-bg:#fdeae6; --calm:#3f97a3; --line:#d9e4e8;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1a20; --card:#17262e; --ink:#eef4f6; --muted:#a9b9c0; --teal:#5fb8c4; --teal-d:#8fd3dc; --alert:#f27a64; --alert-bg:#3a2420; --line:#2a3f49}
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+  padding:max(20px,env(safe-area-inset-top,0px)) 16px max(32px,env(safe-area-inset-bottom,0px))}
+main{max-width:760px;margin:0 auto;background:var(--card);border-radius:28px;padding:clamp(22px,5vw,44px);box-shadow:0 2px 16px rgba(18,26,46,.08)}
+.tag{display:inline-block;background:var(--bg);color:var(--muted);font-weight:700;font-size:.85rem;padding:6px 16px;border-radius:12px}
+h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.15;margin:14px 0 10px;letter-spacing:-.02em}
+.lead{color:var(--muted);font-size:1.1rem;max-width:60ch;margin:0 0 8px}
+.fmt{color:var(--teal);font-weight:700;margin:0 0 28px}
+h2{font-size:1.2rem;margin:34px 0 6px}
+p{margin:0 0 12px}
+
+/* cerebro */
+.stage{background:var(--bg);border-radius:22px;padding:18px 14px 8px;margin-top:10px}
+svg.brain{width:100%;height:auto;display:block;max-height:300px}
+.brain .shell{fill:var(--card);stroke:var(--line);stroke-width:3}
+.brain .pfc{fill:var(--teal);transition:opacity .4s}
+.brain .amy{fill:var(--alert);transition:r .4s,opacity .4s}
+.brain .halo{fill:var(--alert);transition:r .4s,opacity .4s}
+.brain text{font:700 13px "Plus Jakarta Sans","Segoe UI",sans-serif;fill:var(--ink)}
+.ctrl{padding:6px 6px 14px}
+.ctrl label{display:flex;justify-content:space-between;font-weight:700;font-size:.95rem}
+input[type=range]{width:100%;margin:8px 0;accent-color:var(--alert);height:32px}
+.status{display:flex;gap:10px;align-items:flex-start;background:var(--card);border-radius:14px;padding:12px 14px;border-left:6px solid var(--teal);transition:border-color .3s}
+.status.hot{border-color:var(--alert)}
+.status b{display:block}
+.meters{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.meter{font-size:.85rem;font-weight:700}
+.bar{height:10px;border-radius:6px;background:var(--line);margin-top:4px;overflow:hidden}
+.bar i{display:block;height:100%;width:50%;border-radius:6px;transition:width .4s}
+#mA{background:var(--alert)} #mP{background:var(--teal)}
+
+/* pausa */
+.pause{display:flex;gap:18px;align-items:center;flex-wrap:wrap;border:2px solid var(--line);border-radius:22px;padding:18px}
+.orb{width:92px;height:92px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:700;text-align:center;font-size:.9rem;flex:none;transition:transform 4s ease-in-out}
+.orb.in{transform:scale(1.25)}
+button{font:inherit;font-weight:700;border:0;border-radius:14px;padding:12px 20px;background:var(--teal-d);color:#fff;cursor:pointer;min-height:44px}
+button:hover{filter:brightness(1.08)}
+:focus-visible{outline:3px solid var(--alert);outline-offset:3px}
+.pause p{margin:0;flex:1;min-width:200px;color:var(--muted)}
+
+/* fases */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tabs button{background:var(--bg);color:var(--ink);border-radius:12px;padding:10px 16px}
+.tabs button[aria-selected=true]{background:var(--teal-d);color:#fff}
+.panel{border:2px solid var(--line);border-radius:18px;padding:18px;margin-top:10px}
+.panel[hidden]{display:none}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cols h3{font-size:.95rem;margin:0 0 6px}
+.cols ul{margin:0;padding-left:18px;color:var(--muted)}
+.ok h3{color:var(--teal-d)} .no h3{color:var(--alert)}
+.note{font-size:.88rem;color:var(--muted);margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:560px){.cols,.meters{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Psicoeducación</span>
+  <h1>Descifrando el Torbellino Emocional</h1>
+  <p class="lead">Comprender qué ocurre en el cerebro adolescente durante una crisis: la amígdala en alerta y la pausa necesaria del córtex prefrontal.</p>
+  <p class="fmt">Formato: infografía interactiva</p>
+
+  <h2>1. Mueve el control y observa el cerebro</h2>
+  <p>Cuando la amígdala detecta una amenaza (real o percibida), toma el mando. El córtex prefrontal, que planifica y frena impulsos, pasa a segundo plano.</p>
+  <div class="stage">
+    <svg class="brain" viewBox="0 0 400 260" role="img" aria-label="Vista lateral del cerebro con el córtex prefrontal al frente y la amígdala en el centro">
+      <path class="shell" d="M70 140c-10-55 30-100 90-105 25-20 70-18 95 5 45 5 80 40 78 90-2 45-35 75-80 78-20 18-60 20-85 2-50 0-90-25-98-70z"/>
+      <path class="pfc" id="pfc" d="M72 138c-9-50 25-92 80-100 10 30 8 70-4 105-20 18-55 15-76-5z"/>
+      <circle class="halo" id="halo" cx="215" cy="150" r="20" opacity=".2"/>
+      <circle class="amy" id="amy" cx="215" cy="150" r="14"/>
+      <text x="50" y="205">Córtex prefrontal</text>
+      <text x="50" y="222" style="font-weight:400">Pensar, planificar, frenar</text>
+      <text x="250" y="210">Amígdala</text>
+      <text x="250" y="227" style="font-weight:400">Detecta peligro</text>
+    </svg>
+    <div class="ctrl">
+      <label for="int"><span>Intensidad de la emoción</span><span id="val">20%</span></label>
+      <input id="int" type="range" min="0" max="100" value="20">
+      <div class="status" id="status"><div><b id="sTitle"></b><span id="sText"></span></div></div>
+      <div class="meters">
+        <div class="meter">Alerta de la amígdala<div class="bar"><i id="mA"></i></div></div>
+        <div class="meter">Acceso al córtex prefrontal<div class="bar"><i id="mP"></i></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>2. La pausa necesaria</h2>
+  <p>El córtex prefrontal no se “apaga” por capricho: necesita tiempo y calma para volver. La pausa no es evitar el problema, es devolverle el acceso al cerebro que sabe resolverlo.</p>
+  <div class="pause">
+    <div class="orb" id="orb" aria-live="polite">Listo</div>
+    <p>Pulsa para ver cómo baja la intensidad con respiración lenta (unos 40 segundos). Inhala por la nariz, exhala más largo por la boca.</p>
+    <button id="go" type="button">Iniciar pausa</button>
+  </div>
+
+  <h2>3. Cómo acompañar en cada fase</h2>
+  <div class="tabs" role="tablist" aria-label="Fases de la crisis">
+    <button role="tab" id="t0" aria-selected="true" aria-controls="p0">Alerta</button>
+    <button role="tab" id="t1" aria-selected="false" aria-controls="p1">Pausa</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Reconexión</button>
+  </div>
+  <div class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
+    <p><b>La amígdala lidera.</b> Predominan lucha, huida o bloqueo. Razonar, negociar o dar lecciones no llega.</p>
+    <div class="cols"><div class="ok"><h3>Sí</h3><ul><li>Voz baja y frases cortas</li><li>Dar espacio físico</li><li>Nombrar: “Veo que estás muy mal”</li></ul></div>
+    <div class="no"><h3>Evitar</h3><ul><li>Sermones y preguntas “¿por qué?”</li><li>Amenazas o castigos en caliente</li><li>Exigir contacto visual</li></ul></div></div>
+  </div>
+  <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+    <p><b>El cuerpo se calma primero.</b> Cuando baja la activación, el córtex prefrontal vuelve a conectarse.</p>
+    <div class="cols"><div class="ok"><h3>Sí</h3><ul><li>Ofrecer agua, aire, un lugar tranquilo</li><li>Respirar junto, sin forzar</li><li>Quedarse cerca, en silencio</li></ul></div>
+    <div class="no"><h3>Evitar</h3><ul><li>Pantallas o estímulos intensos</li><li>Reabrir la discusión “para aprovechar”</li><li>Irse sin avisar</li></ul></div></div>
+  </div>
+  <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <p><b>Ahora sí se puede hablar.</b> Con el córtex prefrontal de vuelta, es el momento de reflexionar y reparar.</p>
+    <div class="cols"><div class="ok"><h3>Sí</h3><ul><li>Preguntar qué pasó y qué necesitó</li><li>Validar la emoción, aunque no la conducta</li><li>Acordar juntos un plan para la próxima vez</li></ul></div>
+    <div class="no"><h3>Evitar</h3><ul><li>Reproches (“siempre haces lo mismo”)</li><li>Exigir disculpas inmediatas</li><li>Minimizar: “no fue para tanto”</li></ul></div></div>
+  </div>
+
+  <p class="note">Recurso de psicoeducación con fines informativos. El cerebro adolescente sigue madurando su córtex prefrontal hasta cerca de los 25 años, por eso estas reacciones son esperables y no una falta de voluntad. Si las crisis son frecuentes o intensas, consulta con un profesional de salud mental.</p>
+</main>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var rng=$('int'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function render(v){
+    v=+v; rng.value=v; $('val').textContent=Math.round(v)+'%';
+    $('amy').setAttribute('r',10+v*.2); $('halo').setAttribute('r',16+v*.55);
+    $('halo').setAttribute('opacity',.1+v/150);
+    $('pfc').style.opacity=(1-v*.0085).toFixed(2);
+    $('mA').style.width=v+'%'; $('mP').style.width=(100-v*.85)+'%';
+    var s=$('status'),t,x;
+    if(v<35){t='Calma relativa';x='El córtex prefrontal trabaja bien: puede pensar, elegir y hablar con claridad.';s.classList.remove('hot')}
+    else if(v<70){t='Tensión creciente';x='La amígdala empieza a pesar más. Cuesta más escuchar y medir las palabras.';s.classList.add('hot')}
+    else{t='Torbellino';x='La amígdala domina. El córtex prefrontal está en pausa: no es momento de razonar, es momento de calmar.';s.classList.add('hot')}
+    $('sTitle').textContent=t; $('sText').textContent=x;
+  }
+  rng.addEventListener('input',function(){render(rng.value)});
+  render(20);
+
+  var go=$('go'),orb=$('orb'),timer=null,anim=null;
+  function stop(){clearInterval(timer);cancelAnimationFrame(anim);orb.classList.remove('in');orb.textContent='Listo';go.textContent='Iniciar pausa';timer=null}
+  go.addEventListener('click',function(){
+    if(timer){stop();return}
+    var start=+rng.value,end=15,dur=40000,t0=performance.now(),inh=true;
+    go.textContent='Detener';
+    function breathe(){orb.textContent=inh?'Inhala':'Exhala';orb.classList.toggle('in',inh);inh=!inh}
+    breathe(); timer=setInterval(breathe,4000);
+    (function step(n){
+      var p=Math.min((n-t0)/dur,1);
+      render(start+(end-start)*p);
+      if(p<1&&timer)anim=requestAnimationFrame(step);
+      else if(timer){stop();orb.textContent='Calma'}
+    })(t0);
+  });
+
+  var tabs=[0,1,2].map(function(i){return $('t'+i)});
+  tabs.forEach(function(b,i){
+    b.addEventListener('click',function(){
+      tabs.forEach(function(x,j){x.setAttribute('aria-selected',j===i);$('p'+j).hidden=j!==i});
+    });
+  });
+})();
+</script>
+</body>
+</html>

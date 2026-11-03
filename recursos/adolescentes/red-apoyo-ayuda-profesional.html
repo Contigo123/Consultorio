@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Red de Apoyo y Cuándo Buscar Ayuda Profesional</title>
+<style>
+:root{--bg:#edf4f6;--card:#fff;--ink:#121a2e;--muted:#4d5670;--teal:#3f97a3;--teal-d:#2b6f79;--soft:#e3f0f2;--line:#d9e4e8;--warm:#e0533d;--warm-bg:#fdeae6;--amber:#b7791f;--amber-bg:#fdf3dc;--green-bg:#e3f4ea;--on:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1a20;--card:#17262e;--ink:#eef4f6;--muted:#a9b9c0;--teal:#5fb8c4;--teal-d:#8fd3dc;--soft:#1f3640;--line:#2a3f49;--warm:#f27a64;--warm-bg:#3a2420;--amber:#f0b955;--amber-bg:#3a3020;--green-bg:#1c3328;--on:#0f1a20}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;padding:max(18px,env(safe-area-inset-top,0px)) 14px max(28px,env(safe-area-inset-bottom,0px))}
+main{max-width:720px;margin:0 auto;background:var(--card);border-radius:28px;padding:clamp(22px,5vw,40px);box-shadow:0 2px 16px rgba(18,26,46,.08)}
+.tag{display:inline-block;background:var(--bg);color:var(--muted);font-weight:700;font-size:.85rem;padding:6px 16px;border-radius:12px}
+h1{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin:14px 0 10px;letter-spacing:-.02em}
+.lead{color:var(--muted);font-size:1.05rem;margin:0 0 6px;max-width:60ch}
+.fmt{color:var(--teal);font-weight:700;margin:0 0 22px}
+button{font:inherit;cursor:pointer;border:0}
+:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:var(--bg);padding:5px;border-radius:16px}
+.tabs button{background:transparent;color:var(--muted);font-weight:700;font-size:.88rem;padding:10px 4px;border-radius:12px;min-height:48px;line-height:1.2}
+.tabs button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 6px rgba(18,26,46,.12)}
+.panel{margin-top:20px}.panel[hidden]{display:none}
+h2{font-size:1.25rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 16px}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.person,.fundes{background:var(--soft);border-radius:20px;padding:14px;display:grid;gap:8px;align-content:start}
+.person h3,.fundes h3{margin:0;font-size:1rem}
+label{font-size:.8rem;font-weight:700;color:var(--muted);display:grid;gap:3px}
+input,select{font:inherit;width:100%;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);min-height:42px}
+.fundes{margin-top:12px;border:2px solid var(--teal)}
+.fundes .row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.btn{background:var(--teal-d);color:var(--on);font-weight:700;padding:12px 20px;border-radius:14px;min-height:46px}
+.hint{font-size:.88rem;color:var(--muted);margin:10px 0 0}
+.lights{display:grid;gap:12px}
+.light{border-radius:20px;padding:14px 16px;border-left:8px solid}
+.light h3{margin:0 0 4px;font-size:1rem}
+.light.g{background:var(--green-bg);border-color:var(--teal)}
+.light.y{background:var(--amber-bg);border-color:var(--amber)}
+.light.r{background:var(--warm-bg);border-color:var(--warm)}
+.light label{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:.95rem;color:var(--ink);padding:4px 0}
+.light input[type=checkbox]{width:22px;height:22px;min-height:0;flex:none;margin-top:2px;accent-color:var(--teal-d)}
+.result{margin-top:14px;border-radius:18px;padding:14px 16px;background:var(--soft);font-weight:700}
+.result.y{background:var(--amber-bg)}.result.r{background:var(--warm-bg)}
+.result span{display:block;font-weight:400;color:var(--muted);margin-top:4px}
+ol.road{list-style:none;margin:0;padding:0;display:grid;gap:0}
+ol.road li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding-bottom:18px;position:relative}
+ol.road li:not(:last-child)::before{content:"";position:absolute;left:21px;top:44px;bottom:2px;width:2px;background:var(--line)}
+ol.road .n{width:44px;height:44px;border-radius:50%;background:var(--teal-d);color:var(--on);display:grid;place-items:center;font-weight:700}
+ol.road h3{margin:2px 0 2px;font-size:1.02rem}
+ol.road p{margin:0;color:var(--muted);font-size:.95rem}
+.say{margin-top:6px;background:var(--soft);border-radius:12px;padding:8px 12px;font-style:italic;font-size:.93rem}
+.myth{border:2px solid var(--line);border-radius:18px;margin-bottom:10px;overflow:hidden}
+.myth button{width:100%;text-align:left;background:transparent;color:var(--ink);padding:14px 16px;font-weight:700;display:flex;justify-content:space-between;gap:10px;min-height:52px}
+.myth button::after{content:"+";color:var(--teal-d);font-size:1.3rem;line-height:1}
+.myth button[aria-expanded=true]::after{content:"\2212"}
+.myth div{padding:0 16px 14px;color:var(--muted)}
+.myth div[hidden]{display:none}
+.note{font-size:.85rem;color:var(--muted);margin:26px 0 0;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:640px){.people,.fundes .row{grid-template-columns:1fr}.tabs{grid-template-columns:1fr 1fr}}
+@media print{body{background:#fff;padding:0}main{box-shadow:none}.tabs,.btn,.hint{display:none}.panel[hidden]{display:block!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Orientación</span>
+  <h1>Red de Apoyo y Cuándo Buscar Ayuda Profesional</h1>
+  <p class="lead">Identificar a 3 personas de confianza y saber cuándo acudir al consultorio psicológico FUNDES sin temor.</p>
+  <p class="fmt">Formato: directorio y hoja de ruta</p>
+
+  <div class="tabs" role="tablist" aria-label="Secciones">
+    <button role="tab" id="t0" aria-selected="true" aria-controls="p0">Mi red</button>
+    <button role="tab" id="t1" aria-selected="false" aria-controls="p1">¿Cuándo pedir ayuda?</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Hoja de ruta</button>
+    <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Mitos y verdades</button>
+  </div>
+
+  <section class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
+    <h2>Mi directorio de confianza</h2>
+    <p class="sub">Una red no es cantidad, es tener a alguien a quien recurrir. Elige 3 personas distintas: una de casa, una del colegio o la comunidad y una amistad.</p>
+    <div class="people" id="people"></div>
+    <div class="fundes">
+      <h3>Consultorio psicológico FUNDES</h3>
+      <div class="row">
+        <label>Teléfono o WhatsApp<input data-k="f_tel" type="tel" placeholder="Agrégalo aquí"></label>
+        <label>Horario<input data-k="f_hor" placeholder="Ej.: lunes a viernes"></label>
+        <label>Dirección<input data-k="f_dir" placeholder="Agrégala aquí"></label>
+      </div>
+    </div>
+    <p class="hint">Lo que escribas se guarda solo en este dispositivo. <button class="btn" type="button" onclick="window.print()" style="margin-left:6px">Imprimir mi directorio</button></p>
+  </section>
+
+  <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+    <h2>¿Qué tan pesado está siendo esto?</h2>
+    <p class="sub">Marca lo que te pasa. No es un diagnóstico, es una guía para decidir el siguiente paso.</p>
+    <div class="lights">
+      <div class="light g"><h3>Verde: puedo manejarlo con mis herramientas</h3><p style="margin:0;color:var(--muted);font-size:.95rem">Malos momentos que pasan, y el kit de anclaje y mi red me ayudan.</p></div>
+      <div class="light y"><h3>Amarillo: conviene ir al consultorio</h3>
+        <label><input type="checkbox" data-s="y"> Llevo más de 2 semanas triste, irritable o sin ganas</label>
+        <label><input type="checkbox" data-s="y"> Las crisis son más frecuentes o más intensas</label>
+        <label><input type="checkbox" data-s="y"> Duermo o como muy diferente a lo habitual</label>
+        <label><input type="checkbox" data-s="y"> Evito el colegio, a mis amigos o cosas que me gustaban</label>
+        <label><input type="checkbox" data-s="y"> Siento que las herramientas ya no me alcanzan</label>
+      </div>
+      <div class="light r"><h3>Rojo: necesito apoyo hoy</h3>
+        <label><input type="checkbox" data-s="r"> He pensado en hacerme daño o en no querer vivir</label>
+        <label><input type="checkbox" data-s="r"> Me estoy haciendo daño o siento que puedo hacerlo</label>
+        <label><input type="checkbox" data-s="r"> Me preocupa poder lastimar a otra persona</label>
+      </div>
+    </div>
+    <div class="result" id="res" aria-live="polite"></div>
+  </section>
+
+  <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <h2>Mi hoja de ruta</h2>
+    <p class="sub">Pasos en orden. Puedes avanzar a tu ritmo y no tienes que hacerlo solo.</p>
+    <ol class="road">
+      <li><div class="n">1</div><div><h3>Notar la señal</h3><p>Reconoce qué sientes y desde cuándo. Con la guía de “¿Cuándo pedir ayuda?” ya tienes una idea.</p></div></li>
+      <li><div class="n">2</div><div><h3>Hablar con una persona de mi red</h3><p>Elige a la que sientas más segura hoy.</p><div class="say">“Necesito contarte algo. Últimamente me ha costado y quiero ayuda para ir a psicología.”</div></div></li>
+      <li><div class="n">3</div><div><h3>Pedir cita en FUNDES</h3><p>Puedes ir acompañado o pedir que esa persona llame contigo. Pregunta por horarios y qué llevar.</p></div></li>
+      <li><div class="n">4</div><div><h3>Primera visita</h3><p>Es una conversación para conocerte. Te preguntarán cómo estás, qué te preocupa y qué esperas. No tienes que contarlo todo ese día.</p></div></li>
+      <li><div class="n">5</div><div><h3>Seguir y ajustar</h3><p>Si algo no te funciona o no te sientes cómodo, díselo a tu psicólogo. Ajustar el proceso es parte de ayudarte.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+    <h2>Mitos y verdades</h2>
+    <p class="sub">Toca cada frase para ver la respuesta.</p>
+    <div id="myths"></div>
+  </section>
+
+  <p class="note">Esta herramienta orienta, no reemplaza una valoración profesional. Si estás en peligro o piensas en hacerte daño, avisa ya a un adulto cercano y llama a la línea de emergencias de tu país (en Colombia, 123). No esperes a tener cita.</p>
+</main>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)},store={};
+  try{store=JSON.parse(localStorage.getItem('redapoyo')||'{}')}catch(e){}
+  function save(){try{localStorage.setItem('redapoyo',JSON.stringify(store))}catch(e){}}
+  var roles=['Una persona de casa','Una persona del colegio o comunidad','Una amistad'],ph=$('people');
+  roles.forEach(function(r,i){
+    var d=document.createElement('div');d.className='person';
+    d.innerHTML='<h3>'+r+'</h3><label>Nombre<input data-k="n'+i+'"></label><label>Cómo contactarla<input data-k="c'+i+'" placeholder="Teléfono o dónde encontrarla"></label><label>Me ayuda cuando…<input data-k="a'+i+'" placeholder="Ej.: necesito calmarme"></label>';
+    ph.appendChild(d);
+  });
+  [].forEach.call(document.querySelectorAll('[data-k]'),function(el){
+    var k=el.getAttribute('data-k');if(store[k])el.value=store[k];
+    el.addEventListener('input',function(){store[k]=el.value;save()});
+  });
+
+  var tabs=[0,1,2,3].map(function(i){return $('t'+i)});
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){
+    tabs.forEach(function(x,j){x.setAttribute('aria-selected',j===i);$('p'+j).hidden=j!==i});
+  })});
+
+  var boxes=document.querySelectorAll('[data-s]'),res=$('res');
+  function check(){
+    var y=0,r=0;[].forEach.call(boxes,function(b){if(b.checked){b.getAttribute('data-s')==='y'?y++:r++}});
+    res.className='result';
+    if(r){res.classList.add('r');res.innerHTML='Necesitas apoyo hoy.<span>Avisa ahora a una persona de confianza o a un adulto cercano. Si hay peligro inmediato, llama a emergencias (en Colombia, 123). Luego pide cita urgente en el consultorio.</span>'}
+    else if(y>=2){res.classList.add('y');res.innerHTML='Es buen momento para ir al consultorio FUNDES.<span>Hablar con una persona de tu red y pedir la cita es el siguiente paso. Mira la hoja de ruta.</span>'}
+    else if(y===1){res.classList.add('y');res.innerHTML='Presta atención a esa señal.<span>Cuéntaselo a alguien de tu red. Si dura o se suma otra señal, pide cita.</span>'}
+    else{res.innerHTML='Sigue usando tus herramientas y tu red.<span>Si algo cambia, vuelve a revisar esta guía. Pedir ayuda antes también es válido.</span>'}
+  }
+  [].forEach.call(boxes,function(b){b.addEventListener('change',check)});check();
+
+  var M=[
+   ['“Ir al psicólogo es de gente loca”','Falso. Es un espacio para entender lo que sientes y aprender herramientas, igual que se va al médico por el cuerpo.'],
+   ['“Tengo que estar muy mal para ir”','Falso. Consultar a tiempo suele ayudar más y evita que el malestar crezca.'],
+   ['“Me van a obligar a contarlo todo”','Falso. Tú marcas el ritmo. El primer encuentro es para conocerse y ponerse de acuerdo en cómo trabajar.'],
+   ['“Si pido ayuda soy débil”','Falso. Reconocer que algo pesa y buscar apoyo es una habilidad que requiere valentía.'],
+   ['“Nadie me va a entender”','No es lo esperable. Los profesionales están formados para escuchar sin juzgar. Si no conectas con alguien, puedes decirlo y buscar otro enfoque.'],
+   ['“Lo que cuente se lo dirán a todos”','Tu psicólogo te explicará qué se mantiene en privado y en qué casos hay que avisar a un adulto para protegerte. Pregúntalo en la primera visita.']
+  ],mh=$('myths');
+  M.forEach(function(m,i){
+    var w=document.createElement('div');w.className='myth';
+    w.innerHTML='<button type="button" aria-expanded="false" aria-controls="m'+i+'">'+m[0]+'</button><div id="m'+i+'" hidden>'+m[1]+'</div>';
+    var b=w.firstChild,d=w.lastChild;
+    b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!o);d.hidden=o});
+    mh.appendChild(w);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTIGO - Herramientas para acompañar la crisis | Consultorio Psicológico FUNDES</title>
+  <meta name="description"
+    content="Recurso integral de apoyo para la atención de crisis emocionales. Botiquín físico y plataforma digital con rutas clínicas, herramientas de regulación y guías por ciclo vital.">
+  <meta name="theme-color" content="#009aa6">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./src/css/tokens.css">
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/components.css">
+  <link rel="stylesheet" href="./src/css/print.css">
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar (Matches Document Page 2) -->
+  <div class="support-banner">
+    <div class="container support-banner-inner">
+      <div class="support-banner-left">
+        <span class="support-tag">Consultorio Psicológico FUNDES</span>
+        <span>Recurso de apoyo para la atención de crisis emocionales</span>
+      </div>
+      <div class="support-banner-right">
+        <a href="#qr" class="qr-link-pill open-qr-trigger">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          Escanear QR de la Caja
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand-link" aria-label="CONTIGO, ir al inicio">
+        <img class="brand-logo" src="./src/assets/logo.webp" width="720" height="243"
+          alt="CONTIGO. Herramientas para acompañar la crisis.">
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" id="mainNav" aria-label="Principal">
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#crisis" class="nav-link">Qué es una crisis</a>
+        <a href="#rutas" class="nav-link">Ruta de actuación</a>
+        <a href="#aprende" class="nav-link">Aprende</a>
+        <a href="#herramientas" class="nav-link">Herramientas</a>
+        <a href="#continua" class="nav-link">Apoyo</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="search-btn" id="searchTriggerBtn" type="button" aria-label="Buscar en CONTIGO"
+          title="Buscar en CONTIGO (Ctrl+K)" aria-haspopup="dialog" aria-expanded="false" aria-controls="searchModal">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+            viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="M16 16l4.5 4.5" />
+          </svg>
+        </button>
+        <button class="btn-sos" id="sosEmergencyBtn" title="Estabilización Inmediata de Emergencia">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+          </svg>
+          Apoyo Inmediato
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"
+          aria-controls="mainNav">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIEW 1: INICIO (Default Landing Page) -->
+  <main class="section-view active" id="inicio">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-inner">
+        <div class="hero-text-col">
+          <h1 class="hero-title">Tu apoyo también<br>está en esta página</h1>
+          <p class="hero-desc">Información, recursos y herramientas para acompañar en momentos de crisis.</p>
+          <div class="hero-actions">
+            <a href="#crisis" class="btn-primary btn-start">
+              Comenzar
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M4 12h15M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ESTRUCTURA DE LA PÁGINA WEB (The 7 Core Modules from Page 2) -->
+    <section class="modules-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Estructura del Proyecto</span>
+          <h2 class="section-title">Estructura de la Página Web CONTIGO</h2>
+          <p class="section-subtitle">
+            Acceso directo a los 7 ejes fundamentales diseñados para orientar la actuación profesional y la regulación
+            emocional.
+          </p>
+        </div>
+
+        <div class="modules-grid">
+          <!-- Card 1: INICIO -->
+          <div class="module-card" data-module="inicio">
+            <div class="module-icon-wrap">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+            </div>
+            <h3 class="module-title">INICIO</h3>
+            <p class="module-desc">Presentación breve de CONTIGO, explicación de su finalidad como botiquín psicológico
+              y articulación física-digital.</p>
+            <div class="module-card-footer">
+              <span>Ver presentación</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 2: ¿QUÉ ES UNA CRISIS EMOCIONAL? -->
+          <div class="module-card" data-module="crisis">
+            <div class="module-icon-wrap">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            </div>
+            <h3 class="module-title">¿QUÉ ES UNA CRISIS EMOCIONAL?</h3>
+            <p class="module-desc">Contenido psicoeducativo sobre qué es una crisis, posibles manifestaciones
+              (fisiológicas, cognitivas, emocionales) y aspectos prioritarios.</p>
+            <div class="module-card-footer">
+              <span>Aprender más</span>
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 3: RUTA DE ACTUACIÓN -->
+          <div class="module-card" data-module="rutas">
+            <div class="module-icon-wrap">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="18" cy="18" r="3" />
+                <circle cx="6" cy="6" r="3" />
+                <path d="M13 6h3a2 2 0 0 1 2 2v7M6 9v12" />
+              </svg>
+            </div>
+            <h3 class="module-title">RUTA DE ACTUACIÓN</h3>
+            <p class="module-desc">Orientación estructurada sobre qué hacer ante una crisis: identificación inicial,
+              ambiente seguro, estabilización y continuidad.</p>
+            <div class="module-card-footer">
+              <span>Seguir el protocolo</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 4: REGULA -->
+          <div class="module-card" data-module="regula">
+            <div class="module-icon-wrap">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12A10 10 0 0 1 12 2z" />
+              </svg>
+            </div>
+            <h3 class="module-title">REGULA</h3>
+            <p class="module-desc">Recursos prácticos interactivos para respiración guiada, técnica de grounding
+              5-4-3-2-1, anclaje sensorial y calma del sistema nervioso.</p>
+            <div class="module-card-footer">
+              <span>Iniciar regulación</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 5: APRENDE -->
+          <div class="module-card" data-module="aprende">
+            <div class="module-icon-wrap">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+            <h3 class="module-title">APRENDE</h3>
+            <p class="module-desc">Contenido psicoeducativo y capacitaciones básicas para profesionales y practicantes
+              del Consultorio Psicológico FUNDES con simulación clínica.</p>
+            <div class="module-card-footer">
+              <span>Entrenar ahora</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 6: HERRAMIENTAS -->
+          <div class="module-card" data-module="herramientas">
+            <div class="module-icon-wrap">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <h3 class="module-title">HERRAMIENTAS</h3>
+            <p class="module-desc">Material descargable e imprimible: tarjetas de respiración, fichas de grounding,
+              formatos de registro clínico y guías de bolsillo.</p>
+            <div class="module-card-footer">
+              <span>Descargar e imprimir</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 7: CONTINÚA -->
+          <div class="module-card" data-module="continua">
+            <div class="module-icon-wrap">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h3 class="module-title">APOYO</h3>
+            <p class="module-desc">Orientaciones sobre el seguimiento post-crisis, evaluación de la continuidad del
+              cuidado y detección de necesidad de remisión médica o psicológica.</p>
+            <div class="module-card-footer">
+              <span>Revisar seguimiento</span>
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PROPUESTA DE FUNCIONAMIENTO (Pages 2 & 6 Flowchart) -->
+    <section class="flow-section">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 2rem;">
+          <span class="section-tag">Funcionamiento del Prototipo</span>
+          <h2 class="section-title">De lo físico a lo digital... una respuesta integral, paso a paso</h2>
+          <p class="section-subtitle">
+            Lo físico y lo digital se complementan para una respuesta más completa, estructurada y efectiva en el
+            consultorio.
+          </p>
+        </div>
+
+        <div class="flow-steps-container">
+          <!-- Step 1 -->
+          <div class="flow-step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon-circle">
+              <svg width="24" height="24" fill="#ef4444" viewBox="0 0 24 24">
+                <path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+              </svg>
+            </div>
+            <h4 class="step-title">SITUACIÓN DE CRISIS</h4>
+            <p class="step-text">Se identifica una situación que requiere atención y apoyo inmediato en el consultorio.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flow-step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon-circle">
+              <svg width="24" height="24" fill="#009aa6" viewBox="0 0 24 24">
+                <path
+                  d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V4h4v3z" />
+              </svg>
+            </div>
+            <h4 class="step-title">CAJA CONTIGO</h4>
+            <p class="step-text">Se entrega o se utiliza la caja botiquín con los recursos físicos tangibles de apoyo.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flow-step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon-circle">
+              <svg width="24" height="24" fill="#10b981" viewBox="0 0 24 24">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            </div>
+            <h4 class="step-title">HERRAMIENTA REGULACIÓN</h4>
+            <p class="step-text">Se activa una estrategia para calmar, regular emociones y recuperar el equilibrio
+              inicial.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flow-step-card">
+            <div class="step-number">4</div>
+            <div class="step-icon-circle">
+              <svg width="24" height="24" fill="#6366f1" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </div>
+            <h4 class="step-title">ESCANEO DEL QR</h4>
+            <p class="step-text">Se accede rápidamente a la plataforma digital desde el código de la caja.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="flow-step-card">
+            <div class="step-number">5</div>
+            <div class="step-icon-circle">
+              <svg width="24" height="24" fill="#0284c7" viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h4 class="step-title">PLATAFORMA CONTIGO</h4>
+            <p class="step-text">Se consulta la información clínica, guías y recursos disponibles en la web.</p>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="flow-step-card">
+            <div class="step-number">6</div>
+            <div class="step-icon-circle">
+              <svg width="24" height="24" fill="#8b5cf6" viewBox="0 0 24 24">
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg>
+            </div>
+            <h4 class="step-title">RUTA CORRESPONDIENTE</h4>
+            <p class="step-text">Se sigue la ruta más adecuada según la valoración de la situación y la edad.</p>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="flow-step-card">
+            <div class="step-number">7</div>
+            <div class="step-icon-circle">
+              <svg width="24" height="24" fill="#0d9488" viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h4 class="step-title">ACOMPAÑAMIENTO</h4>
+            <p class="step-text">Se brinda orientación y se activa el proceso profesional especializado continuo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: EXPLORADOR DEL BOTIQUÍN FÍSICO CONTIGO -->
+    <section class="modules-section" id="caja-fisica-seccion"
+      style="background: var(--bg-card-alt); border-top: 1px solid var(--border-light);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Componente Físico</span>
+          <h2 class="section-title">Contenido del Botiquín Psicológico CONTIGO</h2>
+          <p class="section-subtitle">
+            Herramientas tangibles diseñadas para brindar apoyo en la estabilización inicial mientras el profesional
+            realiza la valoración. Haz clic en cada una para ver su ficha clínica.
+          </p>
+        </div>
+
+        <div class="box-drawer-grid" id="boxItemsContainer">
+          <!-- Dynamically populated by box-simulator.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- VIEW 2: ¿QUÉ ES UNA CRISIS EMOCIONAL? -->
+  <section class="section-view container" id="crisis" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <span class="section-tag">Psicoeducación Clínica</span>
+      <h2 class="section-title">¿Qué es una Crisis Emocional?</h2>
+      <p class="section-subtitle">
+        Una crisis es un estado temporal de desorganización psicológica caracterizado por la incapacidad de la persona
+        para manejar situaciones particulares utilizando sus métodos habituales de resolución de problemas.
+      </p>
+    </div>
+
+    <div
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+      <div class="cycle-resource-card" style="border-top: 4px solid #ef4444;">
+        <h4 style="display: flex; align-items: center; gap: 0.5rem; color: #b91c1c;">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+          </svg>
+          1. Señales Emocionales
+        </h4>
+        <p>Miedo intenso, angustia desbordante, rabia desproporcionada, tristeza profunda, sensación de vacío o
+          entumecimiento afectivo repentino.</p>
+      </div>
+
+      <div class="cycle-resource-card" style="border-top: 4px solid #f59e0b;">
+        <h4 style="display: flex; align-items: center; gap: 0.5rem; color: #b45309;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          2. Señales Fisiológicas
+        </h4>
+        <p>Taquicardia, sensación de asfixia o hiperventilación, temblores corporales, sudoración fría, náuseas, mareo o
+          tensión muscular aguda.</p>
+      </div>
+
+      <div class="cycle-resource-card" style="border-top: 4px solid #6366f1;">
+        <h4 style="display: flex; align-items: center; gap: 0.5rem; color: #4338ca;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          3. Señales Cognitivas
+        </h4>
+        <p>Pensamientos catastróficos recurrentes, desorientación temporal/espacial, dificultad severa para concentrarse
+          o sensación de "perder el control".</p>
+      </div>
+
+      <div class="cycle-resource-card" style="border-top: 4px solid #10b981;">
+        <h4 style="display: flex; align-items: center; gap: 0.5rem; color: #047857;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+          </svg>
+          4. Señales Conductuales
+        </h4>
+        <p>Llanto incontrolable, inquietud psicomotora (caminar sin rumbo), aislamiento repentino, agresividad verbal o
+          mutismo selectivo momentáneo.</p>
+      </div>
+    </div>
+
+    <!-- Guía de Frases de Orientación (Interactivo) -->
+    <div class="grounding-box" style="margin-top: 2rem; text-align: center;">
+      <span class="section-tag" style="background: #e0f2fe; color: #0369a1;">Frases Ancla de Contención</span>
+      <h3 style="font-size: 1.4rem; margin: 0.75rem 0;">Frase de Orientación para el Profesional</h3>
+      <p id="dynamicPhraseText"
+        style="font-size: 1.25rem; font-style: italic; color: var(--brand-teal-dark); min-height: 60px; display: flex; align-items: center; justify-content: center; transition: opacity 0.2s ease;">
+        "Estás a salvo aquí. Tómate todo el tiempo que necesites."
+      </p>
+      <button class="btn-primary" id="nextPhraseBtn" style="margin-top: 1rem; font-size: 0.9rem;">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+        </svg>
+        Siguiente Frase de Re-enfoque
+      </button>
+    </div>
+
+    <!-- Botón de Continuar a Ruta de Actuación -->
+    <div
+      style="text-align: center; margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid var(--border-light);">
+      <a href="#rutas" class="btn-primary"
+        style="display: inline-flex; align-items: center; gap: 0.65rem; padding: 0.85rem 1.85rem; font-size: 1rem; font-weight: 700; border-radius: var(--radius-full); box-shadow: var(--shadow-md);">
+        Continuar a Ruta de Actuación
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"
+          stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- VIEW 3: RUTAS DE ACTUACIÓN (Page 3 & 4) -->
+  <section class="section-view container" id="rutas" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <span class="section-tag">Protocolos Clínicos FUNDES</span>
+      <h2 class="section-title">Rutas de Actuación Estructuradas</h2>
+      <p class="section-subtitle">
+        Pautas clínicas para guiar la toma de decisiones profesionales antes, durante y después de la estabilización
+        inicial.
+      </p>
+    </div>
+
+    <div class="rutas-container">
+      <!-- Sidebar Nav -->
+      <aside class="rutas-sidebar">
+        <button class="ruta-nav-btn active" data-ruta="1">
+          <span class="ruta-badge-num">1</span>
+          <span>Ruta 1: Identificación</span>
+        </button>
+        <button class="ruta-nav-btn" data-ruta="2">
+          <span class="ruta-badge-num">2</span>
+          <span>Ruta 2: Estabilización</span>
+        </button>
+        <button class="ruta-nav-btn" data-ruta="3">
+          <span class="ruta-badge-num">3</span>
+          <span>Ruta 3: Regulación Emocional</span>
+        </button>
+        <button class="ruta-nav-btn" data-ruta="4">
+          <span class="ruta-badge-num">4</span>
+          <span>Ruta 4: Grupo Poblacional</span>
+        </button>
+        <button class="ruta-nav-btn" data-ruta="5">
+          <span class="ruta-badge-num">5</span>
+          <span>Ruta 5: Continuidad y Remisión</span>
+        </button>
+      </aside>
+
+      <!-- Content Area -->
+      <div class="ruta-content-area">
+        <!-- RUTA 1 -->
+        <div class="ruta-pane active" id="ruta-1">
+          <span class="ruta-header-badge">Ruta 1 • Diagnóstico Rápido</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Identificación y Triage de la Crisis</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+            Evalúa oportunamente la presencia de signos clínicos y descarta riesgos para la integridad física.
+          </p>
+
+          <div class="protocol-step-box">
+            <h4>Checklist de Triage Inicial:</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.75rem;">
+              <label class="grounding-item-label">
+                <input type="checkbox" class="triage-flag-check" data-severity="low">
+                <span>Presencia de hiperventilación, llanto o temblor evidente.</span>
+              </label>
+              <label class="grounding-item-label">
+                <input type="checkbox" class="triage-flag-check" data-severity="low">
+                <span>Dificultad para mantener el hilo del diálogo o desorientación leve.</span>
+              </label>
+              <label class="grounding-item-label">
+                <input type="checkbox" class="triage-flag-check" data-severity="high">
+                <span>Riesgo inminente de autoagresión o ideación autolítica activa declarada.</span>
+              </label>
+              <label class="grounding-item-label">
+                <input type="checkbox" class="triage-flag-check" data-severity="high">
+                <span>Agitación psicomotora violenta o alteración del estado de conciencia.</span>
+              </label>
+            </div>
+          </div>
+
+          <div id="triageResultBox" class="protocol-step-box">
+            <strong>Estado de la valoración:</strong> Selecciona los criterios observados para generar la recomendación
+            clínica automática.
+          </div>
+        </div>
+
+        <!-- RUTA 2 -->
+        <div class="ruta-pane" id="ruta-2">
+          <span class="ruta-header-badge">Ruta 2 • Intervención Inmediata</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Atención y Estabilización Inicial</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+            Principios básicos de contención física y relacional para reducir el nivel de activación.
+          </p>
+
+          <div class="protocol-step-box">
+            <h4>1. Establecimiento de Contacto y Comunicación</h4>
+            <ul>
+              <li>Preséntate con voz serena y pausada: <em>"Hola, mi nombre es [Nombre], estoy aquí contigo."</em></li>
+              <li>Mantén una distancia física respetuosa (1.5 m) sin invadir el espacio personal.</li>
+              <li>Adopta una postura corporal abierta y sin juzgar.</li>
+            </ul>
+          </div>
+
+          <div class="protocol-step-box">
+            <h4>2. Generación de un Ambiente Seguro</h4>
+            <ul>
+              <li>Alejar a curiosos o personas que aumenten la sobrecarga de estímulos.</li>
+              <li>Reducir ruidos fuertes e iluminación excesiva si es posible.</li>
+              <li>Ofrecer un asiento cómodo y un vaso de agua a temperatura ambiente.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RUTA 3 -->
+        <div class="ruta-pane" id="ruta-3">
+          <span class="ruta-header-badge">Ruta 3 • Fisiología y Cognición</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Regulación Emocional</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+            Secuencia estandarizada de activación de las herramientas de la Caja CONTIGO:
+          </p>
+
+          <div class="protocol-step-box">
+            <h4>Secuencia de Regulación en 3 Fases:</h4>
+            <ol style="padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+              <li><strong>Paso 1: Fisiológico (Respiración Guiada):</strong> Modelar la respiración usando las tarjetas
+                de respiración o el respirador interactivo de la app.</li>
+              <li><strong>Paso 2: Perceptivo (Grounding y Anclaje Sensorial):</strong> Reconectar a la persona con el
+                aquí y el ahora mediante la técnica 5-4-3-2-1 y objetos táctiles.</li>
+              <li><strong>Paso 3: Cognitivo (Tarjetas de Orientación):</strong> Aplicar frases cortas de estructuración
+                y validar su experiencia sin forzar conclusiones.</li>
+            </ol>
+          </div>
+
+          <a href="#regula" class="btn-primary" style="margin-top: 1rem;">
+            Ir al Simulador de Respiración & Grounding
+          </a>
+        </div>
+
+        <!-- RUTA 4 -->
+        <div class="ruta-pane" id="ruta-4">
+          <span class="ruta-header-badge">Ruta 4 • Adaptabilidad</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Orientación según Grupo Poblacional</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+            El abordaje debe ajustarse de forma rigurosa según la etapa del ciclo vital de la persona:
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="protocol-step-box">
+              <h4>Niños</h4>
+              <p style="font-size: 0.85rem;">Enfoque lúdico, figuras metafóricas (el globo/la flor), corregulación con
+                padres o cuidadores presentes.</p>
+            </div>
+            <div class="protocol-step-box">
+              <h4>Adolescentes</h4>
+              <p style="font-size: 0.85rem;">Validación sin paternalismos, manejo de pensamientos catastróficos, respeto
+                a su espacio y autonomía.</p>
+            </div>
+            <div class="protocol-step-box">
+              <h4>Adultos</h4>
+              <p style="font-size: 0.85rem;">Identificación de estresores laborales o de pareja, reestructuración
+                racional y plan de acción inmediato.</p>
+            </div>
+            <div class="protocol-step-box">
+              <h4>Adultos Mayores</h4>
+              <p style="font-size: 0.85rem;">Lenguaje pausado y claro, estimulación sensorial respetuosa, validación de
+                pérdidas y apoyo a familiares.</p>
+            </div>
+          </div>
+          <a href="#ciclo-vital" class="btn-secondary" style="margin-top: 1rem;">
+            Explorar Recursos por Ciclo Vital →
+          </a>
+        </div>
+
+        <!-- RUTA 5 -->
+        <div class="ruta-pane" id="ruta-5">
+          <span class="ruta-header-badge" style="background: #fee2e2; color: #991b1b;">Ruta 5 • Seguimiento y
+            Derivación</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Continuidad del Acompañamiento</h3>
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+            Plan de acción tras la estabilización inicial en el consultorio FUNDES:
+          </p>
+
+          <div class="protocol-step-box">
+            <h4>Pautas Post-Crisis:</h4>
+            <ul>
+              <li><strong>Acuerdo de cuidado:</strong> Asegurarse de que el consultante regrese acompañado a su hogar.
+              </li>
+              <li><strong>Agenda de seguimiento:</strong> Establecer contacto de verificación a las 24 y 72 horas.</li>
+              <li><strong>Ficha de registro CONTIGO:</strong> Diligenciar el formato de atención disponible en la
+                sección de herramientas.</li>
+            </ul>
+          </div>
+
+          <div class="alert-danger-box">
+            <strong>Criterios de Remisión Psiquiátrica / Médica Urgente:</strong>
+            <p style="margin-top: 0.4rem; font-size: 0.85rem;">
+              Ideación suicida activa con método, alucinaciones o delirios agudos, intoxicación por sustancias, o
+              ausencia total de respuesta a las estrategias de regulación tras 45 minutos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 4: REGULA (Interactive Tools) -->
+  <section class="section-view container" id="regula" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <span class="section-tag">Herramientas en Vivo</span>
+      <h2 class="section-title">Módulo de Regulación Emocional</h2>
+      <p class="section-subtitle">
+        Ejercicios prácticos guiados para utilizar directamente en el consultorio junto a la persona en crisis.
+      </p>
+    </div>
+
+    <!-- Breathing Pacer Tool -->
+    <div class="breathing-wrapper">
+      <span class="pill-badge pill-teal" style="margin-bottom: 1rem;">Respirador Guiado</span>
+      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Pacer Respiratorio Rítmico</h3>
+      <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Sincroniza la respiración con la esfera expansiva para reducir la activación simpática.
+      </p>
+
+      <div class="breathing-controls-top">
+        <button class="technique-btn active" data-technique="4-7-8">Relajación 4-7-8</button>
+        <button class="technique-btn" data-technique="box">Caja (4-4-4-4)</button>
+        <button class="technique-btn" data-technique="abdominal">Abdominal (5-5)</button>
+      </div>
+
+      <div class="breathing-orb-container">
+        <div class="breathing-orb-outer"></div>
+        <div class="breathing-orb" id="breathingOrb">
+          <span class="orb-state-text" id="orbStateText">Listo</span>
+          <span class="orb-timer-text" id="orbTimerText">--</span>
+        </div>
+      </div>
+
+      <div class="breathing-actions">
+        <button class="btn-primary" id="breathingStartBtn">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+            <polygon points="5 3 19 12 5 21 5 3" />
+          </svg>
+          Iniciar Respiración
+        </button>
+        <button class="btn-secondary" id="breathingStopBtn"
+          style="display: none; color: #ef4444; border-color: #fca5a5;">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="6" y="6" width="12" height="12" />
+          </svg>
+          Detener
+        </button>
+      </div>
+
+      <div class="cycle-counter" id="cycleCount">Ciclos completados: 0</div>
+      <div>
+        <button class="sound-toggle-btn active" id="soundToggleBtn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zm-2.5 9.77H8v-2h3.5l4-4v12l-4-4z" />
+          </svg>
+          Sonido activado
+        </button>
+      </div>
+    </div>
+
+    <!-- Grounding 5-4-3-2-1 Tool -->
+    <div class="grounding-box" style="margin-top: 3.5rem;">
+      <div class="grounding-progress">
+        <div class="grounding-progress-bar" id="groundingProgressBar"></div>
+      </div>
+
+      <div class="grounding-step-header">
+        <div class="grounding-step-number" id="groundingNum">5</div>
+        <div class="grounding-step-info">
+          <h3 id="groundingTitle">5 cosas que puedes VER</h3>
+          <p id="groundingDesc">Observa a tu alrededor detenidamente y marca cada elemento:</p>
+        </div>
+      </div>
+
+      <div class="grounding-checklist" id="groundingList">
+        <!-- Injected via grounding.js -->
+      </div>
+
+      <div class="grounding-nav-btns">
+        <button class="btn-secondary" id="groundingPrevBtn">← Paso anterior</button>
+        <button class="btn-primary" id="groundingNextBtn">Siguiente paso →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 5: CICLO VITAL (Pages 4 & 5) -->
+  <section class="section-view container" id="ciclo-vital" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <span class="section-tag">Esquema por Categoría</span>
+      <h2 class="section-title">Contenido por Etapas del Ciclo Vital</h2>
+      <p class="section-subtitle">
+        Material y estrategias adaptadas al lenguaje, necesidades y características propias de cada grupo poblacional.
+      </p>
+    </div>
+
+    <!-- Tabs selector -->
+    <div class="vital-cycles-tabs">
+      <button class="cycle-tab-btn active" data-cycle="ninos">Niños</button>
+      <button class="cycle-tab-btn" data-cycle="adolescentes">Adolescentes</button>
+      <button class="cycle-tab-btn" data-cycle="adultos">Adultos</button>
+      <button class="cycle-tab-btn" data-cycle="adultos-mayores">Adultos Mayores</button>
+    </div>
+
+    <!-- Dynamic Cards Grid -->
+    <div class="cycle-content-grid" id="cycleCardsContainer">
+      <!-- Populated by vital-cycles.js -->
+    </div>
+  </section>
+
+  <!-- VIEW 6: APRENDE (Capacitaciones FUNDES & Simulación Clínica) -->
+  <section class="section-view container" id="aprende" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <span class="section-tag">Formación Profesional</span>
+      <h2 class="section-title">Capacitación y Entrenamiento Clínico</h2>
+      <p class="section-subtitle">
+        Espacio de formación continua dirigido a practicantes y profesionales del Consultorio Psicológico FUNDES en
+        Primeros Auxilios Psicológicos (PAP).
+      </p>
+    </div>
+
+    <div class="training-container">
+      <div
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+        <div class="cycle-resource-card">
+          <h4 style="color: var(--brand-teal-dark);">1. Observar</h4>
+          <p style="font-size: 0.85rem;">Evaluar la seguridad del entorno, quién necesita ayuda urgente y qué señales de
+            estrés o shock se manifiestan.</p>
+        </div>
+        <div class="cycle-resource-card">
+          <h4 style="color: var(--brand-teal-dark);">2. Escuchar</h4>
+          <p style="font-size: 0.85rem;">Acercarse con respeto, validar sentimientos sin juzgar ni forzar a hablar sobre
+            detalles dolorosos.</p>
+        </div>
+        <div class="cycle-resource-card">
+          <h4 style="color: var(--brand-teal-dark);">3. Conectar</h4>
+          <p style="font-size: 0.85rem;">Ayudar a satisfacer necesidades básicas inmediatas, brindar información clara y
+            vincular con seres queridos o recursos.</p>
+        </div>
+      </div>
+
+      <!-- Case Simulator Container -->
+      <div id="clinicalCaseContainer">
+        <!-- Rendered by training-quiz.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 7: HERRAMIENTAS (Material Descargable & Imprimible) -->
+  <section class="section-view container" id="herramientas" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <span class="section-tag">Recursos Prácticos</span>
+      <h2 class="section-title">Herramientas y Material Descargable</h2>
+      <p class="section-subtitle">
+        Documentos, plantillas de registro y tarjetas listas para imprimir y colocar dentro de la Caja física CONTIGO.
+      </p>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <span class="tool-badge-type">Imprimible Oficial</span>
+        <h4>Tarjetas Clínicas para la Caja Físico CONTIGO</h4>
+        <p>Set completo de tarjetas (Respiración, Grounding, Anclaje Sensorial y Orientación) formateadas para recortar
+          y laminar.</p>
+        <button class="tool-btn-action" id="printBoxCardsBtn">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
+          Imprimir Tarjetas de la Caja
+        </button>
+      </div>
+
+      <div class="tool-card">
+        <span class="tool-badge-type">Formatos Clinicos</span>
+        <h4>Formatos Institucionales: Consentimiento y Remisión</h4>
+        <p>Documentación reglamentaria del Consultorio Psicológico FUNDES: Consentimiento Informado (Mayores y Menores
+          de Edad) y Formato oficial de Remisión para Interconsulta clínica.</p>
+        <button class="tool-btn-action" id="openFormatsModalBtn" aria-haspopup="dialog" aria-controls="formatsModal">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="12" y1="18" x2="12" y2="12" />
+            <polyline points="9 15 12 18 15 15" />
+          </svg>
+          Descargar Formatos Institucionales
+        </button>
+      </div>
+
+      <div class="tool-card">
+        <span class="tool-badge-type">Guía Rápida</span>
+        <h4>Protocolo de Bolsillo en 7 Pasos</h4>
+        <p>Tríptico sintético para practicantes con el flujograma de decisión rápida ante emergencias psicológicas en
+          sede.</p>
+        <div class="tool-btn-row">
+          <a class="tool-btn-action" href="./docs/MI-EXT-CPS-Protocolo-Bolsillo-7-Pasos.pdf" target="_blank" rel="noopener">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+            </svg>
+            Ver
+          </a>
+          <button type="button" class="tool-btn-action" id="printProtocolBtn" data-pdf="./docs/MI-EXT-CPS-Protocolo-Bolsillo-7-Pasos.pdf">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9" />
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+              <rect x="6" y="14" width="12" height="8" />
+            </svg>
+            Imprimir
+          </button>
+          <a class="tool-btn-action" href="./docs/MI-EXT-CPS-Protocolo-Bolsillo-7-Pasos.pdf" download="Protocolo_Bolsillo_7_Pasos_CONTIGO.pdf">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Descargar
+          </a>
+        </div>
+        <p class="tool-print-hint">Para imprimir: tamaño A4 horizontal, ambas caras, y doblar en tres partes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 8: CONTINÚA (Seguimiento y Cuidado) -->
+  <section class="section-view container" id="continua" style="padding: 3rem 1.5rem;">
+    <div class="section-header">
+      <span class="section-tag">Acompañamiento Continuo</span>
+      <h2 class="section-title">Seguimiento y Redes de Apoyo</h2>
+      <p class="section-subtitle">
+        Orientaciones para asegurar la recuperación paulatina y la articulación con los servicios de salud pertinentes.
+      </p>
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+      <div class="protocol-step-box">
+        <h4>Calendario Recomendado de Verificación Post-Crisis</h4>
+        <ul style="margin-top: 0.5rem;">
+          <li><strong>Primeras 24 horas:</strong> Llamada o mensaje breve de contención para confirmar que la persona
+            cuenta con un acudiente y descanso reparador.</li>
+          <li><strong>A las 72 horas:</strong> Verificación de niveles de ansiedad y efectividad de las técnicas de
+            respiración aprendidas.</li>
+          <li><strong>A los 7 días:</strong> Sesión formal de seguimiento en el Consultorio Psicológico FUNDES para
+            estructurar plan terapéutico o cierre.</li>
+        </ul>
+      </div>
+
+      <div class="cycle-resource-card" style="border-left: 4px solid var(--brand-teal);">
+        <h4 style="color: var(--brand-teal-dark);">Líneas de Atención y Red de Apoyo de Emergencia</h4>
+        <p style="font-size: 0.88rem; margin: 0.5rem 0;">Directorio de soporte inmediato disponible las 24 horas:</p>
+        <div style="font-size: 0.9rem; line-height: 1.8;">
+          <strong>Línea Nacional de Salud Mental (Colombia):</strong> Marcar 106<br>
+          <strong>Emergencias Médicas y Ambulancias:</strong> Marcar 123<br>
+          <strong>Consultorio Psicológico FUNDES:</strong> Sede Principal - Coordinación Clínica
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL: BUSCADOR GLOBAL CONTIGO -->
+  <div class="modal-overlay search-modal-overlay" id="searchModal" role="dialog" aria-modal="true"
+    aria-label="Buscador global CONTIGO">
+    <div class="modal-window search-modal-window">
+      <!-- Search Input Bar -->
+      <div class="search-modal-header">
+        <div class="search-input-wrap">
+          <svg class="search-input-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.3"
+            stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="M16 16l4.5 4.5" />
+          </svg>
+          <input type="text" id="searchInput" class="search-input-field"
+            placeholder="Buscar temas, rutas, respiración, ciclo vital, botiquín..." autocomplete="off"
+            spellcheck="false" aria-label="Escribe tu búsqueda">
+        </div>
+        <button class="search-close-btn" id="closeSearchModal" aria-label="Cerrar buscador">✕</button>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div class="search-filters-bar" role="tablist" aria-label="Filtros por categoría">
+        <button type="button" class="search-filter-chip active" data-filter="all">Todos</button>
+        <button type="button" class="search-filter-chip" data-filter="regula">Regulación</button>
+        <button type="button" class="search-filter-chip" data-filter="rutas">Rutas y Triage</button>
+        <button type="button" class="search-filter-chip" data-filter="ciclo-vital">Ciclo Vital</button>
+        <button type="button" class="search-filter-chip" data-filter="herramientas">Herramientas</button>
+        <button type="button" class="search-filter-chip" data-filter="crisis">Psicoeducación</button>
+        <button type="button" class="search-filter-chip" data-filter="urgencias">Emergencias</button>
+      </div>
+
+      <!-- Results List Container -->
+      <div class="search-modal-body" id="searchResultsContainer">
+        <!-- Rendered dynamically by search.js -->
+      </div>
+
+      <!-- Search Modal Footer -->
+      <div class="search-modal-footer">
+        <div class="search-shortcuts-hint">
+          <span class="search-kbd-item"><kbd>↑</kbd><kbd>↓</kbd> Navegar</span>
+          <span class="search-kbd-item"><kbd>↵</kbd> Seleccionar</span>
+          <span class="search-kbd-item"><kbd>Esc</kbd> Cerrar</span>
+        </div>
+        <span class="search-footer-brand">CONTIGO • FUNDES</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DETALLES DE ELEMENTO DEL BOTIQUÍN -->
+  <div class="modal-overlay" id="boxItemModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 id="boxModalTitle">Ficha del Recurso</h3>
+        <button class="modal-close-btn" id="closeBoxModal" aria-label="Cerrar modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom: 0.5rem;">
+          <span class="pill-badge pill-teal" id="boxModalCategory">Categoría</span>
+        </p>
+        <p id="boxModalDesc"
+          style="font-size: 1rem; color: var(--text-primary); margin-bottom: 1.25rem; font-weight: 500;"></p>
+
+        <div class="protocol-step-box">
+          <h4>Objetivo Clínico:</h4>
+          <p id="boxModalObjective" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
+        </div>
+
+        <div class="protocol-step-box" style="border-left-color: var(--brand-orange);">
+          <h4>Modo de Aplicación en Crisis:</h4>
+          <p id="boxModalUsage" style="font-size: 0.9rem; color: var(--text-secondary);"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FORMATOS INSTITUCIONALES (CONSENTIMIENTO Y REMISIÓN) -->
+  <div class="modal-overlay" id="formatsModal" role="dialog" aria-modal="true" aria-labelledby="formatsModalTitle">
+    <div class="modal-window" style="max-width: 760px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div
+            style="width: 38px; height: 38px; border-radius: 10px; background: rgba(0, 154, 166, 0.12); color: var(--brand-teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </div>
+          <div>
+            <h3 id="formatsModalTitle" style="margin: 0; font-size: 1.15rem; color: var(--text-primary);">Formatos
+              Institucionales: Consentimiento y Remisión</h3>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Consultorio Psicológico FUNDES • Sistema Interno
+              de Aseguramiento de la Calidad (SIAC)</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeFormatsModal" aria-label="Cerrar modal">✕</button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
+        <!-- Banner informativo -->
+        <div
+          style="background: linear-gradient(135deg, rgba(0,154,166,0.06), rgba(245,130,32,0.06)); border: 1px solid rgba(0,154,166,0.18); border-radius: var(--radius-lg); padding: 1rem 1.25rem; display: flex; gap: 0.9rem; align-items: flex-start;">
+          <svg width="22" height="22" fill="none" stroke="var(--brand-teal)" stroke-width="2" viewBox="0 0 24 24"
+            style="flex-shrink: 0; margin-top: 2px;">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+          <div style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;">
+            Selecciona el formato institucional que requieras para tu intervención en el Consultorio Psicológico. Puedes
+            <strong style="color: var(--text-primary);">descargarlo directamente en PDF</strong> o <strong
+              style="color: var(--text-primary);">abrirlo para previsualización e impresión</strong>.
+          </div>
+        </div>
+
+        <!-- Lista de formatos -->
+        <div class="formats-download-grid" style="display: flex; flex-direction: column; gap: 1rem;">
+
+          <!-- Formato 1: Consentimiento Mayores -->
+          <div class="format-card-item">
+            <div class="format-card-main">
+              <div class="format-card-badge-row">
+                <span class="format-code-badge">Código: MI-EXT-CPS-FOR-01-A</span>
+                <span class="format-ver-badge">Versión 2.0 • 2023</span>
+                <span class="format-pages-badge">3 Páginas</span>
+              </div>
+              <h4 class="format-card-title">Consentimiento Informado - Mayores de Edad</h4>
+              <p class="format-card-desc">
+                Documento de manifestación de aceptación o rechazo para entrevista de admisión y atención
+                psicoterapéutica en modalidad presencial. Contiene cláusulas de confidencialidad, límites ético-legales,
+                consentimiento informado y firmas del consultante y terapeuta tratante con tarjeta profesional.
+              </p>
+            </div>
+            <div class="format-card-actions">
+              <a href="./docs/MI-EXT-CPS-FOR-01-A-Consentimiento-Informado-Mayores.pdf"
+                download="MI-EXT-CPS-FOR-01-A_Consentimiento_Mayores_FUNDES.pdf" class="btn-format-download"
+                title="Descargar PDF en tu equipo">
+                <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Descargar PDF
+              </a>
+              <a href="./docs/MI-EXT-CPS-FOR-01-A-Consentimiento-Informado-Mayores.pdf" target="_blank"
+                rel="noopener noreferrer" class="btn-format-preview" title="Abrir y previsualizar en nueva pestaña">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                Ver Documento
+              </a>
+            </div>
+          </div>
+
+          <!-- Formato 2: Consentimiento Menores -->
+          <div class="format-card-item">
+            <div class="format-card-main">
+              <div class="format-card-badge-row">
+                <span class="format-code-badge">Código: MI-EXT-CPS-FOR-01-B</span>
+                <span class="format-ver-badge">Versión 2.0 • 2023</span>
+                <span class="format-pages-badge">3 Páginas</span>
+              </div>
+              <h4 class="format-card-title">Consentimiento Informado - Menores de Edad</h4>
+              <p class="format-card-desc">
+                Formato institucional obligatorio suscrito por padres, tutores o acudientes legales para la atención
+                psicológica de niños, niñas y adolescentes. Incluye marco de protección de derechos, intervención de
+                co-terapeutas y activación de rutas de apoyo en Tolima.
+              </p>
+            </div>
+            <div class="format-card-actions">
+              <a href="./docs/MI-EXT-CPS-FOR-01-B-Consentimiento-Informado-Menores.pdf"
+                download="MI-EXT-CPS-FOR-01-B_Consentimiento_Menores_FUNDES.pdf" class="btn-format-download"
+                title="Descargar PDF en tu equipo">
+                <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Descargar PDF
+              </a>
+              <a href="./docs/MI-EXT-CPS-FOR-01-B-Consentimiento-Informado-Menores.pdf" target="_blank"
+                rel="noopener noreferrer" class="btn-format-preview" title="Abrir y previsualizar en nueva pestaña">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                Ver Documento
+              </a>
+            </div>
+          </div>
+
+          <!-- Formato 3: Remisión Interconsulta -->
+          <div class="format-card-item">
+            <div class="format-card-main">
+              <div class="format-card-badge-row">
+                <span class="format-code-badge">Código: MI-EXT-CPS-FOR-05</span>
+                <span class="format-ver-badge">Versión 3.0 • 2021</span>
+                <span class="format-pages-badge">2 Páginas</span>
+              </div>
+              <h4 class="format-card-title">Remisión para Interconsulta</h4>
+              <p class="format-card-desc">
+                Formato para la derivación de pacientes hacia servicios especializados externos: Psiquiatría,
+                Neuropediatría, Psicología, Terapia Ocupacional o Terapia de Lenguaje. Permite consignar motivo de
+                remisión, antecedentes clínicos, EPS y firma de la psicóloga tratante.
+              </p>
+            </div>
+            <div class="format-card-actions">
+              <a href="./docs/MI-EXT-CPS-FOR-05-Remision-Interconsulta.pdf"
+                download="MI-EXT-CPS-FOR-05_Remision_Interconsulta_FUNDES.pdf" class="btn-format-download"
+                title="Descargar PDF en tu equipo">
+                <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Descargar PDF
+              </a>
+              <a href="./docs/MI-EXT-CPS-FOR-05-Remision-Interconsulta.pdf" target="_blank" rel="noopener noreferrer"
+                class="btn-format-preview" title="Abrir y previsualizar en nueva pestaña">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                Ver Documento
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Pinned Modal Footer -->
+      <div class="modal-footer">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">
+          Propiedad de la Fundación de Estudios Superiores Monseñor Abraham Escudero - FUNDES
+        </span>
+        <button id="downloadAllFormatsBtn" class="btn-secondary"
+          style="font-size: 0.85rem; padding: 0.5rem 1rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          Descargar los 3 Formatos
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CÓDIGO QR DE VINCULACIÓN FÍSICA-DIGITAL -->
+  <div class="modal-overlay" id="qrModal">
+    <div class="modal-window" style="max-width: 480px; text-align: center;">
+      <div class="modal-header">
+        <h3>Código QR CONTIGO</h3>
+        <button class="modal-close-btn" id="closeQrModal" aria-label="Cerrar modal">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 2rem;">
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+          Escanea este código desde la caja física para acceder de inmediato a la plataforma digital.
+        </p>
+
+        <!-- SVG Realistic QR Code graphic -->
+        <div
+          style="background: white; padding: 1.5rem; border-radius: var(--radius-lg); border: 2px dashed var(--brand-teal); display: inline-block; box-shadow: var(--shadow-md);">
+          <svg width="180" height="180" viewBox="0 0 180 180" fill="none">
+            <!-- Corners -->
+            <rect x="10" y="10" width="50" height="50" rx="8" fill="#009aa6" />
+            <rect x="20" y="20" width="30" height="30" rx="4" fill="white" />
+            <rect x="27" y="27" width="16" height="16" rx="2" fill="#007780" />
+
+            <rect x="120" y="10" width="50" height="50" rx="8" fill="#009aa6" />
+            <rect x="130" y="20" width="30" height="30" rx="4" fill="white" />
+            <rect x="137" y="27" width="16" height="16" rx="2" fill="#007780" />
+
+            <rect x="10" y="120" width="50" height="50" rx="8" fill="#009aa6" />
+            <rect x="20" y="130" width="30" height="30" rx="4" fill="white" />
+            <rect x="27" y="137" width="16" height="16" rx="2" fill="#007780" />
+
+            <!-- Pattern dots -->
+            <rect x="70" y="15" width="12" height="12" fill="#0f172a" />
+            <rect x="90" y="25" width="14" height="14" fill="#009aa6" />
+            <rect x="75" y="45" width="15" height="15" fill="#f59e0b" />
+            <rect x="15" y="75" width="15" height="15" fill="#0f172a" />
+            <rect x="40" y="85" width="12" height="12" fill="#009aa6" />
+            <rect x="65" y="70" width="20" height="20" rx="4" fill="#009aa6" />
+            <rect x="95" y="80" width="15" height="15" fill="#0f172a" />
+            <rect x="120" y="70" width="15" height="15" fill="#009aa6" />
+            <rect x="145" y="85" width="18" height="18" fill="#f59e0b" />
+            <rect x="70" y="110" width="14" height="14" fill="#0f172a" />
+            <rect x="95" y="125" width="18" height="18" fill="#009aa6" />
+            <rect x="125" y="120" width="15" height="15" fill="#0f172a" />
+            <rect x="145" y="145" width="20" height="20" fill="#009aa6" />
+            <rect x="70" y="145" width="12" height="12" fill="#f59e0b" />
+
+            <!-- Center Heart Accent -->
+            <circle cx="90" cy="90" r="16" fill="white" />
+            <path
+              d="M90 94l-1-.9C85 89.5 82 87 82 84c0-2.2 1.8-4 4-4 1.2 0 2.4.6 3 1.5.6-.9 1.8-1.5 3-1.5 2.2 0 4 1.8 4 4 0 3-3 5.5-7 9.1l-1 .9z"
+              fill="#009aa6" />
+          </svg>
+        </div>
+
+        <p style="margin-top: 1.25rem; font-weight: 700; color: var(--brand-teal-dark); font-size: 0.88rem;">
+          ¿Necesitas orientación? Escanea y accede a CONTIGO.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SOS DE EMERGENCIA INMEDIATA -->
+  <div class="modal-overlay" id="sosModal">
+    <div class="modal-window" style="max-width: 540px;">
+      <div class="modal-header" style="background: #fef2f2; border-bottom-color: #fecaca;">
+        <h3 style="color: #b91c1c;">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+          </svg>
+          Apoyo Inmediato en Crisis
+        </h3>
+        <button class="modal-close-btn" id="closeSosModal" aria-label="Cerrar modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+          Respira. Estás en un lugar seguro. Da estos 3 pasos ahora mismo:
+        </p>
+        <div class="protocol-step-box" style="border-left-color: #ef4444;">
+          <strong>1. Contacto con el suelo:</strong>
+          <p style="font-size: 0.88rem;">Apoya ambos pies planos sobre el piso y siente el peso de tu cuerpo apoyado.
+          </p>
+        </div>
+        <div class="protocol-step-box" style="border-left-color: var(--brand-teal);">
+          <strong>2. Respiración de descompresión:</strong>
+          <p style="font-size: 0.88rem;">Toma aire por la nariz durante 4 segundos, y suéltalo muy despacio por la boca
+            durante 6 segundos.</p>
+        </div>
+        <div class="protocol-step-box" style="border-left-color: var(--brand-orange);">
+          <strong>3. Reconexión visual:</strong>
+          <p style="font-size: 0.88rem;">Encuentra 3 cosas de color azul o verde en este momento a tu alrededor.</p>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="#regula" class="btn-primary"
+            onclick="document.getElementById('sosModal').classList.remove('active');">
+            Abrir Pacer Respiratorio Completo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: RECURSO INTERACTIVO DE CICLO VITAL -->
+  <div class="modal-overlay" id="vitalResourceModal" role="dialog" aria-modal="true" aria-labelledby="vitalResourceTitleText">
+    <div class="modal-window" style="max-width: 820px; width: 95%; height: 88vh; max-height: 860px; display: flex; flex-direction: column;">
+      <div class="modal-header" style="flex-shrink: 0; padding: 0.85rem 1.25rem;">
+        <h3 id="vitalResourceTitle" style="font-size: 1.05rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--brand-teal); flex-shrink: 0;">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+          </svg>
+          <span id="vitalResourceTitleText" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 440px;">Recurso Interactivo</span>
+        </h3>
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-left: auto;">
+          <a id="vitalResourceExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 0.35rem 0.75rem; font-size: 0.78rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;" title="Abrir en pestaña nueva">
+            <span>Nueva pestaña</span>
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+          <button class="modal-close-btn" id="closeVitalResourceModal" aria-label="Cerrar modal">✕</button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 0; flex: 1; overflow: hidden; position: relative; background: #fafafa;">
+        <iframe id="vitalResourceIframe" src="" style="width: 100%; height: 100%; border: 0; display: block;" title="Herramienta Interactiva"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h4>CONT<span style="color: var(--brand-orange);">•</span>GO</h4>
+        <p>Herramientas para acompañar la crisis emocional. Un modelo integral articulado entre recursos físicos
+          tangibles y soporte digital clínico.</p>
+        <div class="fundes-badge">Consultorio Psicológico FUNDES</div>
+      </div>
+      <div class="footer-col">
+        <h5>Módulos</h5>
+        <ul class="footer-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#crisis">¿Qué es una crisis?</a></li>
+          <li><a href="#rutas">Rutas de actuación</a></li>
+          <li><a href="#regula">Ejercicios de regulación</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Poblaciones</h5>
+        <ul class="footer-links">
+          <li><a href="#ciclo-vital">Niños y Niñas</a></li>
+          <li><a href="#ciclo-vital">Adolescentes</a></li>
+          <li><a href="#ciclo-vital">Adultos</a></li>
+          <li><a href="#ciclo-vital">Adultos Mayores</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Recursos</h5>
+        <ul class="footer-links">
+          <li><a href="#aprende">Capacitación PAP</a></li>
+          <li><a href="#herramientas">Tarjetas Imprimibles</a></li>
+          <li><a href="#continua">Líneas de Emergencia</a></li>
+          <li><a href="#qr" class="open-qr-trigger">Código QR Oficial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 CONTIGO - Proyecto de Intervención en Crisis | Consultorio Psicológico FUNDES</span>
+      <span>Diseñado con la paleta y lineamientos oficiales del proyecto</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>
