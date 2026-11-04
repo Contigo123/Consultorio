@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CONTIGO - Herramientas para acompañar la crisis | Consultorio Psicológico FUNDES</title>
   <meta name="description"
-    content="Recurso integral de apoyo para la atención de crisis emocionales. Botiquín físico y plataforma digital con rutas clínicas, herramientas de regulación y guías por ciclo vital.">
+    content="Recurso integral de apoyo para la atención de crisis emocionales. Caja física y plataforma digital con rutas clínicas, herramientas de regulación y guías por ciclo vital.">
   <meta name="theme-color" content="#009aa6">
 
   <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
@@ -134,7 +134,7 @@
               </svg>
             </div>
             <h3 class="module-title">INICIO</h3>
-            <p class="module-desc">Presentación breve de CONTIGO, explicación de su finalidad como botiquín psicológico
+            <p class="module-desc">Presentación breve de CONTIGO, explicación de su finalidad como caja física
               y articulación física-digital.</p>
             <div class="module-card-footer">
               <span>Ver presentación</span>
@@ -300,7 +300,7 @@
               </svg>
             </div>
             <h4 class="step-title">CAJA CONTIGO</h4>
-            <p class="step-text">Se entrega o se utiliza la caja botiquín con los recursos físicos tangibles de apoyo.
+            <p class="step-text">Se entrega o se utiliza la caja física con los recursos tangibles de apoyo.
             </p>
           </div>
 
@@ -377,13 +377,13 @@
       </div>
     </section>
 
-    <!-- SECTION: EXPLORADOR DEL BOTIQUÍN FÍSICO CONTIGO -->
+    <!-- SECTION: EXPLORADOR DE LA CAJA FÍSICA CONTIGO -->
     <section class="modules-section" id="caja-fisica-seccion"
       style="background: var(--bg-card-alt); border-top: 1px solid var(--border-light);">
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Componente Físico</span>
-          <h2 class="section-title">Contenido del Botiquín Psicológico CONTIGO</h2>
+          <h2 class="section-title">Contenido de la Caja Física CONTIGO</h2>
           <p class="section-subtitle">
             Herramientas tangibles diseñadas para brindar apoyo en la estabilización inicial mientras el profesional
             realiza la valoración. Haz clic en cada una para ver su ficha clínica.
@@ -842,9 +842,9 @@
     <div class="tools-grid">
       <div class="tool-card">
         <span class="tool-badge-type">Imprimible Oficial</span>
-        <h4>Tarjetas Clínicas para la Caja Físico CONTIGO</h4>
-        <p>Set completo de tarjetas (Respiración, Grounding, Anclaje Sensorial y Orientación) formateadas para recortar
-          y laminar.</p>
+        <h4>Tarjetas de contenido para la Caja Física CONTIGO</h4>
+        <p>Set de 25 tarjetas calmantes (respiración guiada, grounding, anclaje sensorial y frases de orientación)
+          listas para imprimir, recortar y laminar.</p>
         <button class="tool-btn-action" id="printBoxCardsBtn">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <polyline points="6 9 6 2 18 2 18 9" />
@@ -934,8 +934,13 @@
         <p style="font-size: 0.88rem; margin: 0.5rem 0;">Directorio de soporte inmediato disponible las 24 horas:</p>
         <div style="font-size: 0.9rem; line-height: 1.8;">
           <strong>Línea Nacional de Salud Mental (Colombia):</strong> Marcar 106<br>
-          <strong>Emergencias Médicas y Ambulancias:</strong> Marcar 123<br>
-          <strong>Consultorio Psicológico FUNDES:</strong> Sede Principal - Coordinación Clínica
+          <strong>Emergencias Médicas y Ambulancias:</strong> Marcar 123
+        </div>
+        <div style="margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--border-light); font-size: 0.9rem; line-height: 1.8;">
+          <strong style="color: var(--brand-teal-dark);">Consultorio Psicológico FUNDES</strong><br>
+          <strong>Teléfono:</strong> <a href="tel:+573202112310" style="color: var(--brand-teal-dark); font-weight: 600;">+57 320 211 2310</a><br>
+          <strong>Dirección:</strong> Cr 7 #10-37, Espinal<br>
+          <strong>Correo:</strong> <a href="mailto:consultorio.psicologico@fundes.edu.co" style="color: var(--brand-teal-dark); font-weight: 600; overflow-wrap: anywhere;">consultorio.psicologico@fundes.edu.co</a>
         </div>
       </div>
     </div>
@@ -954,7 +959,7 @@
             <path d="M16 16l4.5 4.5" />
           </svg>
           <input type="text" id="searchInput" class="search-input-field"
-            placeholder="Buscar temas, rutas, respiración, ciclo vital, botiquín..." autocomplete="off"
+            placeholder="Buscar temas, rutas, respiración, ciclo vital, caja física..." autocomplete="off"
             spellcheck="false" aria-label="Escribe tu búsqueda">
         </div>
         <button class="search-close-btn" id="closeSearchModal" aria-label="Cerrar buscador">✕</button>
@@ -988,7 +993,7 @@
     </div>
   </div>
 
-  <!-- MODAL: DETALLES DE ELEMENTO DEL BOTIQUÍN -->
+  <!-- MODAL: DETALLES DE ELEMENTO DE LA CAJA FÍSICA -->
   <div class="modal-overlay" id="boxItemModal">
     <div class="modal-window">
       <div class="modal-header">
@@ -1329,6 +1334,12 @@
         <p>Herramientas para acompañar la crisis emocional. Un modelo integral articulado entre recursos físicos
           tangibles y soporte digital clínico.</p>
         <div class="fundes-badge">Consultorio Psicológico FUNDES</div>
+        <a class="footer-phone" href="tel:+573202112310" aria-label="Llamar al consultorio: +57 320 211 2310">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          +57 320 211 2310
+        </a>
       </div>
       <div class="footer-col">
         <h5>Módulos</h5>

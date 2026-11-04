@@ -32,7 +32,7 @@ export const SEARCH_INDEX = [
     filter: 'rutas',
     categoryClass: 'cat-rutas',
     description: 'Uso protocolizado de técnicas respiratorias, grounding y herramientas tangibles de la Caja CONTIGO.',
-    keywords: ['regulacion', 'botiquin', 'ejercicios', 'tecnicas', 'aplicacion', 'apoyo sensorial', 'calma fisiologica'],
+    keywords: ['regulacion', 'caja fisica', 'ejercicios', 'tecnicas', 'aplicacion', 'apoyo sensorial', 'calma fisiologica'],
     target: { section: 'rutas', anchorId: 'ruta-3' },
     action: { selectRuta: '3' }
   },
@@ -431,26 +431,26 @@ export const SEARCH_INDEX = [
     target: { section: 'aprende', anchorId: 'clinicalCaseContainer' }
   },
 
-  // --- HERRAMIENTAS & BOTIQUÍN ---
+  // --- HERRAMIENTAS & CAJA FÍSICA ---
   {
     id: 'print-tarjetas',
-    title: 'Imprimir Tarjetas de la Caja CONTIGO',
+    title: 'Imprimir Tarjetas de contenido para la Caja Física CONTIGO',
     category: 'Herramientas',
     filter: 'herramientas',
     categoryClass: 'cat-herramientas',
-    description: 'Generador y formato de impresión de las tarjetas clínicas (Respiración, Grounding, Anclaje, Orientación) para la caja física.',
-    keywords: ['imprimir', 'tarjetas', 'imprimible', 'pdf', 'laminar', 'recortar', 'caja', 'botiquin', 'material'],
+    description: 'Hoja imprimible con las 25 tarjetas calmantes (respiración guiada, grounding, anclaje sensorial y frases de orientación) para la caja física.',
+    keywords: ['imprimir', 'tarjetas', 'tarjetas calmantes', 'imprimible', 'pdf', 'laminar', 'recortar', 'caja', 'caja fisica', 'material'],
     target: { section: 'herramientas', anchorId: 'printBoxCardsBtn' },
     action: { printCards: true }
   },
   {
     id: 'caja-simulador',
-    title: 'Botiquín Psicológico CONTIGO (Caja Física)',
+    title: 'Caja Física CONTIGO',
     category: 'Herramientas',
     filter: 'herramientas',
     categoryClass: 'cat-herramientas',
-    description: 'Explorador interactivo de los elementos de la caja física: pelota antiestrés, texturas táctiles, bloc y QR.',
-    keywords: ['caja', 'botiquin', 'elementos', 'fisico', 'pelota', 'bloc', 'tactil', 'objetos', 'simulador'],
+    description: 'Explorador interactivo de los elementos de la caja física: tarjetas calmantes, squishy calmante, elemento táctil, libreta y lapiceros, QR y protocolo de 7 pasos.',
+    keywords: ['caja', 'caja fisica', 'elementos', 'fisico', 'squishy', 'libreta', 'lapiceros', 'tactil', 'objetos', 'simulador'],
     target: { section: 'herramientas', anchorId: 'openBoxBtn' }
   },
   {
@@ -475,41 +475,30 @@ export const SEARCH_INDEX = [
     target: { section: 'herramientas' }
   },
   {
-    id: 'box-respiracion',
-    title: 'Elemento del Botiquín: Tarjetas de Respiración',
+    id: 'box-tarjetas-calmantes',
+    title: 'Caja Física: Tarjetas Calmantes',
     category: 'Herramientas',
     filter: 'herramientas',
     categoryClass: 'cat-herramientas',
-    description: 'Instrucciones sencillas ilustradas para acompañar ejercicios 4-7-8, diafragmática y respiración cuadrada.',
-    keywords: ['tarjeta respiracion', 'caja respiracion', 'instrucciones', 'ficha clinica'],
+    description: 'Incluye 25 tarjetas con actividades de respiración guiada, grounding, anclaje sensorial y frases de orientación.',
+    keywords: ['tarjetas calmantes', 'tarjeta respiracion', 'respiracion guiada', 'grounding', 'anclaje sensorial', 'frases de orientacion', 'puesta a tierra', 'ficha clinica'],
     target: { section: 'herramientas' },
-    action: { openBoxItem: 'respiracion' }
-  },
-  {
-    id: 'box-grounding',
-    title: 'Elemento del Botiquín: Tarjetas de Grounding',
-    category: 'Herramientas',
-    filter: 'herramientas',
-    categoryClass: 'cat-herramientas',
-    description: 'Guía física de técnica 5-4-3-2-1 para interrumpir rumiaciones o desrealización anclando al presente.',
-    keywords: ['tarjeta grounding', 'caja grounding', 'anclar', 'puesta a tierra'],
-    target: { section: 'herramientas' },
-    action: { openBoxItem: 'grounding' }
+    action: { openBoxItem: 'tarjetas-calmantes' }
   },
   {
     id: 'box-objeto-sensorial',
-    title: 'Elemento del Botiquín: Pelota Antiestrés Sensorial',
+    title: 'Caja Física: Squishy Calmante',
     category: 'Herramientas',
     filter: 'herramientas',
     categoryClass: 'cat-herramientas',
-    description: 'Elemento manipulable de goma/espuma de densidad media para canalizar la tensión motora somática.',
-    keywords: ['pelota', 'antiestres', 'objeto sensorial', 'apretar', 'goma', 'espuma', 'manos'],
+    description: 'Elemento blando y maleable (squishy) para canalizar la tensión motora somática mediante presión rítmica de manos.',
+    keywords: ['squishy', 'calmante', 'objeto sensorial', 'apretar', 'espuma', 'manos'],
     target: { section: 'herramientas' },
     action: { openBoxItem: 'objeto-sensorial' }
   },
   {
     id: 'box-elemento-tactil',
-    title: 'Elemento del Botiquín: Texturas Táctiles Controladas',
+    title: 'Caja Física: Texturas Táctiles Controladas',
     category: 'Herramientas',
     filter: 'herramientas',
     categoryClass: 'cat-herramientas',
@@ -520,12 +509,12 @@ export const SEARCH_INDEX = [
   },
   {
     id: 'box-bloc-lapiz',
-    title: 'Elemento del Botiquín: Bloc Pequeño y Lápiz',
+    title: 'Caja Física: Libreta y Lapiceros',
     category: 'Herramientas',
     filter: 'herramientas',
     categoryClass: 'cat-herramientas',
-    description: 'Cuadernillo y lápiz para descarga gráfica, dibujo libre o comunicación no verbal en bloqueo afectivo.',
-    keywords: ['bloc', 'lapiz', 'cuaderno', 'dibujar', 'escribir', 'no verbal', 'expresion'],
+    description: 'Libreta y lapiceros para descarga gráfica, dibujo libre o comunicación no verbal en bloqueo afectivo.',
+    keywords: ['libreta', 'lapiceros', 'cuaderno', 'dibujar', 'escribir', 'no verbal', 'expresion'],
     target: { section: 'herramientas' },
     action: { openBoxItem: 'bloc-registro' }
   },
@@ -847,7 +836,7 @@ export function setupSearchModule({ goTo, preparePrintableCards }) {
       { label: 'Grounding 5-4-3-2-1', query: 'grounding', filter: 'regula' },
       { label: 'Checklist de Triage', query: 'triage', filter: 'rutas' },
       { label: 'Línea de Ayuda 106', query: '106', filter: 'urgencias' },
-      { label: 'Botiquín Físico CONTIGO', query: 'caja', filter: 'herramientas' },
+      { label: 'Caja Física CONTIGO', query: 'caja', filter: 'herramientas' },
       { label: 'Imprimir Tarjetas', query: 'imprimir', filter: 'herramientas' },
       { label: 'Ciclo Vital Niños', query: 'ninos', filter: 'ciclo-vital' },
       { label: 'Adolescentes', query: 'adolescentes', filter: 'ciclo-vital' },
@@ -932,7 +921,7 @@ export function setupSearchModule({ goTo, preparePrintableCards }) {
         </svg>
         <h4 class="search-empty-title">Sin resultados para "${escapeHtml(query)}"</h4>
         <p class="search-empty-desc">
-          Intenta con términos más generales como <em>respiración, pánico, triage, 106, niños, botiquín o calma</em>.
+          Intenta con términos más generales como <em>respiración, pánico, triage, 106, niños, caja física o calma</em>.
         </p>
         <button type="button" class="btn-primary" id="resetSearchBtn" style="font-size: 0.88rem; padding: 0.5rem 1.25rem;">
           Restablecer búsqueda
