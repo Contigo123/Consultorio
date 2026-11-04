@@ -197,34 +197,38 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(printContainer);
     }
 
-    printContainer.innerHTML = `
-      <div style="text-align: center; margin-bottom: 20px;">
-        <h2 style="color: #009aa6; font-size: 20pt; margin: 0;">CONTIGO - BOTIQUÍN PSICOLÓGICO</h2>
-        <p style="color: #475569; font-size: 11pt; margin: 4px 0;">Tarjetas clínicas oficiales para la Caja CONTIGO - Consultorio Psicológico FUNDES</p>
-        <p style="font-size: 9pt; color: #94a3b8;">Recortar por las líneas punteadas y almacenar dentro del botiquín físico</p>
-      </div>
-      <div class="print-cards-grid">
-        ${BOX_ITEMS.map((item, idx) => `
-          <div class="printable-card">
-            <div class="printable-card-header">
-              <h3>${item.title}</h3>
-              <span style="font-weight: bold; color: #009aa6;">Tarjeta 0${idx + 1}</span>
+    // Solo las tarjetas (sin portada ni encabezado), 6 por hoja A4 (2 columnas x 3 filas)
+    const CARDS_PER_SHEET = 6;
+    const sheets = [];
+    for (let i = 0; i < BOX_ITEMS.length; i += CARDS_PER_SHEET) {
+      const cards = BOX_ITEMS.slice(i, i + CARDS_PER_SHEET).map((item, j) => `
+        <article class="pcard">
+          <header class="pcard-top">
+            <span class="pcard-cat"><span class="pcard-icon">${item.icon}</span>${item.category}</span>
+            <span class="pcard-num">${String(i + j + 1).padStart(2, '0')}</span>
+          </header>
+          <div class="pcard-main">
+            <h3 class="pcard-title">${item.title}</h3>
+            <p class="pcard-lead">${item.desc}</p>
+            <div class="pcard-block">
+              <span class="pcard-label">Objetivo clínico</span>
+              <p>${item.clinicalObjective}</p>
             </div>
-            <div class="printable-card-body">
-              <p><strong>Categoría:</strong> ${item.category}</p>
-              <p style="margin: 8px 0;"><strong>Objetivo clínico:</strong> ${item.clinicalObjective}</p>
-              <p style="margin: 8px 0;"><strong>Modo de aplicación:</strong> ${item.howToUse}</p>
+            <div class="pcard-block">
+              <span class="pcard-label">Modo de uso</span>
+              <p>${item.howToUse}</p>
             </div>
-            <div class="printable-card-footer">
-              <span>FUNDES - Consultorio Psicológico</span>
-              <span>www.fundes.edu.co</span>
-            </div>
-            <span class="cut-guideline">Cortar por aquí</span>
           </div>
-        `).join('')}
-      </div>
-    `;
+          <footer class="pcard-foot">CONTIGO · Consultorio Psicológico FUNDES</footer>
+        </article>`).join('');
+      sheets.push(`<section class="print-sheet">${cards}</section>`);
+    }
+    printContainer.innerHTML = sheets.join('');
+    document.body.classList.add('printing-cards');
   }
+
+  // Al terminar (o cancelar) la impresión se restaura la vista normal
+  window.addEventListener('afterprint', () => document.body.classList.remove('printing-cards'));
 
   // 6. Interactive Phrases Generator for Quick Orientation
   const ORIENTATION_PHRASES = [
