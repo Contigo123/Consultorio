@@ -1,6 +1,7 @@
 import { setupBreathingModule } from './modules/breathing.js';
 import { setupGroundingModule } from './modules/grounding.js';
-import { setupBoxSimulator, BOX_ITEMS } from './modules/box-simulator.js';
+import { setupBoxSimulator } from './modules/box-simulator.js';
+import { printBoxCards } from './modules/print-cards.js';
 import { setupCrisisRoutes } from './modules/crisis-routes.js';
 import { setupVitalCyclesModule } from './modules/vital-cycles.js';
 import { setupTrainingModule } from './modules/training-quiz.js';
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupCrisisRoutes();
   setupVitalCyclesModule();
   setupTrainingModule();
-  setupSearchModule({ goTo, preparePrintableCards });
+  setupSearchModule({ goTo, printBoxCards });
 
   // 2. Navigation & Views Switching
   const navLinks = document.querySelectorAll('.nav-link, .module-card');
@@ -179,56 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Printable Cards Preparation & Print Trigger
+  // 5. Imprimir tarjetas de la caja (documento aparte, compatible con celulares)
   const printCardsBtn = document.getElementById('printBoxCardsBtn');
   if (printCardsBtn) {
-    printCardsBtn.addEventListener('click', () => {
-      preparePrintableCards();
-      window.print();
-    });
+    printCardsBtn.addEventListener('click', () => printBoxCards());
   }
-
-  function preparePrintableCards() {
-    let printContainer = document.getElementById('printContainer');
-    if (!printContainer) {
-      printContainer = document.createElement('div');
-      printContainer.id = 'printContainer';
-      printContainer.className = 'print-only-container';
-      document.body.appendChild(printContainer);
-    }
-
-    // Solo las tarjetas (sin portada ni encabezado), 6 por hoja A4 (2 columnas x 3 filas)
-    const CARDS_PER_SHEET = 6;
-    const sheets = [];
-    for (let i = 0; i < BOX_ITEMS.length; i += CARDS_PER_SHEET) {
-      const cards = BOX_ITEMS.slice(i, i + CARDS_PER_SHEET).map((item, j) => `
-        <article class="pcard">
-          <header class="pcard-top">
-            <span class="pcard-cat"><span class="pcard-icon">${item.icon}</span>${item.category}</span>
-            <span class="pcard-num">${String(i + j + 1).padStart(2, '0')}</span>
-          </header>
-          <div class="pcard-main">
-            <h3 class="pcard-title">${item.title}</h3>
-            <p class="pcard-lead">${item.desc}</p>
-            <div class="pcard-block">
-              <span class="pcard-label">Objetivo clínico</span>
-              <p>${item.clinicalObjective}</p>
-            </div>
-            <div class="pcard-block">
-              <span class="pcard-label">Modo de uso</span>
-              <p>${item.howToUse}</p>
-            </div>
-          </div>
-          <footer class="pcard-foot">CONTIGO · Consultorio Psicológico FUNDES</footer>
-        </article>`).join('');
-      sheets.push(`<section class="print-sheet">${cards}</section>`);
-    }
-    printContainer.innerHTML = sheets.join('');
-    document.body.classList.add('printing-cards');
-  }
-
-  // Al terminar (o cancelar) la impresión se restaura la vista normal
-  window.addEventListener('afterprint', () => document.body.classList.remove('printing-cards'));
 
   // 6. Interactive Phrases Generator for Quick Orientation
   const ORIENTATION_PHRASES = [

@@ -39,6 +39,33 @@ export const BOX_ITEMS = [
     icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`
   },
   {
+    id: 'peluche-multisensorial',
+    title: 'Peluche Multisensorial Azul',
+    category: 'Contención Sensorial',
+    desc: 'Peluche azul multisensorial, suave y con distintas texturas, para sostener, abrazar y explorar con las manos.',
+    clinicalObjective: 'Brindar un objeto de contención y apego seguro que facilite la autorregulación a través del tacto y la presión suave.',
+    howToUse: 'Ofrecerlo sin imponerlo, invitar a sostenerlo o abrazarlo y a explorar sus texturas mientras se acompaña la respiración con voz pausada.',
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="6.5" r="2.5"/><path d="M10 13h.01M14 13h.01M10.5 16.5c.8.7 2.2.7 3 0"/></svg>`
+  },
+  {
+    id: 'aromatizante',
+    title: 'Aromatizante',
+    category: 'Anclaje Olfativo',
+    desc: 'Aromatizante de aroma suave para estimulación olfativa que ayude a orientar a la persona en el momento presente.',
+    clinicalObjective: 'Usar el sentido del olfato como punto de anclaje en el aquí y el ahora para disminuir la sobreactivación.',
+    howToUse: 'Preguntar antes si la persona acepta el aroma, acercarlo a una distancia cómoda e invitarla a inhalar lenta y suavemente. Suspender su uso si genera molestia, malestar o rechazo.',
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3h6v3H9z"/><path d="M8 6h8l1 4v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9z"/><path d="M10 14c0-1.5 2-1.5 2-3 0 1.5 2 1.5 2 3a2 2 0 0 1-4 0z"/></svg>`
+  },
+  {
+    id: 'fichas-didacticas',
+    title: 'Fichas Didácticas',
+    category: 'Atención y Distracción Guiada',
+    desc: 'Fichas didácticas con actividades sencillas y breves para enfocar la atención en una tarea concreta.',
+    clinicalObjective: 'Redirigir la atención hacia una actividad estructurada y predecible que reduzca la rumiación y favorezca la calma.',
+    howToUse: 'Dejar que la persona elija una ficha, explicar la actividad en pocas palabras y acompañarla sin presionar ni evaluar el resultado.',
+    icon: `<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><path d="M13 17h8M17 13v8"/></svg>`
+  },
+  {
     id: 'qr-plataforma',
     title: 'Código QR de Vinculación Digital',
     category: 'Puente Físico-Digital',

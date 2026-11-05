@@ -449,8 +449,8 @@ export const SEARCH_INDEX = [
     category: 'Herramientas',
     filter: 'herramientas',
     categoryClass: 'cat-herramientas',
-    description: 'Explorador interactivo de los elementos de la caja física: tarjetas calmantes, squishy calmante, elemento táctil, libreta y lapiceros, QR y protocolo de 7 pasos.',
-    keywords: ['caja', 'caja fisica', 'elementos', 'fisico', 'squishy', 'libreta', 'lapiceros', 'tactil', 'objetos', 'simulador'],
+    description: 'Explorador interactivo de los elementos de la caja física: tarjetas calmantes, squishy calmante, elemento táctil, libreta y lapiceros, peluche multisensorial azul, aromatizante, fichas didácticas, QR y protocolo de 7 pasos.',
+    keywords: ['caja', 'caja fisica', 'elementos', 'fisico', 'squishy', 'libreta', 'lapiceros', 'tactil', 'objetos', 'simulador', 'peluche', 'aromatizante', 'fichas didacticas'],
     target: { section: 'herramientas', anchorId: 'openBoxBtn' }
   },
   {
@@ -517,6 +517,39 @@ export const SEARCH_INDEX = [
     keywords: ['libreta', 'lapiceros', 'cuaderno', 'dibujar', 'escribir', 'no verbal', 'expresion'],
     target: { section: 'herramientas' },
     action: { openBoxItem: 'bloc-registro' }
+  },
+  {
+    id: 'box-peluche',
+    title: 'Caja Física: Peluche Multisensorial Azul',
+    category: 'Herramientas',
+    filter: 'herramientas',
+    categoryClass: 'cat-herramientas',
+    description: 'Peluche azul multisensorial con texturas, para contención y autorregulación a través del tacto.',
+    keywords: ['peluche', 'multisensorial', 'azul', 'abrazar', 'tacto', 'texturas', 'contencion', 'sensorial'],
+    target: { section: 'herramientas' },
+    action: { openBoxItem: 'peluche-multisensorial' }
+  },
+  {
+    id: 'box-aromatizante',
+    title: 'Caja Física: Aromatizante',
+    category: 'Herramientas',
+    filter: 'herramientas',
+    categoryClass: 'cat-herramientas',
+    description: 'Aromatizante suave para anclaje olfativo en el momento presente.',
+    keywords: ['aromatizante', 'aroma', 'olor', 'olfato', 'olfativo', 'anclaje', 'inhalar'],
+    target: { section: 'herramientas' },
+    action: { openBoxItem: 'aromatizante' }
+  },
+  {
+    id: 'box-fichas-didacticas',
+    title: 'Caja Física: Fichas Didácticas',
+    category: 'Herramientas',
+    filter: 'herramientas',
+    categoryClass: 'cat-herramientas',
+    description: 'Fichas con actividades breves y estructuradas para enfocar la atención y favorecer la calma.',
+    keywords: ['fichas', 'didacticas', 'actividades', 'juego', 'atencion', 'distraccion', 'ficha didactica'],
+    target: { section: 'herramientas' },
+    action: { openBoxItem: 'fichas-didacticas' }
   },
 
   // --- URGENCIAS, SOS & LÍNEAS DE APOYO ---
@@ -607,7 +640,7 @@ function highlightMatches(text, query) {
   }
 }
 
-export function setupSearchModule({ goTo, preparePrintableCards }) {
+export function setupSearchModule({ goTo, printBoxCards }) {
   const searchModal = document.getElementById('searchModal');
   const searchTriggerBtns = document.querySelectorAll('.search-btn, #searchTriggerBtn, [data-action="open-search"]');
   const searchCloseBtn = document.getElementById('closeSearchModal');
@@ -1002,12 +1035,9 @@ export function setupSearchModule({ goTo, preparePrintableCards }) {
     }
 
     // Print Cards Action
-    if (item.action?.printCards && typeof preparePrintableCards === 'function') {
+    if (item.action?.printCards && typeof printBoxCards === 'function') {
       if (goTo) goTo('herramientas');
-      setTimeout(() => {
-        preparePrintableCards();
-        window.print();
-      }, 300);
+      setTimeout(() => printBoxCards(), 300);
       return;
     }
 
